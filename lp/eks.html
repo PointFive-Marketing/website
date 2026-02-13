@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>How Nubank Got Full ROI in 10 Days | PointFive</title>
-  <meta name="description" content="Nubank achieved full ROI on PointFive in 10 days. See how the world's largest digital bank optimizes cloud spend.">
-  <meta property="og:title" content="How Nubank Got Full ROI in 10 Days | PointFive">
-  <meta property="og:description" content="Nubank achieved full ROI on PointFive in 10 days. See how the world's largest digital bank optimizes cloud spend.">
+  <title>Stop Wasting 40–60% on Kubernetes | PointFive</title>
+  <meta name="description" content="The only agentless K8s cost optimization. We guarantee savings or you pay nothing.">
+  <meta property="og:title" content="Stop Wasting 40–60% on Kubernetes | PointFive">
+  <meta property="og:description" content="The only agentless K8s cost optimization. We guarantee savings or you pay nothing.">
   <meta property="og:type" content="website">
   <link rel="icon" href="https://cdn.prod.website-files.com/664c5d9fee3e617bc2829b44/6661db9d841412af863235a4_Logo.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -23,325 +23,83 @@ body {
 a { color: inherit; text-decoration: none; }
 img { max-width: 100%; display: block; }
 
-.nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 24px 48px;
-  position: absolute;
-  top: 0; left: 0; right: 0;
-  z-index: 10;
-}
+.nav { display: flex; justify-content: space-between; align-items: center; padding: 24px 48px; position: absolute; top: 0; left: 0; right: 0; z-index: 10; }
 .nav img { height: 28px; }
 
-.hero {
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: #000;
-  position: relative;
-  overflow: hidden;
-  padding: 120px 48px 80px;
-}
-.hero::before {
-  content: '';
-  position: absolute;
-  width: 800px; height: 800px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(0,0,238,0.15) 0%, transparent 70%);
-  top: 50%; left: 25%;
-  transform: translate(-50%, -50%);
-  pointer-events: none;
-}
-.hero-inner {
-  max-width: 1200px;
-  width: 100%;
-  display: grid;
-  grid-template-columns: 1fr 420px;
-  gap: 80px;
-  align-items: center;
-  position: relative;
-  z-index: 1;
-}
-.hero-content h1 {
-  font-size: 56px;
-  font-weight: 800;
-  line-height: 1.1;
-  letter-spacing: -0.03em;
-  margin-bottom: 24px;
-}
+.hero { min-height: 100vh; display: flex; align-items: center; justify-content: center; background: #000; position: relative; overflow: hidden; padding: 120px 48px 80px; }
+.hero::before { content: ''; position: absolute; width: 800px; height: 800px; border-radius: 50%; background: radial-gradient(circle, rgba(0,0,238,0.15) 0%, transparent 70%); top: 50%; left: 25%; transform: translate(-50%, -50%); pointer-events: none; }
+.hero-inner { max-width: 1200px; width: 100%; display: grid; grid-template-columns: 1fr 420px; gap: 80px; align-items: center; position: relative; z-index: 1; }
+.hero-content h1 { font-size: 56px; font-weight: 800; line-height: 1.1; letter-spacing: -0.03em; margin-bottom: 24px; }
 .hero-content h1 span { color: #4d6dff; }
-.hero-sub {
-  font-size: 20px;
-  line-height: 1.6;
-  color: rgba(255,255,255,0.6);
-  margin-bottom: 32px;
-  max-width: 520px;
-}
-
-/* Quote block */
-.quote-block {
-  border-left: 3px solid #4d6dff;
-  padding-left: 20px;
-  margin-bottom: 32px;
-}
-.quote-text {
-  font-size: 18px;
-  font-style: italic;
-  color: rgba(255,255,255,0.8);
-  line-height: 1.5;
-  margin-bottom: 8px;
-}
-.quote-author {
-  font-size: 14px;
-  color: rgba(255,255,255,0.4);
-  font-weight: 600;
-}
-
-.guarantee {
-  display: inline-flex;
-  align-items: center;
-  gap: 12px;
-  padding: 14px 24px;
-  border: 1px solid rgba(16, 185, 129, 0.3);
-  border-radius: 100px;
-  background: rgba(16, 185, 129, 0.08);
-  color: #10b981;
-  font-weight: 600;
-  font-size: 15px;
-}
+.hero-sub { font-size: 20px; line-height: 1.6; color: rgba(255,255,255,0.6); margin-bottom: 40px; max-width: 520px; }
+.guarantee { display: inline-flex; align-items: center; gap: 12px; padding: 14px 24px; border: 1px solid rgba(16, 185, 129, 0.3); border-radius: 100px; background: rgba(16, 185, 129, 0.08); color: #10b981; font-weight: 600; font-size: 15px; }
 .guarantee-icon { font-size: 20px; }
 
-.form-card {
-  background: #fff;
-  border-radius: 16px;
-  padding: 40px 36px;
-  color: #0f172a;
-}
-.form-card h2 {
-  font-size: 26px;
-  font-weight: 800;
-  line-height: 1.2;
-  margin-bottom: 6px;
-  color: #000;
-}
-.form-card .form-sub {
-  font-size: 15px;
-  color: #64748b;
-  margin-bottom: 28px;
-  line-height: 1.5;
-}
+.form-card { background: #fff; border-radius: 16px; padding: 40px 36px; color: #0f172a; }
+.form-card h2 { font-size: 26px; font-weight: 800; line-height: 1.2; margin-bottom: 6px; color: #000; }
+.form-card .form-sub { font-size: 15px; color: #64748b; margin-bottom: 28px; line-height: 1.5; }
 .form-card .hs-form { margin: 0 !important; }
 .form-card .hs-form-field { margin-bottom: 16px !important; }
-.form-card .hs-form-field label {
-  font-family: 'Plus Jakarta Sans', sans-serif !important;
-  font-size: 13px !important;
-  font-weight: 600 !important;
-  color: #374151 !important;
-  margin-bottom: 6px !important;
-  display: block !important;
-}
-.form-card .hs-form-field input,
-.form-card .hs-form-field select,
-.form-card .hs-form-field textarea {
-  font-family: 'Plus Jakarta Sans', sans-serif !important;
-  font-size: 15px !important;
-  padding: 12px 14px !important;
-  border: 1.5px solid #e2e8f0 !important;
-  border-radius: 10px !important;
-  width: 100% !important;
-  background: #f8fafc !important;
-  transition: border-color 0.2s !important;
-  color: #0f172a !important;
-}
-.form-card .hs-form-field input:focus,
-.form-card .hs-form-field select:focus {
-  outline: none !important;
-  border-color: #0000ee !important;
-  background: #fff !important;
-  box-shadow: 0 0 0 3px rgba(0,0,238,0.1) !important;
-}
-.form-card .hs-submit input[type="submit"],
-.form-card .hs-button {
-  font-family: 'Plus Jakarta Sans', sans-serif !important;
-  font-size: 16px !important;
-  font-weight: 700 !important;
-  padding: 14px 28px !important;
-  background: #0000ee !important;
-  color: #fff !important;
-  border: none !important;
-  border-radius: 10px !important;
-  width: 100% !important;
-  cursor: pointer !important;
-  transition: all 0.2s !important;
-  margin-top: 8px !important;
-}
-.form-card .hs-submit input[type="submit"]:hover,
-.form-card .hs-button:hover {
-  background: #0000cc !important;
-  transform: translateY(-1px) !important;
-  box-shadow: 0 4px 16px rgba(0,0,238,0.3) !important;
-}
+.form-card .hs-form-field label { font-family: 'Plus Jakarta Sans', sans-serif !important; font-size: 13px !important; font-weight: 600 !important; color: #374151 !important; margin-bottom: 6px !important; display: block !important; }
+.form-card .hs-form-field input, .form-card .hs-form-field select, .form-card .hs-form-field textarea { font-family: 'Plus Jakarta Sans', sans-serif !important; font-size: 15px !important; padding: 12px 14px !important; border: 1.5px solid #e2e8f0 !important; border-radius: 10px !important; width: 100% !important; background: #f8fafc !important; transition: border-color 0.2s !important; color: #0f172a !important; }
+.form-card .hs-form-field input:focus, .form-card .hs-form-field select:focus { outline: none !important; border-color: #0000ee !important; background: #fff !important; box-shadow: 0 0 0 3px rgba(0,0,238,0.1) !important; }
+.form-card .hs-submit input[type="submit"], .form-card .hs-button { font-family: 'Plus Jakarta Sans', sans-serif !important; font-size: 16px !important; font-weight: 700 !important; padding: 14px 28px !important; background: #0000ee !important; color: #fff !important; border: none !important; border-radius: 10px !important; width: 100% !important; cursor: pointer !important; transition: all 0.2s !important; margin-top: 8px !important; }
+.form-card .hs-submit input[type="submit"]:hover, .form-card .hs-button:hover { background: #0000cc !important; transform: translateY(-1px) !important; box-shadow: 0 4px 16px rgba(0,0,238,0.3) !important; }
 .form-card .hs-error-msgs { color: #ef4444 !important; font-size: 12px !important; }
 .form-card .legal-consent-container { font-size: 11px !important; color: #94a3b8 !important; }
 
-.proof-bar {
-  background: #000;
-  border-top: 1px solid rgba(255,255,255,0.06);
-  padding: 48px;
-}
-.proof-inner {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: flex;
-  justify-content: center;
-  gap: 64px;
-  flex-wrap: wrap;
-}
+.proof-bar { background: #000; border-top: 1px solid rgba(255,255,255,0.06); padding: 48px; }
+.proof-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: center; gap: 64px; flex-wrap: wrap; }
 .proof-stat { text-align: center; }
-.proof-stat .num {
-  font-size: 40px;
-  font-weight: 800;
-  color: #fff;
-  letter-spacing: -0.02em;
-}
-.proof-stat .label {
-  font-size: 14px;
-  color: rgba(255,255,255,0.4);
-  margin-top: 4px;
-  font-weight: 500;
-}
+.proof-stat .num { font-size: 40px; font-weight: 800; color: #fff; letter-spacing: -0.02em; }
+.proof-stat .label { font-size: 14px; color: rgba(255,255,255,0.4); margin-top: 4px; font-weight: 500; }
 
 .section { padding: 96px 48px; }
 .section-dark { background: #050510; }
 .section-light { background: #fff; color: #0f172a; }
-.section-inner { max-width: 1000px; margin: 0 auto; }
-.section-title {
-  font-size: 40px;
-  font-weight: 800;
-  letter-spacing: -0.02em;
-  line-height: 1.15;
-  margin-bottom: 16px;
-}
-.section-sub {
-  font-size: 18px;
-  line-height: 1.6;
-  color: rgba(255,255,255,0.5);
-  margin-bottom: 56px;
-  max-width: 600px;
-}
+.section-inner { max-width: 1100px; margin: 0 auto; }
+.section-eyebrow { font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: #4d6dff; margin-bottom: 12px; }
+.section-title { font-size: 40px; font-weight: 800; letter-spacing: -0.02em; line-height: 1.15; margin-bottom: 16px; }
+.section-sub { font-size: 18px; line-height: 1.6; color: rgba(255,255,255,0.5); margin-bottom: 56px; max-width: 640px; }
 .section-light .section-sub { color: #64748b; }
 
-/* Timeline */
-.timeline {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 32px;
-}
-.timeline-card {
-  background: rgba(255,255,255,0.04);
-  border: 1px solid rgba(255,255,255,0.08);
-  border-radius: 16px;
-  padding: 36px;
-}
-.timeline-card .day {
-  font-size: 13px;
-  font-weight: 700;
-  color: #4d6dff;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  margin-bottom: 12px;
-}
-.timeline-card h3 {
-  font-size: 20px;
-  font-weight: 700;
-  margin-bottom: 8px;
-}
-.timeline-card p {
-  font-size: 15px;
-  line-height: 1.6;
-  color: rgba(255,255,255,0.5);
-}
+/* DETECTIONS */
+.detections-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+.detection { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.07); border-radius: 14px; padding: 28px 28px 24px; transition: border-color 0.2s, transform 0.2s; }
+.detection:hover { border-color: rgba(77,109,255,0.35); transform: translateY(-2px); }
+.detection-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px; }
+.detection-type { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; padding: 4px 10px; border-radius: 100px; }
+.detection-type.critical { background: rgba(239,68,68,0.15); color: #f87171; }
+.detection-type.high { background: rgba(251,146,60,0.15); color: #fb923c; }
+.detection-type.medium { background: rgba(250,204,21,0.15); color: #fbbf24; }
+.detection-savings { font-size: 13px; font-weight: 700; color: #10b981; }
+.detection h3 { font-size: 17px; font-weight: 700; margin-bottom: 8px; color: #fff; }
+.detection p { font-size: 14px; line-height: 1.55; color: rgba(255,255,255,0.45); }
+.detection-meta { display: flex; gap: 8px; margin-top: 14px; flex-wrap: wrap; }
+.detection-tag { font-size: 11px; font-weight: 600; padding: 3px 9px; border-radius: 4px; background: rgba(77,109,255,0.1); color: rgba(77,109,255,0.8); }
+.detection-count { text-align: center; margin-top: 40px; padding-top: 32px; border-top: 1px solid rgba(255,255,255,0.06); }
+.detection-count p { font-size: 15px; color: rgba(255,255,255,0.4); }
+.detection-count span { color: #fff; font-weight: 700; }
 
-/* Results grid */
-.results-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 24px;
-}
-.result-card {
-  background: #f8fafc;
-  border-radius: 16px;
-  padding: 36px;
-}
-.result-card .result-num {
-  font-size: 36px;
-  font-weight: 800;
-  color: #0000ee;
-  margin-bottom: 8px;
-}
-.result-card h3 {
-  font-size: 18px;
-  font-weight: 700;
-  color: #0f172a;
-  margin-bottom: 8px;
-}
-.result-card p {
-  font-size: 15px;
-  line-height: 1.6;
-  color: #64748b;
-}
+.features-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+.feature-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 16px; padding: 36px; transition: border-color 0.2s; }
+.feature-card:hover { border-color: rgba(77, 109, 255, 0.3); }
+.feature-icon { font-size: 28px; margin-bottom: 16px; }
+.feature-card h3 { font-size: 20px; font-weight: 700; margin-bottom: 8px; }
+.feature-card p { font-size: 15px; line-height: 1.6; color: rgba(255,255,255,0.5); }
 
-.cta-section {
-  background: #0000ee;
-  padding: 80px 48px;
-  text-align: center;
-  position: relative;
-  overflow: hidden;
-}
-.cta-section::before {
-  content: '';
-  position: absolute;
-  width: 600px; height: 600px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
-  top: -200px; right: -100px;
-  pointer-events: none;
-}
-.cta-section h2 {
-  font-size: 44px;
-  font-weight: 800;
-  letter-spacing: -0.02em;
-  margin-bottom: 16px;
-  position: relative;
-  z-index: 1;
-}
-.cta-section p {
-  font-size: 18px;
-  opacity: 0.8;
-  margin-bottom: 32px;
-  position: relative;
-  z-index: 1;
-}
-.cta-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 16px 36px;
-  background: #fff;
-  color: #0000ee;
-  font-size: 17px;
-  font-weight: 700;
-  border-radius: 10px;
-  transition: all 0.2s;
-  position: relative;
-  z-index: 1;
-}
-.cta-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(0,0,0,0.3);
-}
+.steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
+.step { text-align: center; padding: 40px 28px; }
+.step-num { display: inline-flex; width: 48px; height: 48px; border-radius: 50%; align-items: center; justify-content: center; background: #0000ee; color: #fff; font-size: 20px; font-weight: 800; margin-bottom: 20px; }
+.step h3 { font-size: 20px; font-weight: 700; margin-bottom: 8px; color: #0f172a; }
+.step p { font-size: 15px; line-height: 1.6; color: #64748b; }
+
+.cta-section { background: #0000ee; padding: 80px 48px; text-align: center; position: relative; overflow: hidden; }
+.cta-section::before { content: ''; position: absolute; width: 600px; height: 600px; border-radius: 50%; background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%); top: -200px; right: -100px; pointer-events: none; }
+.cta-section h2 { font-size: 44px; font-weight: 800; letter-spacing: -0.02em; margin-bottom: 16px; position: relative; z-index: 1; }
+.cta-section p { font-size: 18px; opacity: 0.8; margin-bottom: 32px; position: relative; z-index: 1; }
+.cta-btn { display: inline-flex; align-items: center; gap: 8px; padding: 16px 36px; background: #fff; color: #0000ee; font-size: 17px; font-weight: 700; border-radius: 10px; transition: all 0.2s; position: relative; z-index: 1; }
+.cta-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.3); }
 
 @media (max-width: 900px) {
   .hero { padding: 100px 24px 60px; min-height: auto; }
@@ -349,8 +107,8 @@ img { max-width: 100%; display: block; }
   .hero-content h1 { font-size: 40px; }
   .nav { padding: 20px 24px; }
   .proof-inner { gap: 32px; }
-  .timeline { grid-template-columns: 1fr; }
-  .results-grid { grid-template-columns: 1fr; }
+  .features-grid, .detections-grid { grid-template-columns: 1fr; }
+  .steps { grid-template-columns: 1fr; }
   .section { padding: 64px 24px; }
   .section-title { font-size: 32px; }
   .cta-section h2 { font-size: 32px; }
@@ -374,15 +132,12 @@ img { max-width: 100%; display: block; }
     </a>
   </nav>
 
+  <!-- Hero -->
   <section class="hero">
     <div class="hero-inner">
       <div class="hero-content">
-        <h1>Nubank got full ROI <span>in 10 days</span></h1>
-        <p class="hero-sub">The world's largest digital bank uses PointFive to optimize cloud infrastructure across their entire stack.</p>
-        <div class="quote-block">
-          <p class="quote-text">"It took us 10 days to get full ROI on our partnership with PointFive"</p>
-          <p class="quote-author">Mike Rosenberg, Sr. Director of Engineering, Nubank</p>
-        </div>
+        <h1>Your K8s clusters are <span>wasting 40–60%</span></h1>
+        <p class="hero-sub">We're the only agentless Kubernetes optimization platform. No DaemonSets. No sidecars. No risk. Just savings.</p>
         <div class="guarantee">
           <span class="guarantee-icon">🛡️</span>
           Zero-cost guarantee — you save or you don't pay
@@ -391,89 +146,163 @@ img { max-width: 100%; display: block; }
       <div class="form-card">
         <h2>Let's talk for 15 mins</h2>
         <p class="form-sub">I promise we'll change your cloud for good.</p>
-        <div id="hs-form-nubank"></div>
+        <div id="hs-form-eks"></div>
       </div>
     </div>
   </section>
 
+  <!-- Proof Bar -->
   <section class="proof-bar">
     <div class="proof-inner">
-      <div class="proof-stat">
-        <div class="num">10 days</div>
-        <div class="label">To full ROI</div>
-      </div>
-      <div class="proof-stat">
-        <div class="num">1,200%+</div>
-        <div class="label">Average customer ROI</div>
-      </div>
-      <div class="proof-stat">
-        <div class="num">$50M</div>
-        <div class="label">Saved across customers</div>
-      </div>
-      <div class="proof-stat">
-        <div class="num">0</div>
-        <div class="label">Agents deployed</div>
-      </div>
+      <div class="proof-stat"><div class="num">1,200%+</div><div class="label">Average customer ROI</div></div>
+      <div class="proof-stat"><div class="num">$50M</div><div class="label">Saved across customers</div></div>
+      <div class="proof-stat"><div class="num">10 days</div><div class="label">To full ROI</div></div>
+      <div class="proof-stat"><div class="num">0</div><div class="label">Agents to deploy</div></div>
     </div>
   </section>
 
+  <!-- DeepWaste™ Detections -->
   <section class="section section-dark">
     <div class="section-inner">
-      <h2 class="section-title">How Nubank went from zero to ROI in 10 days</h2>
-      <p class="section-sub">No agents. No 6-month implementation. No trust issues.</p>
-      <div class="timeline">
-        <div class="timeline-card">
-          <div class="day">Day 1</div>
-          <h3>Connected</h3>
-          <p>Read-only IAM role set up in under 5 minutes. Zero agents deployed. Zero risk to production.</p>
+      <div class="section-eyebrow">DeepWaste™ Detection Engine</div>
+      <h2 class="section-title">A sample of waste only we detect</h2>
+      <p class="section-sub">Other tools check if your nodes are idle. We analyze every Deployment, StatefulSet, DaemonSet, and CronJob — without deploying a single agent.</p>
+      <div class="detections-grid">
+
+        <div class="detection">
+          <div class="detection-header">
+            <span class="detection-type critical">Critical</span>
+            <span class="detection-savings">Save 30–50%</span>
+          </div>
+          <h3>Over-requested pod resources</h3>
+          <p>Pods requesting 4 vCPU / 8GB RAM but consistently using &lt;0.5 vCPU / 1GB. We analyze 14-day P99 usage to recommend precise requests and limits — per workload, not per cluster.</p>
+          <div class="detection-meta">
+            <span class="detection-tag">Deployments</span>
+            <span class="detection-tag">StatefulSets</span>
+            <span class="detection-tag">Rightsizing</span>
+          </div>
         </div>
-        <div class="timeline-card">
-          <div class="day">Days 2–5</div>
-          <h3>Discovered</h3>
-          <p>DeepWaste™ mapped their entire infrastructure — compute, K8s, databases, storage, networking — and found hundreds of optimization opportunities.</p>
+
+        <div class="detection">
+          <div class="detection-header">
+            <span class="detection-type critical">Critical</span>
+            <span class="detection-savings">Save 20–40%</span>
+          </div>
+          <h3>Wrong instance family for node groups</h3>
+          <p>Running c5.2xlarge nodes for memory-heavy workloads. We match workload resource profiles to optimal instance families — including Graviton candidates — across every node group.</p>
+          <div class="detection-meta">
+            <span class="detection-tag">Node Pools</span>
+            <span class="detection-tag">Instance Selection</span>
+          </div>
         </div>
-        <div class="timeline-card">
-          <div class="day">Days 6–10</div>
-          <h3>Saved</h3>
-          <p>Engineering teams started acting on validated, contextual recommendations. Full ROI achieved before the second week was over.</p>
+
+        <div class="detection">
+          <div class="detection-header">
+            <span class="detection-type high">High</span>
+            <span class="detection-savings">Save 15–35%</span>
+          </div>
+          <h3>Fragmented node utilization</h3>
+          <p>8 nodes at 18% utilization when workloads pack into 3. We detect bin-packing inefficiencies and recommend consolidation strategies that maintain availability.</p>
+          <div class="detection-meta">
+            <span class="detection-tag">Bin Packing</span>
+            <span class="detection-tag">Consolidation</span>
+          </div>
+        </div>
+
+        <div class="detection">
+          <div class="detection-header">
+            <span class="detection-type high">High</span>
+            <span class="detection-savings">Save 10–25%</span>
+          </div>
+          <h3>CronJobs with oversized resource profiles</h3>
+          <p>Batch jobs requesting 8GB RAM that peak at 800MB. CronJob waste is invisible to most tools. We track execution patterns and recommend right-sized profiles per schedule.</p>
+          <div class="detection-meta">
+            <span class="detection-tag">CronJobs</span>
+            <span class="detection-tag">Batch</span>
+          </div>
+        </div>
+
+        <div class="detection">
+          <div class="detection-header">
+            <span class="detection-type medium">Medium</span>
+            <span class="detection-savings">Save 10–20%</span>
+          </div>
+          <h3>DaemonSet resource sprawl</h3>
+          <p>Monitoring DaemonSets requesting excessive resources on every node. We analyze per-node actual usage and recommend DaemonSet-specific profiles that won't cause evictions.</p>
+          <div class="detection-meta">
+            <span class="detection-tag">DaemonSets</span>
+            <span class="detection-tag">Observability</span>
+          </div>
+        </div>
+
+        <div class="detection">
+          <div class="detection-header">
+            <span class="detection-type medium">Medium</span>
+            <span class="detection-savings">Save 15–30%</span>
+          </div>
+          <h3>Missing HPA / Scaling misconfiguration</h3>
+          <p>Fixed replica counts when traffic is cyclic. Or HPA thresholds at 30% CPU when 65% is safe. We detect scaling gaps and tune existing autoscalers.</p>
+          <div class="detection-meta">
+            <span class="detection-tag">HPA</span>
+            <span class="detection-tag">Autoscaling</span>
+          </div>
+        </div>
+
+      </div>
+      <div class="detection-count">
+        <p>These are 6 of <span>80+ Kubernetes-specific detections</span> in the DeepWaste™ engine. New detections ship weekly.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Agentless Works -->
+  <section class="section" style="background:#08081a;">
+    <div class="section-inner">
+      <h2 class="section-title">Why this works without agents</h2>
+      <p class="section-sub">Read-only IAM role + CloudWatch + K8s API = pod-level cost allocation, workload profiling, and cluster optimization. Zero cluster footprint.</p>
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">📦</div>
+          <h3>Pod-level cost allocation</h3>
+          <p>Costs by namespace, label, deployment, and team. Know exactly what each workload costs — not just the cluster.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🎯</div>
+          <h3>Workload-aware rightsizing</h3>
+          <p>Exact requests and limits per workload based on P99 usage. Not "smaller pods" — precise, validated recommendations.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🔗</div>
+          <h3>Context graph architecture</h3>
+          <p>We map pod → node → service relationships. Rightsizing Pod A affects Node Group B's bin-packing — we account for that.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">⚡</div>
+          <h3>1-click remediation</h3>
+          <p>IaC-compatible patches, PRs in your repo, or workflow execution. Not just recommendations — resolution.</p>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- How it works -->
   <section class="section section-light">
     <div class="section-inner">
-      <h2 class="section-title" style="color:#0f172a;">The results speak for themselves</h2>
-      <p class="section-sub">Real numbers. Real impact. No asterisks.</p>
-      <div class="results-grid">
-        <div class="result-card">
-          <div class="result-num">10 days</div>
-          <h3>Full ROI</h3>
-          <p>Not months. Not quarters. Days. PointFive paid for itself before the trial was over.</p>
-        </div>
-        <div class="result-card">
-          <div class="result-num">300+</div>
-          <h3>Optimization types</h3>
-          <p>Deep detection across compute, databases, K8s, storage, networking — not just basic rightsizing.</p>
-        </div>
-        <div class="result-card">
-          <div class="result-num">100%</div>
-          <h3>Agentless</h3>
-          <p>Read-only access. Nothing deployed in Nubank's clusters. Zero security risk. Zero maintenance.</p>
-        </div>
-        <div class="result-card">
-          <div class="result-num">Trusted</div>
-          <h3>By engineering</h3>
-          <p>Every recommendation validated against real environment data. Engineers trusted and acted on them immediately.</p>
-        </div>
+      <h2 class="section-title" style="color:#0f172a;">Three steps. Five minutes.</h2>
+      <p class="section-sub">No agents. No risk. No excuses.</p>
+      <div class="steps">
+        <div class="step"><div class="step-num">1</div><h3>Connect</h3><p>Read-only IAM role. CloudWatch & K8s API metrics. Nothing deployed in your cluster.</p></div>
+        <div class="step"><div class="step-num">2</div><h3>Detect</h3><p>DeepWaste™ maps every Deployment, StatefulSet, DaemonSet, and CronJob to actual usage.</p></div>
+        <div class="step"><div class="step-num">3</div><h3>Save</h3><p>Pod-level rightsizing, node optimization, cluster consolidation. Recommendations you trust.</p></div>
       </div>
     </div>
   </section>
 
+  <!-- CTA -->
   <section class="cta-section">
     <h2>15 minutes. That's all we need.</h2>
-    <p>If it worked for Nubank, imagine what we can do for you.</p>
-    <a href="#hs-form-nubank" class="cta-btn">Let's talk →</a>
+    <p>We guarantee we'll find savings — or you pay nothing.</p>
+    <a href="#hs-form-eks" class="cta-btn">Let's talk →</a>
   </section>
 
 <script charset="utf-8" src="https://js.hsforms.net/forms/embed/v2.js"></script>
@@ -484,12 +313,7 @@ img { max-width: 100%; display: block; }
       attempts++;
       if (window.hbspt && hbspt.forms) {
         clearInterval(_hsi);
-        hbspt.forms.create({
-          portalId: "44866363",
-          formId: "4c2e3b5e-490b-45b6-a8ee-855cdf0c42af",
-          region: "na1",
-          target: "#hs-form-nubank"
-        });
+        hbspt.forms.create({ portalId: "44866363", formId: "7d99ea3a-da82-4684-aad3-b5be845461f1", region: "na1", target: "#hs-form-eks" });
       }
       if (attempts > 150) clearInterval(_hsi);
     }, 100);
