@@ -3,44 +3,37 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Stop Wasting 40–60% on Kubernetes | PointFive</title>
-  <meta name="description" content="The only agentless K8s cost optimization. We guarantee savings or you pay nothing.">
-  <meta property="og:title" content="Stop Wasting 40–60% on Kubernetes | PointFive">
-  <meta property="og:description" content="The only agentless K8s cost optimization. We guarantee savings or you pay nothing.">
+  <title>How Nubank Got Full ROI in 10 Days | PointFive</title>
+  <meta name="description" content="Nubank achieved full ROI on PointFive in 10 days. See how the world's largest digital bank optimizes cloud spend.">
+  <meta property="og:title" content="How Nubank Got Full ROI in 10 Days | PointFive">
+  <meta property="og:description" content="Nubank achieved full ROI on PointFive in 10 days. See how the world's largest digital bank optimizes cloud spend.">
   <meta property="og:type" content="website">
   <link rel="icon" href="https://cdn.prod.website-files.com/664c5d9fee3e617bc2829b44/6661db9d841412af863235a4_Logo.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
   <style>
-/* === RESET === */
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-
 body {
   font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
   -webkit-font-smoothing: antialiased;
   background: #000;
   color: #fff;
 }
-
 a { color: inherit; text-decoration: none; }
 img { max-width: 100%; display: block; }
 
-/* === NAV === */
 .nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 24px 48px;
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
+  top: 0; left: 0; right: 0;
   z-index: 10;
 }
 .nav img { height: 28px; }
 
-/* === HERO === */
 .hero {
   min-height: 100vh;
   display: flex;
@@ -51,21 +44,16 @@ img { max-width: 100%; display: block; }
   overflow: hidden;
   padding: 120px 48px 80px;
 }
-
-/* Subtle gradient orb */
 .hero::before {
   content: '';
   position: absolute;
-  width: 800px;
-  height: 800px;
+  width: 800px; height: 800px;
   border-radius: 50%;
   background: radial-gradient(circle, rgba(0,0,238,0.15) 0%, transparent 70%);
-  top: 50%;
-  left: 25%;
+  top: 50%; left: 25%;
   transform: translate(-50%, -50%);
   pointer-events: none;
 }
-
 .hero-inner {
   max-width: 1200px;
   width: 100%;
@@ -76,7 +64,6 @@ img { max-width: 100%; display: block; }
   position: relative;
   z-index: 1;
 }
-
 .hero-content h1 {
   font-size: 56px;
   font-weight: 800;
@@ -84,20 +71,34 @@ img { max-width: 100%; display: block; }
   letter-spacing: -0.03em;
   margin-bottom: 24px;
 }
-
-.hero-content h1 span {
-  color: #4d6dff;
-}
-
+.hero-content h1 span { color: #4d6dff; }
 .hero-sub {
   font-size: 20px;
   line-height: 1.6;
   color: rgba(255,255,255,0.6);
-  margin-bottom: 40px;
+  margin-bottom: 32px;
   max-width: 520px;
 }
 
-/* Guarantee badge */
+/* Quote block */
+.quote-block {
+  border-left: 3px solid #4d6dff;
+  padding-left: 20px;
+  margin-bottom: 32px;
+}
+.quote-text {
+  font-size: 18px;
+  font-style: italic;
+  color: rgba(255,255,255,0.8);
+  line-height: 1.5;
+  margin-bottom: 8px;
+}
+.quote-author {
+  font-size: 14px;
+  color: rgba(255,255,255,0.4);
+  font-weight: 600;
+}
+
 .guarantee {
   display: inline-flex;
   align-items: center;
@@ -110,19 +111,14 @@ img { max-width: 100%; display: block; }
   font-weight: 600;
   font-size: 15px;
 }
+.guarantee-icon { font-size: 20px; }
 
-.guarantee-icon {
-  font-size: 20px;
-}
-
-/* === FORM CARD === */
 .form-card {
   background: #fff;
   border-radius: 16px;
   padding: 40px 36px;
   color: #0f172a;
 }
-
 .form-card h2 {
   font-size: 26px;
   font-weight: 800;
@@ -130,15 +126,12 @@ img { max-width: 100%; display: block; }
   margin-bottom: 6px;
   color: #000;
 }
-
 .form-card .form-sub {
   font-size: 15px;
   color: #64748b;
   margin-bottom: 28px;
   line-height: 1.5;
 }
-
-/* HubSpot form overrides */
 .form-card .hs-form { margin: 0 !important; }
 .form-card .hs-form-field { margin-bottom: 16px !important; }
 .form-card .hs-form-field label {
@@ -193,13 +186,11 @@ img { max-width: 100%; display: block; }
 .form-card .hs-error-msgs { color: #ef4444 !important; font-size: 12px !important; }
 .form-card .legal-consent-container { font-size: 11px !important; color: #94a3b8 !important; }
 
-/* === PROOF BAR === */
 .proof-bar {
   background: #000;
   border-top: 1px solid rgba(255,255,255,0.06);
   padding: 48px;
 }
-
 .proof-inner {
   max-width: 1200px;
   margin: 0 auto;
@@ -208,18 +199,13 @@ img { max-width: 100%; display: block; }
   gap: 64px;
   flex-wrap: wrap;
 }
-
-.proof-stat {
-  text-align: center;
-}
-
+.proof-stat { text-align: center; }
 .proof-stat .num {
   font-size: 40px;
   font-weight: 800;
   color: #fff;
   letter-spacing: -0.02em;
 }
-
 .proof-stat .label {
   font-size: 14px;
   color: rgba(255,255,255,0.4);
@@ -227,25 +213,10 @@ img { max-width: 100%; display: block; }
   font-weight: 500;
 }
 
-/* === SECTION === */
-.section {
-  padding: 96px 48px;
-}
-
-.section-dark {
-  background: #050510;
-}
-
-.section-light {
-  background: #fff;
-  color: #0f172a;
-}
-
-.section-inner {
-  max-width: 1000px;
-  margin: 0 auto;
-}
-
+.section { padding: 96px 48px; }
+.section-dark { background: #050510; }
+.section-light { background: #fff; color: #0f172a; }
+.section-inner { max-width: 1000px; margin: 0 auto; }
 .section-title {
   font-size: 40px;
   font-weight: 800;
@@ -253,7 +224,6 @@ img { max-width: 100%; display: block; }
   line-height: 1.15;
   margin-bottom: 16px;
 }
-
 .section-sub {
   font-size: 18px;
   line-height: 1.6;
@@ -261,87 +231,68 @@ img { max-width: 100%; display: block; }
   margin-bottom: 56px;
   max-width: 600px;
 }
+.section-light .section-sub { color: #64748b; }
 
-.section-light .section-sub {
-  color: #64748b;
-}
-
-/* === GRID FEATURES === */
-.features-grid {
+/* Timeline */
+.timeline {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 24px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
 }
-
-.feature-card {
+.timeline-card {
   background: rgba(255,255,255,0.04);
   border: 1px solid rgba(255,255,255,0.08);
   border-radius: 16px;
   padding: 36px;
-  transition: border-color 0.2s;
 }
-
-.feature-card:hover {
-  border-color: rgba(77, 109, 255, 0.3);
+.timeline-card .day {
+  font-size: 13px;
+  font-weight: 700;
+  color: #4d6dff;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 12px;
 }
-
-.feature-icon {
-  font-size: 28px;
-  margin-bottom: 16px;
-}
-
-.feature-card h3 {
+.timeline-card h3 {
   font-size: 20px;
   font-weight: 700;
   margin-bottom: 8px;
 }
-
-.feature-card p {
+.timeline-card p {
   font-size: 15px;
   line-height: 1.6;
   color: rgba(255,255,255,0.5);
 }
 
-/* === HOW IT WORKS === */
-.steps {
+/* Results grid */
+.results-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 32px;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
 }
-
-.step {
-  text-align: center;
-  padding: 40px 28px;
+.result-card {
+  background: #f8fafc;
+  border-radius: 16px;
+  padding: 36px;
 }
-
-.step-num {
-  display: inline-flex;
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  align-items: center;
-  justify-content: center;
-  background: #0000ee;
-  color: #fff;
-  font-size: 20px;
+.result-card .result-num {
+  font-size: 36px;
   font-weight: 800;
-  margin-bottom: 20px;
-}
-
-.step h3 {
-  font-size: 20px;
-  font-weight: 700;
+  color: #0000ee;
   margin-bottom: 8px;
-  color: #0f172a;
 }
-
-.step p {
+.result-card h3 {
+  font-size: 18px;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 8px;
+}
+.result-card p {
   font-size: 15px;
   line-height: 1.6;
   color: #64748b;
 }
 
-/* === CTA === */
 .cta-section {
   background: #0000ee;
   padding: 80px 48px;
@@ -349,19 +300,15 @@ img { max-width: 100%; display: block; }
   position: relative;
   overflow: hidden;
 }
-
 .cta-section::before {
   content: '';
   position: absolute;
-  width: 600px;
-  height: 600px;
+  width: 600px; height: 600px;
   border-radius: 50%;
   background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
-  top: -200px;
-  right: -100px;
+  top: -200px; right: -100px;
   pointer-events: none;
 }
-
 .cta-section h2 {
   font-size: 44px;
   font-weight: 800;
@@ -370,7 +317,6 @@ img { max-width: 100%; display: block; }
   position: relative;
   z-index: 1;
 }
-
 .cta-section p {
   font-size: 18px;
   opacity: 0.8;
@@ -378,7 +324,6 @@ img { max-width: 100%; display: block; }
   position: relative;
   z-index: 1;
 }
-
 .cta-btn {
   display: inline-flex;
   align-items: center;
@@ -393,27 +338,24 @@ img { max-width: 100%; display: block; }
   position: relative;
   z-index: 1;
 }
-
 .cta-btn:hover {
   transform: translateY(-2px);
   box-shadow: 0 8px 24px rgba(0,0,0,0.3);
 }
 
-/* === RESPONSIVE === */
 @media (max-width: 900px) {
   .hero { padding: 100px 24px 60px; min-height: auto; }
   .hero-inner { grid-template-columns: 1fr; gap: 48px; }
   .hero-content h1 { font-size: 40px; }
   .nav { padding: 20px 24px; }
   .proof-inner { gap: 32px; }
-  .features-grid { grid-template-columns: 1fr; }
-  .steps { grid-template-columns: 1fr; }
+  .timeline { grid-template-columns: 1fr; }
+  .results-grid { grid-template-columns: 1fr; }
   .section { padding: 64px 24px; }
   .section-title { font-size: 32px; }
   .cta-section h2 { font-size: 32px; }
   .cta-section { padding: 64px 24px; }
 }
-
 @media (max-width: 600px) {
   .hero-content h1 { font-size: 32px; }
   .hero-sub { font-size: 17px; }
@@ -426,19 +368,21 @@ img { max-width: 100%; display: block; }
 </head>
 <body>
 
-  <!-- Nav -->
   <nav class="nav">
     <a href="https://pointfive.co">
       <img src="https://cdn.prod.website-files.com/664c5d9fee3e617bc2829b44/6661db9d841412af863235a4_Logo.svg" alt="PointFive" />
     </a>
   </nav>
 
-  <!-- Hero -->
   <section class="hero">
     <div class="hero-inner">
       <div class="hero-content">
-        <h1>Your K8s clusters are <span>wasting 40–60%</span></h1>
-        <p class="hero-sub">We're the only agentless Kubernetes optimization platform. No DaemonSets. No sidecars. No risk. Just savings.</p>
+        <h1>Nubank got full ROI <span>in 10 days</span></h1>
+        <p class="hero-sub">The world's largest digital bank uses PointFive to optimize cloud infrastructure across their entire stack.</p>
+        <div class="quote-block">
+          <p class="quote-text">"It took us 10 days to get full ROI on our partnership with PointFive"</p>
+          <p class="quote-author">Mike Rosenberg, Sr. Director of Engineering, Nubank</p>
+        </div>
         <div class="guarantee">
           <span class="guarantee-icon">🛡️</span>
           Zero-cost guarantee — you save or you don't pay
@@ -447,14 +391,17 @@ img { max-width: 100%; display: block; }
       <div class="form-card">
         <h2>Let's talk for 15 mins</h2>
         <p class="form-sub">I promise we'll change your cloud for good.</p>
-        <div id="hs-form-eks"></div>
+        <div id="hs-form-nubank"></div>
       </div>
     </div>
   </section>
 
-  <!-- Proof Bar -->
   <section class="proof-bar">
     <div class="proof-inner">
+      <div class="proof-stat">
+        <div class="num">10 days</div>
+        <div class="label">To full ROI</div>
+      </div>
       <div class="proof-stat">
         <div class="num">1,200%+</div>
         <div class="label">Average customer ROI</div>
@@ -464,79 +411,71 @@ img { max-width: 100%; display: block; }
         <div class="label">Saved across customers</div>
       </div>
       <div class="proof-stat">
-        <div class="num">10 days</div>
-        <div class="label">To full ROI</div>
-      </div>
-      <div class="proof-stat">
         <div class="num">0</div>
-        <div class="label">Agents to deploy</div>
+        <div class="label">Agents deployed</div>
       </div>
     </div>
   </section>
 
-  <!-- What We Find -->
   <section class="section section-dark">
     <div class="section-inner">
-      <h2 class="section-title">What we find in every K8s environment</h2>
-      <p class="section-sub">Most tools only see the cluster. We see every pod, every workload, every wasted dollar.</p>
-      <div class="features-grid">
-        <div class="feature-card">
-          <div class="feature-icon">📦</div>
-          <h3>Over-provisioned pods</h3>
-          <p>CPU and memory requests set way above actual usage. We right-size every workload based on real patterns.</p>
+      <h2 class="section-title">How Nubank went from zero to ROI in 10 days</h2>
+      <p class="section-sub">No agents. No 6-month implementation. No trust issues.</p>
+      <div class="timeline">
+        <div class="timeline-card">
+          <div class="day">Day 1</div>
+          <h3>Connected</h3>
+          <p>Read-only IAM role set up in under 5 minutes. Zero agents deployed. Zero risk to production.</p>
         </div>
-        <div class="feature-card">
-          <div class="feature-icon">🖥️</div>
-          <h3>Wrong node types</h3>
-          <p>Expensive instance families when cheaper ones would perform identically. We match workloads to optimal nodes.</p>
+        <div class="timeline-card">
+          <div class="day">Days 2–5</div>
+          <h3>Discovered</h3>
+          <p>DeepWaste™ mapped their entire infrastructure — compute, K8s, databases, storage, networking — and found hundreds of optimization opportunities.</p>
         </div>
-        <div class="feature-card">
-          <div class="feature-icon">🔄</div>
-          <h3>Idle capacity</h3>
-          <p>Nodes running at 15-20% utilization. We identify consolidation opportunities and bin-packing improvements.</p>
-        </div>
-        <div class="feature-card">
-          <div class="feature-icon">📊</div>
-          <h3>No cost visibility</h3>
-          <p>Teams can't see what their workloads cost. We give you namespace and label-level cost allocation — no agents required.</p>
+        <div class="timeline-card">
+          <div class="day">Days 6–10</div>
+          <h3>Saved</h3>
+          <p>Engineering teams started acting on validated, contextual recommendations. Full ROI achieved before the second week was over.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- How it works -->
   <section class="section section-light">
     <div class="section-inner">
-      <h2 class="section-title" style="color:#0f172a;">Three steps. Five minutes.</h2>
-      <p class="section-sub">No agents. No risk. No excuses.</p>
-      <div class="steps">
-        <div class="step">
-          <div class="step-num">1</div>
-          <h3>Connect</h3>
-          <p>Read-only IAM role. We read CloudWatch & K8s API metrics. Nothing deployed in your cluster. Ever.</p>
+      <h2 class="section-title" style="color:#0f172a;">The results speak for themselves</h2>
+      <p class="section-sub">Real numbers. Real impact. No asterisks.</p>
+      <div class="results-grid">
+        <div class="result-card">
+          <div class="result-num">10 days</div>
+          <h3>Full ROI</h3>
+          <p>Not months. Not quarters. Days. PointFive paid for itself before the trial was over.</p>
         </div>
-        <div class="step">
-          <div class="step-num">2</div>
-          <h3>Detect</h3>
-          <p>Our DeepWaste™ engine maps every Deployment, StatefulSet, and CronJob to actual resource usage.</p>
+        <div class="result-card">
+          <div class="result-num">300+</div>
+          <h3>Optimization types</h3>
+          <p>Deep detection across compute, databases, K8s, storage, networking — not just basic rightsizing.</p>
         </div>
-        <div class="step">
-          <div class="step-num">3</div>
-          <h3>Save</h3>
-          <p>Get pod-level rightsizing, node pool optimization, and cluster consolidation recommendations you can trust.</p>
+        <div class="result-card">
+          <div class="result-num">100%</div>
+          <h3>Agentless</h3>
+          <p>Read-only access. Nothing deployed in Nubank's clusters. Zero security risk. Zero maintenance.</p>
+        </div>
+        <div class="result-card">
+          <div class="result-num">Trusted</div>
+          <h3>By engineering</h3>
+          <p>Every recommendation validated against real environment data. Engineers trusted and acted on them immediately.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- CTA -->
   <section class="cta-section">
     <h2>15 minutes. That's all we need.</h2>
-    <p>We guarantee we'll find savings — or you pay nothing.</p>
-    <a href="#hs-form-eks" class="cta-btn">Let's talk →</a>
+    <p>If it worked for Nubank, imagine what we can do for you.</p>
+    <a href="#hs-form-nubank" class="cta-btn">Let's talk →</a>
   </section>
 
-<!-- HubSpot Form -->
 <script charset="utf-8" src="https://js.hsforms.net/forms/embed/v2.js"></script>
 <script>
   window.addEventListener('load', function() {
@@ -547,9 +486,9 @@ img { max-width: 100%; display: block; }
         clearInterval(_hsi);
         hbspt.forms.create({
           portalId: "44866363",
-          formId: "7d99ea3a-da82-4684-aad3-b5be845461f1",
+          formId: "4c2e3b5e-490b-45b6-a8ee-855cdf0c42af",
           region: "na1",
-          target: "#hs-form-eks"
+          target: "#hs-form-nubank"
         });
       }
       if (attempts > 150) clearInterval(_hsi);
