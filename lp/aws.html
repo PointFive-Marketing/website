@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Stop Wasting Money on AWS | PointFive</title>
-  <meta name="description" content="300+ optimization types across 40+ AWS services. Agentless. We guarantee savings or you pay nothing.">
-  <meta property="og:title" content="Stop Wasting Money on AWS | PointFive">
-  <meta property="og:description" content="300+ optimization types across 40+ AWS services. Agentless. We guarantee savings or you pay nothing.">
+  <title>You're Overpaying for AWS. We'll Prove It. | PointFive</title>
+  <meta name="description" content="300+ optimization types across 35+ AWS services. We guarantee savings or you pay nothing.">
+  <meta property="og:title" content="You're Overpaying for AWS. We'll Prove It. | PointFive">
+  <meta property="og:description" content="300+ optimization types across 35+ AWS services. We guarantee savings or you pay nothing.">
   <meta property="og:type" content="website">
   <link rel="icon" href="https://cdn.prod.website-files.com/664c5d9fee3e617bc2829b44/6661db9d841412af863235a4_Logo.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -14,292 +14,86 @@
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
   <style>
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-body {
-  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  background: #000;
-  color: #fff;
-}
+body { font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif; -webkit-font-smoothing: antialiased; background: #000; color: #fff; }
 a { color: inherit; text-decoration: none; }
 img { max-width: 100%; display: block; }
 
-.nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 24px 48px;
-  position: absolute;
-  top: 0; left: 0; right: 0;
-  z-index: 10;
-}
+.nav { display: flex; justify-content: space-between; align-items: center; padding: 24px 48px; position: absolute; top: 0; left: 0; right: 0; z-index: 10; }
 .nav img { height: 28px; }
 
-.hero {
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: #000;
-  position: relative;
-  overflow: hidden;
-  padding: 120px 48px 80px;
-}
-.hero::before {
-  content: '';
-  position: absolute;
-  width: 800px; height: 800px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(0,0,238,0.15) 0%, transparent 70%);
-  top: 50%; left: 25%;
-  transform: translate(-50%, -50%);
-  pointer-events: none;
-}
-.hero-inner {
-  max-width: 1200px;
-  width: 100%;
-  display: grid;
-  grid-template-columns: 1fr 420px;
-  gap: 80px;
-  align-items: center;
-  position: relative;
-  z-index: 1;
-}
-.hero-content h1 {
-  font-size: 56px;
-  font-weight: 800;
-  line-height: 1.1;
-  letter-spacing: -0.03em;
-  margin-bottom: 24px;
-}
+.hero { min-height: 100vh; display: flex; align-items: center; justify-content: center; background: #000; position: relative; overflow: hidden; padding: 120px 48px 80px; }
+.hero::before { content: ''; position: absolute; width: 800px; height: 800px; border-radius: 50%; background: radial-gradient(circle, rgba(0,0,238,0.15) 0%, transparent 70%); top: 50%; left: 25%; transform: translate(-50%, -50%); pointer-events: none; }
+.hero-inner { max-width: 1200px; width: 100%; display: grid; grid-template-columns: 1fr 420px; gap: 80px; align-items: center; position: relative; z-index: 1; }
+.hero-content h1 { font-size: 56px; font-weight: 800; line-height: 1.1; letter-spacing: -0.03em; margin-bottom: 24px; }
 .hero-content h1 span { color: #4d6dff; }
-.hero-sub {
-  font-size: 20px;
-  line-height: 1.6;
-  color: rgba(255,255,255,0.6);
-  margin-bottom: 40px;
-  max-width: 520px;
-}
-.guarantee {
-  display: inline-flex;
-  align-items: center;
-  gap: 12px;
-  padding: 14px 24px;
-  border: 1px solid rgba(16, 185, 129, 0.3);
-  border-radius: 100px;
-  background: rgba(16, 185, 129, 0.08);
-  color: #10b981;
-  font-weight: 600;
-  font-size: 15px;
-}
+.hero-sub { font-size: 20px; line-height: 1.6; color: rgba(255,255,255,0.6); margin-bottom: 40px; max-width: 520px; }
+.guarantee { display: inline-flex; align-items: center; gap: 12px; padding: 14px 24px; border: 1px solid rgba(16, 185, 129, 0.3); border-radius: 100px; background: rgba(16, 185, 129, 0.08); color: #10b981; font-weight: 600; font-size: 15px; }
 .guarantee-icon { font-size: 20px; }
 
-.form-card {
-  background: #fff;
-  border-radius: 16px;
-  padding: 40px 36px;
-  color: #0f172a;
-}
-.form-card h2 {
-  font-size: 26px;
-  font-weight: 800;
-  line-height: 1.2;
-  margin-bottom: 6px;
-  color: #000;
-}
-.form-card .form-sub {
-  font-size: 15px;
-  color: #64748b;
-  margin-bottom: 28px;
-  line-height: 1.5;
-}
+.form-card { background: #fff; border-radius: 16px; padding: 40px 36px; color: #0f172a; }
+.form-card h2 { font-size: 26px; font-weight: 800; line-height: 1.2; margin-bottom: 6px; color: #000; }
+.form-card .form-sub { font-size: 15px; color: #64748b; margin-bottom: 28px; line-height: 1.5; }
 .form-card .hs-form { margin: 0 !important; }
 .form-card .hs-form-field { margin-bottom: 16px !important; }
-.form-card .hs-form-field label {
-  font-family: 'Plus Jakarta Sans', sans-serif !important;
-  font-size: 13px !important;
-  font-weight: 600 !important;
-  color: #374151 !important;
-  margin-bottom: 6px !important;
-  display: block !important;
-}
-.form-card .hs-form-field input,
-.form-card .hs-form-field select,
-.form-card .hs-form-field textarea {
-  font-family: 'Plus Jakarta Sans', sans-serif !important;
-  font-size: 15px !important;
-  padding: 12px 14px !important;
-  border: 1.5px solid #e2e8f0 !important;
-  border-radius: 10px !important;
-  width: 100% !important;
-  background: #f8fafc !important;
-  transition: border-color 0.2s !important;
-  color: #0f172a !important;
-}
-.form-card .hs-form-field input:focus,
-.form-card .hs-form-field select:focus {
-  outline: none !important;
-  border-color: #0000ee !important;
-  background: #fff !important;
-  box-shadow: 0 0 0 3px rgba(0,0,238,0.1) !important;
-}
-.form-card .hs-submit input[type="submit"],
-.form-card .hs-button {
-  font-family: 'Plus Jakarta Sans', sans-serif !important;
-  font-size: 16px !important;
-  font-weight: 700 !important;
-  padding: 14px 28px !important;
-  background: #0000ee !important;
-  color: #fff !important;
-  border: none !important;
-  border-radius: 10px !important;
-  width: 100% !important;
-  cursor: pointer !important;
-  transition: all 0.2s !important;
-  margin-top: 8px !important;
-}
-.form-card .hs-submit input[type="submit"]:hover,
-.form-card .hs-button:hover {
-  background: #0000cc !important;
-  transform: translateY(-1px) !important;
-  box-shadow: 0 4px 16px rgba(0,0,238,0.3) !important;
-}
+.form-card .hs-form-field label { font-family: 'Plus Jakarta Sans', sans-serif !important; font-size: 13px !important; font-weight: 600 !important; color: #374151 !important; margin-bottom: 6px !important; display: block !important; }
+.form-card .hs-form-field input, .form-card .hs-form-field select, .form-card .hs-form-field textarea { font-family: 'Plus Jakarta Sans', sans-serif !important; font-size: 15px !important; padding: 12px 14px !important; border: 1.5px solid #e2e8f0 !important; border-radius: 10px !important; width: 100% !important; background: #f8fafc !important; transition: border-color 0.2s !important; color: #0f172a !important; }
+.form-card .hs-form-field input:focus, .form-card .hs-form-field select:focus { outline: none !important; border-color: #0000ee !important; background: #fff !important; box-shadow: 0 0 0 3px rgba(0,0,238,0.1) !important; }
+.form-card .hs-submit input[type="submit"], .form-card .hs-button { font-family: 'Plus Jakarta Sans', sans-serif !important; font-size: 16px !important; font-weight: 700 !important; padding: 14px 28px !important; background: #0000ee !important; color: #fff !important; border: none !important; border-radius: 10px !important; width: 100% !important; cursor: pointer !important; transition: all 0.2s !important; margin-top: 8px !important; }
+.form-card .hs-submit input[type="submit"]:hover, .form-card .hs-button:hover { background: #0000cc !important; transform: translateY(-1px) !important; box-shadow: 0 4px 16px rgba(0,0,238,0.3) !important; }
 .form-card .hs-error-msgs { color: #ef4444 !important; font-size: 12px !important; }
 .form-card .legal-consent-container { font-size: 11px !important; color: #94a3b8 !important; }
 
-.proof-bar {
-  background: #000;
-  border-top: 1px solid rgba(255,255,255,0.06);
-  padding: 48px;
-}
-.proof-inner {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: flex;
-  justify-content: center;
-  gap: 64px;
-  flex-wrap: wrap;
-}
+.proof-bar { background: #000; border-top: 1px solid rgba(255,255,255,0.06); padding: 48px; }
+.proof-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: center; gap: 64px; flex-wrap: wrap; }
 .proof-stat { text-align: center; }
-.proof-stat .num {
-  font-size: 40px;
-  font-weight: 800;
-  color: #fff;
-  letter-spacing: -0.02em;
-}
-.proof-stat .label {
-  font-size: 14px;
-  color: rgba(255,255,255,0.4);
-  margin-top: 4px;
-  font-weight: 500;
-}
+.proof-stat .num { font-size: 40px; font-weight: 800; color: #fff; letter-spacing: -0.02em; }
+.proof-stat .label { font-size: 14px; color: rgba(255,255,255,0.4); margin-top: 4px; font-weight: 500; }
 
 .section { padding: 96px 48px; }
 .section-dark { background: #050510; }
 .section-light { background: #fff; color: #0f172a; }
-.section-inner { max-width: 1000px; margin: 0 auto; }
-.section-title {
-  font-size: 40px;
-  font-weight: 800;
-  letter-spacing: -0.02em;
-  line-height: 1.15;
-  margin-bottom: 16px;
-}
-.section-sub {
-  font-size: 18px;
-  line-height: 1.6;
-  color: rgba(255,255,255,0.5);
-  margin-bottom: 56px;
-  max-width: 600px;
-}
+.section-inner { max-width: 1100px; margin: 0 auto; }
+.section-eyebrow { font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: #4d6dff; margin-bottom: 12px; }
+.section-title { font-size: 40px; font-weight: 800; letter-spacing: -0.02em; line-height: 1.15; margin-bottom: 16px; }
+.section-sub { font-size: 18px; line-height: 1.6; color: rgba(255,255,255,0.5); margin-bottom: 56px; max-width: 640px; }
 .section-light .section-sub { color: #64748b; }
 
-.features-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
-}
-.feature-card {
-  background: rgba(255,255,255,0.04);
-  border: 1px solid rgba(255,255,255,0.08);
-  border-radius: 16px;
-  padding: 36px;
-  transition: border-color 0.2s;
-}
+.detections-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+.detection { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.07); border-radius: 14px; padding: 28px 28px 24px; transition: border-color 0.2s, transform 0.2s; }
+.detection:hover { border-color: rgba(77,109,255,0.35); transform: translateY(-2px); }
+.detection-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px; }
+.detection-type { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; padding: 4px 10px; border-radius: 100px; }
+.detection-type.critical { background: rgba(239,68,68,0.15); color: #f87171; }
+.detection-type.high { background: rgba(251,146,60,0.15); color: #fb923c; }
+.detection-type.medium { background: rgba(250,204,21,0.15); color: #fbbf24; }
+.detection-savings { font-size: 13px; font-weight: 700; color: #10b981; }
+.detection h3 { font-size: 17px; font-weight: 700; margin-bottom: 8px; color: #fff; }
+.detection p { font-size: 14px; line-height: 1.55; color: rgba(255,255,255,0.45); }
+.detection-meta { display: flex; gap: 8px; margin-top: 14px; flex-wrap: wrap; }
+.detection-tag { font-size: 11px; font-weight: 600; padding: 3px 9px; border-radius: 4px; background: rgba(77,109,255,0.1); color: rgba(77,109,255,0.8); }
+.detection-count { text-align: center; margin-top: 40px; padding-top: 32px; border-top: 1px solid rgba(255,255,255,0.06); }
+.detection-count p { font-size: 15px; color: rgba(255,255,255,0.4); }
+.detection-count span { color: #fff; font-weight: 700; }
+
+.features-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.feature-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 16px; padding: 32px; transition: border-color 0.2s; }
 .feature-card:hover { border-color: rgba(77, 109, 255, 0.3); }
 .feature-icon { font-size: 28px; margin-bottom: 16px; }
-.feature-card h3 { font-size: 20px; font-weight: 700; margin-bottom: 8px; }
-.feature-card p { font-size: 15px; line-height: 1.6; color: rgba(255,255,255,0.5); }
+.feature-card h3 { font-size: 18px; font-weight: 700; margin-bottom: 8px; }
+.feature-card p { font-size: 14px; line-height: 1.6; color: rgba(255,255,255,0.5); }
 
-.steps {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 32px;
-}
+.steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
 .step { text-align: center; padding: 40px 28px; }
-.step-num {
-  display: inline-flex;
-  width: 48px; height: 48px;
-  border-radius: 50%;
-  align-items: center;
-  justify-content: center;
-  background: #0000ee;
-  color: #fff;
-  font-size: 20px;
-  font-weight: 800;
-  margin-bottom: 20px;
-}
+.step-num { display: inline-flex; width: 48px; height: 48px; border-radius: 50%; align-items: center; justify-content: center; background: #0000ee; color: #fff; font-size: 20px; font-weight: 800; margin-bottom: 20px; }
 .step h3 { font-size: 20px; font-weight: 700; margin-bottom: 8px; color: #0f172a; }
 .step p { font-size: 15px; line-height: 1.6; color: #64748b; }
 
-.cta-section {
-  background: #0000ee;
-  padding: 80px 48px;
-  text-align: center;
-  position: relative;
-  overflow: hidden;
-}
-.cta-section::before {
-  content: '';
-  position: absolute;
-  width: 600px; height: 600px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
-  top: -200px; right: -100px;
-  pointer-events: none;
-}
-.cta-section h2 {
-  font-size: 44px;
-  font-weight: 800;
-  letter-spacing: -0.02em;
-  margin-bottom: 16px;
-  position: relative;
-  z-index: 1;
-}
-.cta-section p {
-  font-size: 18px;
-  opacity: 0.8;
-  margin-bottom: 32px;
-  position: relative;
-  z-index: 1;
-}
-.cta-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 16px 36px;
-  background: #fff;
-  color: #0000ee;
-  font-size: 17px;
-  font-weight: 700;
-  border-radius: 10px;
-  transition: all 0.2s;
-  position: relative;
-  z-index: 1;
-}
-.cta-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(0,0,0,0.3);
-}
+.cta-section { background: #0000ee; padding: 80px 48px; text-align: center; position: relative; overflow: hidden; }
+.cta-section::before { content: ''; position: absolute; width: 600px; height: 600px; border-radius: 50%; background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%); top: -200px; right: -100px; pointer-events: none; }
+.cta-section h2 { font-size: 44px; font-weight: 800; letter-spacing: -0.02em; margin-bottom: 16px; position: relative; z-index: 1; }
+.cta-section p { font-size: 18px; opacity: 0.8; margin-bottom: 32px; position: relative; z-index: 1; }
+.cta-btn { display: inline-flex; align-items: center; gap: 8px; padding: 16px 36px; background: #fff; color: #0000ee; font-size: 17px; font-weight: 700; border-radius: 10px; transition: all 0.2s; position: relative; z-index: 1; }
+.cta-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.3); }
 
 @media (max-width: 900px) {
   .hero { padding: 100px 24px 60px; min-height: auto; }
@@ -307,7 +101,7 @@ img { max-width: 100%; display: block; }
   .hero-content h1 { font-size: 40px; }
   .nav { padding: 20px 24px; }
   .proof-inner { gap: 32px; }
-  .features-grid { grid-template-columns: 1fr; }
+  .features-grid, .detections-grid { grid-template-columns: 1fr; }
   .steps { grid-template-columns: 1fr; }
   .section { padding: 64px 24px; }
   .section-title { font-size: 32px; }
@@ -332,11 +126,12 @@ img { max-width: 100%; display: block; }
     </a>
   </nav>
 
+  <!-- Hero -->
   <section class="hero">
     <div class="hero-inner">
       <div class="hero-content">
         <h1>You're overpaying for AWS. <span>We'll prove it.</span></h1>
-        <p class="hero-sub">300+ optimization types across 40+ services. Agentless. Read-only. We find waste other tools miss — in compute, K8s, databases, storage, networking, and more.</p>
+        <p class="hero-sub">300+ optimization types across 35+ services. Agentless. Read-only. Savings guaranteed or you pay nothing.</p>
         <div class="guarantee">
           <span class="guarantee-icon">🛡️</span>
           Zero-cost guarantee — you save or you don't pay
@@ -350,90 +145,196 @@ img { max-width: 100%; display: block; }
     </div>
   </section>
 
+  <!-- Proof Bar -->
   <section class="proof-bar">
     <div class="proof-inner">
-      <div class="proof-stat">
-        <div class="num">1,200%+</div>
-        <div class="label">Average customer ROI</div>
+      <div class="proof-stat"><div class="num">300+</div><div class="label">Optimization types</div></div>
+      <div class="proof-stat"><div class="num">35+</div><div class="label">AWS services covered</div></div>
+      <div class="proof-stat"><div class="num">$50M</div><div class="label">Saved across customers</div></div>
+      <div class="proof-stat"><div class="num">10 days</div><div class="label">Average time to ROI</div></div>
+    </div>
+  </section>
+
+  <!-- DeepWaste™ Detections -->
+  <section class="section section-dark">
+    <div class="section-inner">
+      <div class="section-eyebrow">DeepWaste™ Detection Engine</div>
+      <h2 class="section-title">A sample of waste only we detect</h2>
+      <p class="section-sub">Other tools check ~20 things. We check 300+. Here's what that difference looks like in your AWS account.</p>
+      <div class="detections-grid">
+
+        <div class="detection">
+          <div class="detection-header">
+            <span class="detection-type critical">Critical · EC2</span>
+            <span class="detection-savings">Save 30–60%</span>
+          </div>
+          <h3>Previous-gen instance families still in production</h3>
+          <p>m5.xlarge instances when m7g offers 40% better price-performance. We flag every instance eligible for family migration and validate compatibility with your AMI and workload type.</p>
+          <div class="detection-meta">
+            <span class="detection-tag">Compute</span>
+            <span class="detection-tag">Modernization</span>
+            <span class="detection-tag">Graviton</span>
+          </div>
+        </div>
+
+        <div class="detection">
+          <div class="detection-header">
+            <span class="detection-type critical">Critical · RDS</span>
+            <span class="detection-savings">Save 20–45%</span>
+          </div>
+          <h3>Over-provisioned database storage with low IOPS</h3>
+          <p>io2 volumes provisioned at 10,000 IOPS but peaking at 800. Or gp3 with unused provisioned throughput. We analyze 30-day IOPS patterns to recommend the exact storage config.</p>
+          <div class="detection-meta">
+            <span class="detection-tag">Database</span>
+            <span class="detection-tag">Storage</span>
+            <span class="detection-tag">Configuration</span>
+          </div>
+        </div>
+
+        <div class="detection">
+          <div class="detection-header">
+            <span class="detection-type high">High · VPC</span>
+            <span class="detection-savings">Save 15–40%</span>
+          </div>
+          <h3>Cross-AZ data transfer through NAT Gateway</h3>
+          <p>Services in us-east-1a routing through a NAT Gateway in us-east-1b — paying double for cross-AZ + NAT processing. We map traffic flows and recommend VPC endpoint or architecture changes.</p>
+          <div class="detection-meta">
+            <span class="detection-tag">Networking</span>
+            <span class="detection-tag">Architecture</span>
+            <span class="detection-tag">Data Transfer</span>
+          </div>
+        </div>
+
+        <div class="detection">
+          <div class="detection-header">
+            <span class="detection-type high">High · S3</span>
+            <span class="detection-savings">Save 30–70%</span>
+          </div>
+          <h3>S3 objects in wrong storage class</h3>
+          <p>TB of data in S3 Standard that hasn't been accessed in 90+ days. We analyze per-prefix access frequency and recommend Intelligent-Tiering, Glacier, or lifecycle policies — with exact cost impact.</p>
+          <div class="detection-meta">
+            <span class="detection-tag">Storage</span>
+            <span class="detection-tag">Lifecycle</span>
+            <span class="detection-tag">Tiering</span>
+          </div>
+        </div>
+
+        <div class="detection">
+          <div class="detection-header">
+            <span class="detection-type high">High · EKS</span>
+            <span class="detection-savings">Save 25–50%</span>
+          </div>
+          <h3>Agentless K8s pod over-provisioning</h3>
+          <p>Pods requesting 4x their actual P99 usage. We're the only tool that detects this without DaemonSets — via CloudWatch metrics and the K8s API, mapped to our context graph.</p>
+          <div class="detection-meta">
+            <span class="detection-tag">Kubernetes</span>
+            <span class="detection-tag">Agentless</span>
+            <span class="detection-tag">Rightsizing</span>
+          </div>
+        </div>
+
+        <div class="detection">
+          <div class="detection-header">
+            <span class="detection-type medium">Medium · CloudWatch</span>
+            <span class="detection-savings">Save 20–50%</span>
+          </div>
+          <h3>Excessive log retention and unused metric streams</h3>
+          <p>Log groups with infinite retention on debug-level logs. Custom metrics nobody queries. We identify observability waste — the invisible 10–15% of your AWS bill.</p>
+          <div class="detection-meta">
+            <span class="detection-tag">Monitoring</span>
+            <span class="detection-tag">Logging</span>
+            <span class="detection-tag">Configuration</span>
+          </div>
+        </div>
+
+        <div class="detection">
+          <div class="detection-header">
+            <span class="detection-type critical">Critical · DynamoDB</span>
+            <span class="detection-savings">Save 40–70%</span>
+          </div>
+          <h3>On-demand tables with predictable traffic patterns</h3>
+          <p>Tables paying on-demand pricing but with stable, predictable read/write patterns. Provisioned mode with auto-scaling would cost 60% less. We detect the pattern and model the savings.</p>
+          <div class="detection-meta">
+            <span class="detection-tag">NoSQL</span>
+            <span class="detection-tag">Capacity</span>
+            <span class="detection-tag">Pricing Model</span>
+          </div>
+        </div>
+
+        <div class="detection">
+          <div class="detection-header">
+            <span class="detection-type medium">Medium · EBS</span>
+            <span class="detection-savings">Save 15–40%</span>
+          </div>
+          <h3>Orphaned EBS volumes and snapshots</h3>
+          <p>Volumes detached for 30+ days. Snapshots of deleted instances. AMIs nobody uses. We correlate volume state with EC2 lifecycle to find storage waste that's invisible in the console.</p>
+          <div class="detection-meta">
+            <span class="detection-tag">Block Storage</span>
+            <span class="detection-tag">Unused Resources</span>
+          </div>
+        </div>
+
       </div>
-      <div class="proof-stat">
-        <div class="num">300+</div>
-        <div class="label">Optimization types</div>
-      </div>
-      <div class="proof-stat">
-        <div class="num">40+</div>
-        <div class="label">AWS services covered</div>
-      </div>
-      <div class="proof-stat">
-        <div class="num">0</div>
-        <div class="label">Agents to deploy</div>
+      <div class="detection-count">
+        <p>These are 8 of <span>300+ detection types across 35+ AWS services</span>. Our Cloud Cost Research Team ships ~10 new detections every week.</p>
       </div>
     </div>
   </section>
 
-  <section class="section section-dark">
+  <!-- Coverage -->
+  <section class="section" style="background:#08081a;">
     <div class="section-inner">
       <h2 class="section-title">We go deeper than anyone</h2>
-      <p class="section-sub">Other tools check 20 things. We check 300+. That's not a typo.</p>
+      <p class="section-sub">6 waste categories. 35+ services. Every detection validated against your real environment data.</p>
       <div class="features-grid">
         <div class="feature-card">
           <div class="feature-icon">⚡</div>
           <h3>Compute</h3>
-          <p>EC2 rightsizing, scheduling, family optimization, spot candidates, serverless migration paths.</p>
+          <p>EC2 rightsizing, family optimization, Graviton migration, scheduling, spot candidates, serverless migration.</p>
         </div>
         <div class="feature-card">
           <div class="feature-icon">☸️</div>
           <h3>Kubernetes</h3>
-          <p>Agentless EKS optimization. Pod-level visibility, node pool sizing, workload scheduling — no DaemonSets.</p>
+          <p>Agentless pod rightsizing, node pool optimization, bin-packing, HPA tuning — EKS, AKS, GKE.</p>
         </div>
         <div class="feature-card">
           <div class="feature-icon">🗄️</div>
           <h3>Databases</h3>
-          <p>RDS, Aurora, DynamoDB, ElastiCache. Instance rightsizing, storage optimization, replica efficiency.</p>
+          <p>RDS, Aurora, DynamoDB, ElastiCache — instance rightsizing, storage optimization, replica efficiency, connection pooling.</p>
         </div>
         <div class="feature-card">
           <div class="feature-icon">💾</div>
           <h3>Storage</h3>
-          <p>S3 lifecycle policies, EBS volume optimization, storage class recommendations based on access patterns.</p>
+          <p>S3 tiering, EBS volume optimization, lifecycle automation, orphaned data detection, compression analysis.</p>
         </div>
         <div class="feature-card">
           <div class="feature-icon">🌐</div>
           <h3>Networking</h3>
-          <p>VPC data transfer, NAT Gateway waste, cross-AZ traffic, CDN optimization, idle load balancers.</p>
+          <p>Cross-AZ optimization, NAT Gateway efficiency, VPC endpoints, CDN usage, data transfer analysis.</p>
         </div>
         <div class="feature-card">
           <div class="feature-icon">📊</div>
           <h3>Data & Analytics</h3>
-          <p>Redshift, EMR, Glue, Kinesis. Warehouse sizing, query performance, cluster right-sizing.</p>
+          <p>Redshift cluster optimization, EMR spot strategies, Glue DPU tuning, Kinesis shard analysis.</p>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- How it works -->
   <section class="section section-light">
     <div class="section-inner">
       <h2 class="section-title" style="color:#0f172a;">Live in 5 minutes. Savings in 24 hours.</h2>
       <p class="section-sub">No agents. No risk. No excuses.</p>
       <div class="steps">
-        <div class="step">
-          <div class="step-num">1</div>
-          <h3>Connect</h3>
-          <p>Read-only IAM role. Nothing installed. Nothing deployed. 5 minutes to connect.</p>
-        </div>
-        <div class="step">
-          <div class="step-num">2</div>
-          <h3>Detect</h3>
-          <p>DeepWaste™ scans 40+ services, correlates billing with operational metrics, finds what others miss.</p>
-        </div>
-        <div class="step">
-          <div class="step-num">3</div>
-          <h3>Save</h3>
-          <p>Actionable, validated recommendations with 1-click remediation. Average customer ROI: 1,200%+.</p>
-        </div>
+        <div class="step"><div class="step-num">1</div><h3>Connect</h3><p>Read-only IAM role. We ingest CloudWatch, CloudTrail, S3 Lens, and VPC Flow Logs. Zero write access.</p></div>
+        <div class="step"><div class="step-num">2</div><h3>Detect</h3><p>DeepWaste™ correlates billing + operational metrics across 35+ services to find waste nobody else sees.</p></div>
+        <div class="step"><div class="step-num">3</div><h3>Save</h3><p>Contextual recommendations with 1-click remediation, IaC patches, and workflow integration.</p></div>
       </div>
     </div>
   </section>
 
+  <!-- CTA -->
   <section class="cta-section">
     <h2>15 minutes. That's all we need.</h2>
     <p>We guarantee we'll find savings — or you pay nothing.</p>
@@ -448,12 +349,7 @@ img { max-width: 100%; display: block; }
       attempts++;
       if (window.hbspt && hbspt.forms) {
         clearInterval(_hsi);
-        hbspt.forms.create({
-          portalId: "44866363",
-          formId: "563f2a9d-b4b1-4822-9d50-2a787862934c",
-          region: "na1",
-          target: "#hs-form-aws"
-        });
+        hbspt.forms.create({ portalId: "44866363", formId: "563f2a9d-3497-4a90-8a8c-73da8b8f7de7", region: "na1", target: "#hs-form-aws" });
       }
       if (attempts > 150) clearInterval(_hsi);
     }, 100);
