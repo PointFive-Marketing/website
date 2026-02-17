@@ -1,28 +1,1980 @@
 (function() {
-  // Inject CSS
-  var style = document.createElement('style');
-  style.textContent = "\n#dw-mount{--blue:#0000EE;--blue-dark:#0000AA;--blue-light:#E8E8FF;--blue-glow:rgba(0,0,238,0.08);--green:#00E639;--green-dark:#00C030;--dark:#0A0A1A;--gray-900:#111127;--gray-700:#3A3A5C;--gray-500:#6B6B8D;--gray-300:#B4B4D0;--gray-100:#F0F0F8;--gray-50:#F8F8FC;--white:#FFFFFF;--radius-sm:6px;--radius-md:12px;--radius-lg:20px;--radius-xl:28px;}#dw-mount *{box-sizing:border-box;}#dw-mount{font-family:'DM Sans',-apple-system,BlinkMacSystemFont,sans-serif;color:var(--dark);background:var(--white);line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased;}.mono{font-family:'Space Mono',monospace;}.container{max-width:1200px;margin:0 auto;padding:0;}.hero{padding:60px 0 80px;position:relative;overflow:hidden;}.hero::before{content:'';position:absolute;top:-200px;right:-200px;width:800px;height:800px;background:radial-gradient(circle,rgba(0,0,238,0.04) 0%,transparent 70%);pointer-events:none;}.hero::after{content:'';position:absolute;bottom:-100px;left:-100px;width:500px;height:500px;background:radial-gradient(circle,rgba(0,230,57,0.03) 0%,transparent 70%);pointer-events:none;}.hero-badge{display:inline-flex;align-items:center;gap:8px;padding:6px 16px 6px 8px;background:var(--blue-light);border-radius:100px;font-size:13px;font-weight:600;color:var(--blue);margin-bottom:28px;animation:fadeInUp 0.6s ease both;}.hero-badge-dot{width:8px;height:8px;border-radius:50%;background:var(--green);animation:pulse-dot 2s ease-in-out infinite;}@keyframes pulse-dot{0%,100%{opacity:1;transform:scale(1);}50%{opacity:0.6;transform:scale(1.3);}}.hero h1{font-size:clamp(40px,5.5vw,72px);font-weight:700;line-height:1.08;color:var(--dark);margin-bottom:24px;letter-spacing:-0.03em;animation:fadeInUp 0.6s ease 0.1s both;}.hero h1 span{background:linear-gradient(135deg,var(--blue),#4444FF);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;}.hero-sub{font-size:19px;line-height:1.65;color:var(--gray-500);max-width:620px;margin-bottom:40px;font-weight:400;animation:fadeInUp 0.6s ease 0.2s both;}.hero-stats{display:flex;gap:48px;flex-wrap:wrap;animation:fadeInUp 0.6s ease 0.3s both;}.hero-stat{position:relative;}.hero-stat-num{font-family:'Space Mono',monospace;font-size:42px;font-weight:700;color:var(--blue);line-height:1;margin-bottom:4px;}.hero-stat-label{font-size:13px;color:var(--gray-500);font-weight:500;text-transform:uppercase;letter-spacing:0.08em;}@keyframes fadeInUp{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}.ticker-section{padding:40px 0;border-top:1px solid var(--gray-100);border-bottom:1px solid var(--gray-100);overflow:hidden;background:var(--gray-50);}.ticker-track{display:flex;gap:32px;animation:ticker 40s linear infinite;width:max-content;}.ticker-item{white-space:nowrap;font-family:'Space Mono',monospace;font-size:13px;color:var(--gray-300);text-transform:uppercase;letter-spacing:0.1em;display:flex;align-items:center;gap:12px;}.ticker-item::after{content:'→';color:var(--blue);opacity:0.3;}@keyframes ticker{0%{transform:translateX(0);}100%{transform:translateX(-50%);}}.section-label{font-family:'Space Mono',monospace;font-size:12px;text-transform:uppercase;letter-spacing:0.15em;color:var(--blue);margin-bottom:16px;font-weight:700;}.section-title{font-size:clamp(32px,4vw,48px);font-weight:700;line-height:1.12;letter-spacing:-0.02em;color:var(--dark);margin-bottom:16px;}.section-desc{font-size:17px;line-height:1.65;color:var(--gray-500);max-width:640px;}.pillars{padding:100px 0;}.pillars-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-top:56px;border-radius:var(--radius-lg);overflow:hidden;}.pillar{background:var(--gray-50);padding:44px 36px;position:relative;transition:all 0.35s ease;cursor:default;}.pillar:hover{background:var(--white);z-index:1;}.pillar-icon{width:56px;height:56px;border-radius:var(--radius-md);display:flex;align-items:center;justify-content:center;margin-bottom:24px;transition:transform 0.35s ease;}.pillar-icon svg{width:28px;height:28px;}.pillar:hover .pillar-icon{transform:scale(1.08);}.pillar-icon.green{background:rgba(0,230,57,0.12);}.pillar-icon.blue{background:rgba(0,0,238,0.08);}.pillar-icon.dark{background:rgba(10,10,26,0.06);}.pillar h3{font-size:22px;font-weight:700;margin-bottom:12px;color:var(--dark);letter-spacing:-0.01em;}.pillar p{font-size:15px;line-height:1.65;color:var(--gray-500);}.pillar-tag{display:inline-block;margin-top:20px;font-family:'Space Mono',monospace;font-size:11px;padding:5px 12px;border-radius:100px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;}.pillar-tag.green{background:rgba(0,230,57,0.12);color:#008a22;}.pillar-tag.blue{background:var(--blue-light);color:var(--blue);}.pillar-tag.dark{background:var(--dark);color:var(--white);}.showcase{padding:100px 0;background:var(--dark);color:var(--white);position:relative;overflow:hidden;}.showcase::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:radial-gradient(ellipse 600px 400px at 20% 30%,rgba(0,0,238,0.12) 0%,transparent 100%),radial-gradient(ellipse 500px 300px at 80% 70%,rgba(0,230,57,0.06) 0%,transparent 100%);pointer-events:none;}.showcase .section-label{color:var(--green);}.showcase .section-title{color:var(--white);}.showcase .section-desc{color:var(--gray-300);}.tabs{display:flex;gap:8px;margin-top:48px;margin-bottom:40px;flex-wrap:wrap;}.tab{padding:10px 20px;border-radius:100px;font-size:14px;font-weight:600;cursor:pointer;border:1px solid rgba(255,255,255,0.12);background:transparent;color:var(--gray-300);transition:all 0.25s ease;user-select:none;}.tab:hover{border-color:rgba(255,255,255,0.25);color:var(--white);}.tab.active{background:var(--blue);border-color:var(--blue);color:var(--white);}.opp-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(350px,1fr));gap:16px;}.opp-card{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:var(--radius-md);padding:28px;transition:all 0.3s ease;display:none;}.opp-card.visible{display:block;}.opp-card:hover{background:rgba(255,255,255,0.07);border-color:rgba(0,0,238,0.4);transform:translateY(-2px);}.opp-card-header{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;margin-bottom:14px;}.opp-card h4{font-size:16px;font-weight:600;color:var(--white);line-height:1.35;}.opp-provider{font-family:'Space Mono',monospace;font-size:10px;padding:3px 8px;border-radius:4px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;white-space:nowrap;flex-shrink:0;}.opp-provider.aws{background:rgba(255,153,0,0.15);color:#FF9900;}.opp-provider.azure{background:rgba(0,120,215,0.15);color:#4DB8FF;}.opp-provider.gcp{background:rgba(66,133,244,0.15);color:#82B1FF;}.opp-provider.k8s{background:rgba(50,109,230,0.15);color:#6C9CFF;}.opp-provider.snowflake{background:rgba(41,182,246,0.15);color:#29B6F6;}.opp-provider.multi{background:rgba(255,255,255,0.1);color:var(--gray-300);}.opp-card p{font-size:14px;line-height:1.6;color:var(--gray-300);margin-bottom:18px;}.opp-card-footer{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}.opp-tags{display:flex;gap:6px;flex-wrap:wrap;}.opp-tag{font-size:11px;padding:3px 10px;border-radius:100px;border:1px solid rgba(255,255,255,0.1);color:var(--gray-300);font-weight:500;}.opp-tag.highlight{border-color:var(--green);color:var(--green);}.opp-savings{font-family:'Space Mono',monospace;font-size:13px;font-weight:700;color:var(--green);}.callout{margin-top:48px;padding:32px 36px;background:linear-gradient(135deg,rgba(0,0,238,0.12),rgba(0,230,57,0.06));border:1px solid rgba(255,255,255,0.1);border-radius:var(--radius-lg);display:flex;align-items:center;gap:32px;flex-wrap:wrap;}.callout-icon{width:64px;height:64px;border-radius:50%;background:var(--blue);display:flex;align-items:center;justify-content:center;flex-shrink:0;}.callout-icon svg{width:32px;height:32px;}.callout-text{flex:1;min-width:200px;}.callout-text h4{font-size:18px;font-weight:700;color:var(--white);margin-bottom:4px;}.callout-text p{font-size:14px;color:var(--gray-300);margin:0;}.callout-stat{font-family:'Space Mono',monospace;font-size:36px;font-weight:700;color:var(--green);}#dw-mount .coverage{padding:100px 0;}#dw-mount .coverage-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px;margin-top:48px;}#dw-mount .coverage-item{padding:20px 24px;background:var(--gray-50);border-radius:var(--radius-md);border:1px solid transparent;transition:all 0.25s ease;display:flex;align-items:center;gap:14px;}#dw-mount .coverage-item:hover{border-color:var(--blue);background:var(--white);transform:translateY(-1px);box-shadow:0 4px 16px rgba(0,0,238,0.08);}#dw-mount .coverage-icon{width:40px;height:40px;border-radius:var(--radius-sm);display:flex;align-items:center;justify-content:center;flex-shrink:0;}#dw-mount .coverage-icon svg{width:20px;height:20px;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;}#dw-mount .coverage-icon.aws svg{stroke:#FF9900;}#dw-mount .coverage-icon.azure svg{stroke:#0078D4;}#dw-mount .coverage-icon.gcp svg{stroke:#34A853;}#dw-mount .coverage-icon.data svg{stroke:#5C6BC0;}#dw-mount .coverage-icon.k8s svg{stroke:#7C4DFF;}#dw-mount .coverage-icon.aws{background:#FFF3E0;}#dw-mount .coverage-icon.azure{background:#E3F2FD;}#dw-mount .coverage-icon.gcp{background:#E8F5E9;}#dw-mount .coverage-icon.data{background:#E8EAF6;}#dw-mount .coverage-icon.k8s{background:#EDE7F6;}#dw-mount .coverage-name{font-size:14px;font-weight:600;color:var(--dark);}#dw-mount .coverage-sub{font-size:12px;color:var(--gray-500);}.waste-types{padding:80px 0 100px;background:var(--gray-50);}.waste-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:16px;margin-top:48px;}.waste-card{background:var(--white);border-radius:var(--radius-md);padding:32px;border:1px solid var(--gray-100);transition:all 0.25s ease;}.waste-card:hover{border-color:var(--blue);box-shadow:0 4px 20px rgba(0,0,238,0.06);}.waste-card-icon{width:48px;height:48px;border-radius:var(--radius-sm);background:rgba(0,0,238,0.06);display:flex;align-items:center;justify-content:center;margin-bottom:16px;}.waste-card-icon svg{width:24px;height:24px;stroke:var(--blue);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;}.waste-card h4{font-size:17px;font-weight:700;color:var(--dark);margin-bottom:8px;}.waste-card p{font-size:14px;line-height:1.6;color:var(--gray-500);}.differentiators{padding:100px 0;}.diff-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:2px;margin-top:48px;border-radius:var(--radius-lg);overflow:hidden;}.diff-item{background:var(--gray-50);padding:44px 40px;transition:background 0.3s ease;}.diff-item:hover{background:var(--white);}.diff-num{font-family:'Space Mono',monospace;font-size:14px;font-weight:700;color:var(--blue);margin-bottom:16px;}.diff-item h4{font-size:20px;font-weight:700;margin-bottom:10px;color:var(--dark);}.diff-item p{font-size:15px;line-height:1.65;color:var(--gray-500);}.cta-section{padding:100px 0;background:var(--blue);text-align:center;position:relative;overflow:hidden;}.cta-section::before{content:'';position:absolute;top:-200px;left:50%;transform:translateX(-50%);width:800px;height:800px;background:radial-gradient(circle,rgba(255,255,255,0.08) 0%,transparent 60%);pointer-events:none;}.cta-section h2{font-size:clamp(32px,4vw,52px);font-weight:700;color:var(--white);line-height:1.15;letter-spacing:-0.02em;margin-bottom:16px;}.cta-section p{font-size:18px;color:rgba(255,255,255,0.7);margin-bottom:36px;max-width:520px;margin-left:auto;margin-right:auto;}.cta-btn{display:inline-flex;align-items:center;gap:10px;padding:16px 36px;background:var(--white);color:var(--blue);text-decoration:none;font-size:16px;font-weight:700;border-radius:100px;transition:all 0.25s ease;}.cta-btn:hover{transform:translateY(-2px);box-shadow:0 12px 32px rgba(0,0,0,0.2);}.cta-btn svg{width:18px;height:18px;transition:transform 0.25s ease;}.cta-btn:hover svg{transform:translateX(4px);}#dw-mount footer{padding:40px 0;border-top:1px solid var(--gray-100);text-align:center;}#dw-mount footer p{font-size:13px;color:var(--gray-500);}.hub-link a:hover{background:rgba(255,255,255,0.14);border-color:rgba(255,255,255,0.3);transform:translateY(-1px);}@media (max-width:900px){.pillars-grid{grid-template-columns:1fr;}.diff-grid{grid-template-columns:1fr;}.hero-stats{gap:32px;}.callout{flex-direction:column;text-align:center;}.opp-grid{grid-template-columns:1fr;}}@media (max-width:600px){.container{padding:0;}.hero{padding:40px 0 40px;}.hero-stat-num{font-size:32px;}.tabs{gap:6px;}.tab{padding:8px 14px;font-size:13px;}}#dw-mount .coverage-cat{margin-top:56px;padding-top:0;}#dw-mount .coverage-cat:first-child{margin-top:0;}#dw-mount .coverage-cat-header{display:flex !important;align-items:center;gap:12px;margin-bottom:20px;padding-bottom:14px;border-bottom:2px solid var(--blue);opacity:1 !important;visibility:visible !important;}#dw-mount .coverage-cat-icon{width:36px;height:36px;border-radius:var(--radius-sm);display:flex !important;align-items:center;justify-content:center;flex-shrink:0;}#dw-mount .coverage-cat-icon svg{width:20px;height:20px;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;}#dw-mount .coverage-cat-icon.blue{background:var(--blue-light);}#dw-mount .coverage-cat-icon.blue svg{stroke:var(--blue);}#dw-mount .coverage-cat-name{font-size:20px;font-weight:700;color:var(--dark);letter-spacing:-0.01em;}.reveal{opacity:1;transform:none;}.reveal.visible{opacity:1;transform:translateY(0);}";
-  document.head.appendChild(style);
-
-  // Inject Google Fonts
-  var link = document.createElement('link');
-  link.rel = 'stylesheet';
-  link.href = 'https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap';
-  document.head.appendChild(link);
-
-  // Wait for DOM
-  function init() {
-    var mount = document.getElementById('dw-mount');
-    if (!mount) return;
-    mount.innerHTML = "<!-- ── Hero ── --><section class=\"hero\"><div class=\"container\"><div class=\"hero-badge\"><span class=\"hero-badge-dot\"></span> Continuously expanding — 10 new detections weekly </div><h1>400+ ways to<br><span>cut your cloud bill.</span></h1><p class=\"hero-sub\">PointFive's DeepWaste™ Detection Engine finds cloud waste that no other tool can — from quick wins to deep architectural inefficiencies — across AWS, Azure, GCP, OCI, Snowflake, Databricks, Kubernetes, and AI platforms.</p><div class=\"hero-stats\"><div class=\"hero-stat\"><div class=\"hero-stat-num\">400+</div><div class=\"hero-stat-label\">Optimization Types</div></div><div class=\"hero-stat\"><div class=\"hero-stat-num\">12+</div><div class=\"hero-stat-label\">Providers</div></div><div class=\"hero-stat\"><div class=\"hero-stat-num\">85+</div><div class=\"hero-stat-label\">Services Covered</div></div><div class=\"hero-stat\"><div class=\"hero-stat-num\">6</div><div class=\"hero-stat-label\">Waste Categories</div></div></div></div></section><!-- ── Ticker ── --><div class=\"ticker-section\"><div class=\"ticker-track\"><span class=\"ticker-item\">EC2 Rightsizing</span><span class=\"ticker-item\">NAT Gateway Optimization</span><span class=\"ticker-item\">K8s Workload Efficiency</span><span class=\"ticker-item\">RDS Snapshot Lifecycle</span><span class=\"ticker-item\">EBS Volume Optimization</span><span class=\"ticker-item\">Azure Disk Types</span><span class=\"ticker-item\">S3 Storage Classes</span><span class=\"ticker-item\">MSK Cluster Optimization</span><span class=\"ticker-item\">OpenSearch Serverless Migration</span><span class=\"ticker-item\">GCP Logging Architecture</span><span class=\"ticker-item\">Snowflake Warehouse Tuning</span><span class=\"ticker-item\">ECS Fargate Rightsizing</span><span class=\"ticker-item\">CloudTrail Deduplication</span><span class=\"ticker-item\">Azure SQL DTU Optimization</span><span class=\"ticker-item\">Lambda Memory Allocation</span><span class=\"ticker-item\">DynamoDB Capacity Modes</span><!-- Duplicate for seamless loop --><span class=\"ticker-item\">EC2 Rightsizing</span><span class=\"ticker-item\">NAT Gateway Optimization</span><span class=\"ticker-item\">K8s Workload Efficiency</span><span class=\"ticker-item\">RDS Snapshot Lifecycle</span><span class=\"ticker-item\">EBS Volume Optimization</span><span class=\"ticker-item\">Azure Disk Types</span><span class=\"ticker-item\">S3 Storage Classes</span><span class=\"ticker-item\">MSK Cluster Optimization</span><span class=\"ticker-item\">OpenSearch Serverless Migration</span><span class=\"ticker-item\">GCP Logging Architecture</span><span class=\"ticker-item\">Snowflake Warehouse Tuning</span><span class=\"ticker-item\">ECS Fargate Rightsizing</span><span class=\"ticker-item\">CloudTrail Deduplication</span><span class=\"ticker-item\">Azure SQL DTU Optimization</span><span class=\"ticker-item\">Lambda Memory Allocation</span><span class=\"ticker-item\">DynamoDB Capacity Modes</span></div></div><!-- ── Three Pillars ── --><section class=\"pillars\"><div class=\"container\"><div class=\"reveal\"><div class=\"section-label\">What DeepWaste™ Finds</div><div class=\"section-title\">Three kinds of waste.<br>One engine finds them all.</div><p class=\"section-desc\">Our Cloud Cost Research Team ships ~10 new detections every week, organized into three strategic categories that together cover your entire optimization surface.</p></div><div class=\"pillars-grid reveal\"><div class=\"pillar\"><div class=\"pillar-icon green\"><svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"#00E639\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><line x1=\"12\" y1=\"1\" x2=\"12\" y2=\"23\"/><path d=\"M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6\"/></svg></div><h3>Quick Wins,<br>Massive Returns</h3><p>High-impact savings with minimal engineering effort. Schedule idle instances, deploy VPC endpoints, enable lifecycle policies — and start saving on day one. Example customer saved $600K by deploying a single S3 Gateway Endpoint.</p><span class=\"pillar-tag green\">Fastest ROI</span></div><div class=\"pillar\"><div class=\"pillar-icon blue\"><svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"#0000EE\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><circle cx=\"11\" cy=\"11\" r=\"8\"/><line x1=\"21\" y1=\"21\" x2=\"16.65\" y2=\"16.65\"/><line x1=\"11\" y1=\"8\" x2=\"11\" y2=\"14\"/><line x1=\"8\" y1=\"11\" x2=\"14\" y2=\"11\"/></svg></div><h3>Deep Waste<br>Nobody Else Detects</h3><p>Architectural inefficiencies invisible to other tools. We use VPC Flow Logs, Route53 queries, snapshot side-scanning, and virtual cost allocation to expose waste your cloud provider doesn't surface.</p><span class=\"pillar-tag blue\">Only PointFive</span></div><div class=\"pillar\"><div class=\"pillar-icon dark\"><svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"#0A0A1A\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><line x1=\"18\" y1=\"20\" x2=\"18\" y2=\"10\"/><line x1=\"12\" y1=\"20\" x2=\"12\" y2=\"4\"/><line x1=\"6\" y1=\"20\" x2=\"6\" y2=\"14\"/></svg></div><h3>Most Common<br>Across Every Stack</h3><p>The patterns we see in every environment — idle resources, outdated instance generations, non-production overprovisioning, and missing storage lifecycle policies. Consistent 20–40% savings potential.</p><span class=\"pillar-tag dark\">Universal</span></div></div></div></section><!-- ── Opportunities Showcase ── --><section class=\"showcase\" id=\"opportunities\"><div class=\"container\"><div class=\"reveal\"><div class=\"section-label\">Opportunity Catalog</div><div class=\"section-title\">Real optimizations.<br>Real savings.</div><p class=\"section-desc\">A sample of the 400+ distinct optimizations our DeepWaste™ engine detects — each backed by usage patterns, configuration analysis, and validated remediation playbooks.</p></div><div class=\"tabs reveal\" id=\"tabs\"><button class=\"tab active\" data-filter=\"all\">All</button><button class=\"tab\" data-filter=\"quick\">Quick Wins</button><button class=\"tab\" data-filter=\"deep\">Deep Waste</button><button class=\"tab\" data-filter=\"common\">Most Common</button><button class=\"tab\" data-filter=\"aws\">AWS</button><button class=\"tab\" data-filter=\"azure\">Azure</button><button class=\"tab\" data-filter=\"gcp\">GCP</button><button class=\"tab\" data-filter=\"k8s\">Kubernetes</button></div><div class=\"opp-grid\" id=\"opp-grid\"><!-- Quick Wins --><div class=\"opp-card visible\" data-cats=\"quick,aws\"><div class=\"opp-card-header\"><h4>Expensive VPC NAT Gateway Deployment</h4><span class=\"opp-provider aws\">AWS</span></div><p>Detects workloads routing massive data through NAT Gateways when free alternatives like Gateway Endpoints exist. A single endpoint deployment can eliminate hundreds of thousands in annual data processing fees.</p><div class=\"opp-card-footer\"><div class=\"opp-tags\"><span class=\"opp-tag highlight\">Easy Fix</span><span class=\"opp-tag\">Networking</span><span class=\"opp-tag\">Zero Downtime</span></div><span class=\"opp-savings\">$800K+ saved</span></div></div><div class=\"opp-card visible\" data-cats=\"quick,aws\"><div class=\"opp-card-header\"><h4>Schedulable EC2 Instances</h4><span class=\"opp-provider aws\">AWS</span></div><p>Identifies instances with low off-hours activity that can be automatically started and stopped on a schedule. Eliminates waste from resources running 24/7 when only needed during business hours.</p><div class=\"opp-card-footer\"><div class=\"opp-tags\"><span class=\"opp-tag highlight\">Automated</span><span class=\"opp-tag\">Compute</span></div><span class=\"opp-savings\">$820K+ saved</span></div></div><div class=\"opp-card visible\" data-cats=\"quick,aws\"><div class=\"opp-card-header\"><h4>Serverless-Ready OpenSearch Domains</h4><span class=\"opp-provider aws\">AWS</span></div><p>Identifies low-usage provisioned OpenSearch domains that are candidates for serverless migration — eliminating fixed instance costs for intermittent workloads.</p><div class=\"opp-card-footer\"><div class=\"opp-tags\"><span class=\"opp-tag highlight\">Quick Migration</span><span class=\"opp-tag\">Search</span></div><span class=\"opp-savings\">$390K+ saved</span></div></div><div class=\"opp-card visible\" data-cats=\"quick,azure\"><div class=\"opp-card-header\"><h4>Suboptimal Azure Disk Types</h4><span class=\"opp-provider azure\">Azure</span></div><p>Universal detection across all Azure managed disk types — Premium SSD, Standard SSD, and Standard HDD — identifying disks that can be downtierred based on actual IOPS and throughput patterns.</p><div class=\"opp-card-footer\"><div class=\"opp-tags\"><span class=\"opp-tag highlight\">High Impact</span><span class=\"opp-tag\">Storage</span></div><span class=\"opp-savings\">$630K+ saved</span></div></div><!-- Deep Waste --><div class=\"opp-card visible\" data-cats=\"deep,aws\"><div class=\"opp-card-header\"><h4>S3 Traffic Traversing NAT Gateway (17-Detection Suite)</h4><span class=\"opp-provider aws\">AWS</span></div><p>Uses VPC Flow Logs and Route53 Query Logging to identify exactly which services route traffic through expensive NAT Gateways. Covers S3, DynamoDB, SQS, SNS, Lambda, ECR, CloudWatch, and 10 more services. Example customer saved $600K from a single gateway.</p><div class=\"opp-card-footer\"><div class=\"opp-tags\"><span class=\"opp-tag highlight\">Only PointFive</span><span class=\"opp-tag\">Networking</span></div><span class=\"opp-savings\">$600K+ example</span></div></div><div class=\"opp-card visible\" data-cats=\"deep,aws\"><div class=\"opp-card-header\"><h4>Duplicate CloudTrail Management Events</h4><span class=\"opp-provider aws\">AWS</span></div><p>Detects when multiple CloudTrail trails log the same management events beyond the free tier. Uses virtual cost allocation to individual trails — a breakdown AWS doesn't expose natively.</p><div class=\"opp-card-footer\"><div class=\"opp-tags\"><span class=\"opp-tag highlight\">Hidden Cost</span><span class=\"opp-tag\">Observability</span></div><span class=\"opp-savings\">$147K+ saved</span></div></div><div class=\"opp-card visible\" data-cats=\"deep,aws\"><div class=\"opp-card-header\"><h4>Overprovisioned EBS via Snapshot Side-Scanning</h4><span class=\"opp-provider aws\">AWS</span></div><p>Analyzes EBS snapshots to detect actual disk utilization without requiring agents or write access. Identifies volumes provisioned far beyond what the filesystem actually uses — waste invisible to standard monitoring.</p><div class=\"opp-card-footer\"><div class=\"opp-tags\"><span class=\"opp-tag highlight\">Side-Scanning</span><span class=\"opp-tag\">Storage</span></div><span class=\"opp-savings\">$1.5M+ estimated</span></div></div><div class=\"opp-card visible\" data-cats=\"deep,gcp\"><div class=\"opp-card-header\"><h4>Suboptimal Cloud Logging Bucket Architecture</h4><span class=\"opp-provider gcp\">GCP</span></div><p>First architectural detection in GCP. Identifies when logs are stored in expensive native Cloud Logging storage instead of being exported to cost-effective Google Cloud Storage buckets — a common but hidden design flaw.</p><div class=\"opp-card-footer\"><div class=\"opp-tags\"><span class=\"opp-tag highlight\">Architecture</span><span class=\"opp-tag\">Logging</span></div></div></div><div class=\"opp-card visible\" data-cats=\"deep,aws\"><div class=\"opp-card-header\"><h4>RDS Snapshot Lifecycle Suite (6 Detections)</h4><span class=\"opp-provider aws\">AWS</span></div><p>DeepWaste™ breaks down RDS snapshot costs to individual ARNs — something AWS doesn't expose. Covers orphaned snapshots, excessive retention, and non-production over-protection. RDS snapshots are 2–5% of total AWS costs.</p><div class=\"opp-card-footer\"><div class=\"opp-tags\"><span class=\"opp-tag highlight\">Cost Attribution</span><span class=\"opp-tag\">Database</span></div><span class=\"opp-savings\">$240K+ saved</span></div></div><div class=\"opp-card visible\" data-cats=\"deep,aws\"><div class=\"opp-card-header\"><h4>Abandoned Incomplete Multipart S3 Uploads</h4><span class=\"opp-provider aws\">AWS</span></div><p>Uncovers hidden storage costs from incomplete multipart uploads that don't appear in standard S3 listings or the AWS console — phantom objects silently accumulating charges.</p><div class=\"opp-card-footer\"><div class=\"opp-tags\"><span class=\"opp-tag highlight\">Invisible Waste</span><span class=\"opp-tag\">Storage</span></div></div></div><!-- Most Common --><div class=\"opp-card visible\" data-cats=\"common,aws,azure,gcp\"><div class=\"opp-card-header\"><h4>Underutilized Compute Instances</h4><span class=\"opp-provider multi\">Multi-Cloud</span></div><p>Over-provisioned EC2 instances, Azure VMs, and GCE machines operating consistently below capacity. Rightsizing recommendations across all instance families with performance-safe guardrails.</p><div class=\"opp-card-footer\"><div class=\"opp-tags\"><span class=\"opp-tag\">Compute</span><span class=\"opp-tag\">AWS</span><span class=\"opp-tag\">Azure</span><span class=\"opp-tag\">GCP</span></div><span class=\"opp-savings\">20–40% savings</span></div></div><div class=\"opp-card visible\" data-cats=\"common,aws,azure,gcp\"><div class=\"opp-card-header\"><h4>Inactive & Orphaned Resources</h4><span class=\"opp-provider multi\">Multi-Cloud</span></div><p>Complete \"inactivity track\" across ElastiCache, Kinesis, OpenSearch, RDS, Azure SQL, and more — resources incurring charges with zero or near-zero traffic. The simplest wins in any environment.</p><div class=\"opp-card-footer\"><div class=\"opp-tags\"><span class=\"opp-tag\">All Services</span><span class=\"opp-tag highlight\">Easy Win</span></div></div></div><div class=\"opp-card visible\" data-cats=\"common,aws,azure,gcp\"><div class=\"opp-card-header\"><h4>Non-Production Overprovisioning</h4><span class=\"opp-provider multi\">Multi-Cloud</span></div><p>Multi-AZ deployments in dev/staging, premium storage tiers for test data, production-grade security features on non-production workloads. Savings without touching production.</p><div class=\"opp-card-footer\"><div class=\"opp-tags\"><span class=\"opp-tag\">Non-Prod</span><span class=\"opp-tag highlight\">Zero Risk</span></div></div></div><div class=\"opp-card visible\" data-cats=\"common,aws,azure,gcp\"><div class=\"opp-card-header\"><h4>Outdated Instance Generations</h4><span class=\"opp-provider multi\">Multi-Cloud</span></div><p>Previous-generation compute, database, and storage instances where newer generations offer better performance at lower cost. A migration that pays for itself immediately.</p><div class=\"opp-card-footer\"><div class=\"opp-tags\"><span class=\"opp-tag\">Modernization</span><span class=\"opp-tag\">All Providers</span></div><span class=\"opp-savings\">20–40% savings</span></div></div><div class=\"opp-card visible\" data-cats=\"common,aws\"><div class=\"opp-card-header\"><h4>S3 Object Versions Without Lifecycle Policy</h4><span class=\"opp-provider aws\">AWS</span></div><p>Detects versioned S3 buckets where old object versions accumulate indefinitely without expiration rules — a hidden storage cost that grows silently over time.</p><div class=\"opp-card-footer\"><div class=\"opp-tags\"><span class=\"opp-tag\">Storage</span><span class=\"opp-tag\">Lifecycle</span></div><span class=\"opp-savings\">$145K+ saved</span></div></div><!-- K8s --><div class=\"opp-card visible\" data-cats=\"common,k8s\"><div class=\"opp-card-header\"><h4>Inactive & Underutilized K8s Workloads</h4><span class=\"opp-provider k8s\">K8s</span></div><p>Agentless detection across Deployments, StatefulSets, DaemonSets, ReplicaSets, and CronJobs — identifying workloads requesting resources far beyond actual utilization. Covers EKS, AKS, and GKE.</p><div class=\"opp-card-footer\"><div class=\"opp-tags\"><span class=\"opp-tag highlight\">Agentless</span><span class=\"opp-tag\">Provider-Agnostic</span></div><span class=\"opp-savings\">15–70% of K8s spend</span></div></div><div class=\"opp-card visible\" data-cats=\"deep,k8s\"><div class=\"opp-card-header\"><h4>Excessive DaemonSet Overhead</h4><span class=\"opp-provider k8s\">K8s</span></div><p>Detects when node sizes are too small relative to the fixed overhead of DaemonSets running on every node — meaning a disproportionate share of each node's capacity goes to system workloads rather than application pods.</p><div class=\"opp-card-footer\"><div class=\"opp-tags\"><span class=\"opp-tag highlight\">Architecture</span><span class=\"opp-tag\">Node Sizing</span></div></div></div><!-- MSK --><div class=\"opp-card visible\" data-cats=\"deep,aws\"><div class=\"opp-card-header\"><h4>MSK Cluster Optimization Suite (9 Detections)</h4><span class=\"opp-provider aws\">AWS</span></div><p>Comprehensive Kafka coverage: inactive clusters, underutilization, Express broker migration, compression optimization, client placement, storage configuration, and monitoring levels. From $18K to $300K in detected savings in a single month.</p><div class=\"opp-card-footer\"><div class=\"opp-tags\"><span class=\"opp-tag highlight\">Full Coverage</span><span class=\"opp-tag\">Streaming</span></div><span class=\"opp-savings\">$300K+ saved</span></div></div><!-- Azure OpenAI --><div class=\"opp-card visible\" data-cats=\"deep,azure\"><div class=\"opp-card-header\"><h4>Azure OpenAI Model Optimization</h4><span class=\"opp-provider azure\">Azure</span></div><p>First AI-native service coverage: detects when provisioned throughput units are underutilized or when workloads can be served by more cost-effective model versions without quality degradation.</p><div class=\"opp-card-footer\"><div class=\"opp-tags\"><span class=\"opp-tag highlight\">AI Costs</span><span class=\"opp-tag\">Cognitive Services</span></div></div></div><!-- Snowflake --><div class=\"opp-card visible\" data-cats=\"quick,snowflake\"><div class=\"opp-card-header\"><h4>Snowflake Warehouse Auto-Suspend</h4><span class=\"opp-provider snowflake\">Snowflake</span></div><p>Identifies virtual warehouses that remain active well beyond query completion — burning credits during idle periods. First PaaS optimization with more warehouse, storage, and query detections coming.</p><div class=\"opp-card-footer\"><div class=\"opp-tags\"><span class=\"opp-tag highlight\">New</span><span class=\"opp-tag\">Data Warehouse</span></div></div></div><!-- ECS --><div class=\"opp-card visible\" data-cats=\"quick,aws\"><div class=\"opp-card-header\"><h4>ECS Fargate CPU & Memory Overprovisioning</h4><span class=\"opp-provider aws\">AWS</span></div><p>Unified detection for Fargate tasks with CPU and memory allocations far exceeding actual peak usage — with consolidated rightsizing recommendations that respect Fargate's allowed configurations.</p><div class=\"opp-card-footer\"><div class=\"opp-tags\"><span class=\"opp-tag\">Containers</span><span class=\"opp-tag\">Serverless</span></div><span class=\"opp-savings\">$380K+ saved</span></div></div><!-- CloudWatch --><div class=\"opp-card visible\" data-cats=\"quick,aws\"><div class=\"opp-card-header\"><h4>CloudWatch Logs Infrequent Access</h4><span class=\"opp-provider aws\">AWS</span></div><p>Identifies log groups with low query frequency that can be moved to Infrequent Access class — same retention, 50% lower ingestion cost, with no operational impact.</p><div class=\"opp-card-footer\"><div class=\"opp-tags\"><span class=\"opp-tag highlight\">50% Savings</span><span class=\"opp-tag\">Observability</span></div><span class=\"opp-savings\">$184K+ saved</span></div></div><!-- GCP Disks --><div class=\"opp-card visible\" data-cats=\"common,gcp\"><div class=\"opp-card-header\"><h4>GCP Persistent Disk Optimization</h4><span class=\"opp-provider gcp\">GCP</span></div><p>Detects pd-ssd disks that can be migrated to pd-balanced based on actual IOPS patterns, plus identification of unused persistent disks across all GCE instances.</p><div class=\"opp-card-footer\"><div class=\"opp-tags\"><span class=\"opp-tag\">Storage</span><span class=\"opp-tag\">Compute</span></div><span class=\"opp-savings\">42% disk savings</span></div></div><!-- DynamoDB --><div class=\"opp-card visible\" data-cats=\"deep,aws\"><div class=\"opp-card-header\"><h4>DynamoDB Capacity Mode Mismatch</h4><span class=\"opp-provider aws\">AWS</span></div><p>Bi-directional detection: identifies tables that should switch from provisioned to on-demand AND tables mistakenly on on-demand that should move back. Example customer found a single table costing $105K/year after an accidental migration.</p><div class=\"opp-card-footer\"><div class=\"opp-tags\"><span class=\"opp-tag highlight\">Bi-Directional</span><span class=\"opp-tag\">NoSQL</span></div><span class=\"opp-savings\">$105K+ example</span></div></div></div><!-- Callout --><div class=\"callout reveal\"><div class=\"callout-icon\"><svg width=\"32\" height=\"32\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"#00E639\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><polyline points=\"23 6 13.5 15.5 8.5 10.5 1 18\"/><polyline points=\"17 6 23 6 23 12\"/></svg></div><div class=\"callout-text\"><h4>Real customer impact</h4><p>Example customer achieved full ROI in 10 days. Another saved $600K from a single NAT Gateway endpoint deployment. Our average customer ROI exceeds 1,000%.</p></div><div class=\"callout-stat\">1000%+<br><span style=\"font-size:13px;color:var(--gray-300);font-weight:500\">avg ROI</span></div></div><div class=\"hub-link\" style=\"margin-top:40px;text-align:center;\"><a href=\"https://hub.pointfive.co\" target=\"_blank\" style=\"display:inline-flex;align-items:center;gap:10px;padding:14px 28px;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);border-radius:100px;color:var(--white);text-decoration:none;font-size:15px;font-weight:600;transition:all 0.25s ease;\"><svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><circle cx=\"11\" cy=\"11\" r=\"8\"/><line x1=\"21\" y1=\"21\" x2=\"16.65\" y2=\"16.65\"/></svg>Explore the full catalog on our Cloud Efficiency Hub →</a><p style=\"margin-top:12px;font-size:13px;color:var(--gray-300);font-weight:400;\">Open-source repository of 400+ cloud optimization detections and remediation playbooks</p></div></div></section><!-- ── Waste Categories ── --><section class=\"waste-types\"><div class=\"container\"><div class=\"reveal\"><div class=\"section-label\">Detection Categories</div><div class=\"section-title\">Six types of waste.<br>One continuous scan.</div><p class=\"section-desc\">DeepWaste™ categorizes every finding so teams can prioritize by effort, risk, and impact.</p></div><div class=\"waste-grid reveal\"><div class=\"waste-card\"><div class=\"waste-card-icon\"><svg viewBox=\"0 0 24 24\"><circle cx=\"12\" cy=\"12\" r=\"10\"/><line x1=\"15\" y1=\"9\" x2=\"9\" y2=\"15\"/><line x1=\"9\" y1=\"9\" x2=\"15\" y2=\"15\"/></svg></div><h4>Unused Resources</h4><p>Orphaned, inactive, and abandoned resources still incurring charges — load balancers with no targets, unattached volumes, idle clusters.</p></div><div class=\"waste-card\"><div class=\"waste-card-icon\"><svg viewBox=\"0 0 24 24\"><polyline points=\"23 6 13.5 15.5 8.5 10.5 1 18\"/><polyline points=\"17 6 23 6 23 12\"/><line x1=\"1\" y1=\"18\" x2=\"23\" y2=\"18\" stroke-dasharray=\"2 3\" opacity=\"0.4\"/></svg></div><h4>Underutilization</h4><p>Over-provisioned resources consistently operating below capacity — instances, databases, and clusters sized for peak that never comes.</p></div><div class=\"waste-card\"><div class=\"waste-card-icon\"><svg viewBox=\"0 0 24 24\"><rect x=\"3\" y=\"3\" width=\"7\" height=\"7\"/><rect x=\"14\" y=\"3\" width=\"7\" height=\"7\"/><rect x=\"3\" y=\"14\" width=\"7\" height=\"7\"/><rect x=\"14\" y=\"14\" width=\"7\" height=\"7\"/></svg></div><h4>Architecture Issues</h4><p>Suboptimal designs causing unnecessary cost — NAT Gateway routing, logging architectures, redundancy in non-production environments.</p></div><div class=\"waste-card\"><div class=\"waste-card-icon\"><svg viewBox=\"0 0 24 24\"><circle cx=\"12\" cy=\"12\" r=\"3\"/><path d=\"M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z\"/></svg></div><h4>Configuration Gaps</h4><p>Misaligned settings versus real usage — storage tiers, disk types, capacity modes, and retention policies that don't match actual workload patterns.</p></div><div class=\"waste-card\"><div class=\"waste-card-icon\"><svg viewBox=\"0 0 24 24\"><polyline points=\"1 4 1 10 7 10\"/><polyline points=\"23 20 23 14 17 14\"/><path d=\"M20.49 9A9 9 0 005.64 5.64L1 10m22 4l-4.64 4.36A9 9 0 013.51 15\"/></svg></div><h4>Modernization</h4><p>Migration to newer or more cost-effective alternatives — current-gen instances, serverless options, and managed service upgrades.</p></div><div class=\"waste-card\"><div class=\"waste-card-icon\"><svg viewBox=\"0 0 24 24\"><rect x=\"1\" y=\"4\" width=\"22\" height=\"16\" rx=\"2\" ry=\"2\"/><line x1=\"1\" y1=\"10\" x2=\"23\" y2=\"10\"/></svg></div><h4>Commitment Optimization</h4><p>Pricing model and reservation optimization — Reserved Instances, Savings Plans, committed use discounts across all providers and services.</p></div></div></div></section><!-- ── Coverage ── --><section class=\"coverage\"><div class=\"container\"><div class=\"reveal\"><div class=\"section-label\">Platform Coverage</div><div class=\"section-title\">85+ services.<br>Deep analysis on every one.</div><p class=\"section-desc\">Not just visibility — DeepWaste™ analyzes usage patterns, access frequencies, and workload characteristics across 90+ services organized by infrastructure domain.</p></div><div class=\"coverage-cat\"><div class=\"coverage-cat-header\"><div class=\"coverage-cat-icon blue\"><svg viewBox=\"0 0 24 24\"><rect x=\"4\" y=\"4\" width=\"16\" height=\"16\" rx=\"2\"/><line x1=\"9\" y1=\"9\" x2=\"15\" y2=\"15\"/><line x1=\"15\" y1=\"9\" x2=\"9\" y2=\"15\"/></svg></div><div class=\"coverage-cat-name\">Compute</div></div><div class=\"coverage-grid\"><div class=\"coverage-item\"><div class=\"coverage-icon aws\"><svg viewBox=\"0 0 24 24\"><rect x=\"4\" y=\"4\" width=\"16\" height=\"16\" rx=\"2\"/><line x1=\"9\" y1=\"9\" x2=\"15\" y2=\"15\"/><line x1=\"15\" y1=\"9\" x2=\"9\" y2=\"15\"/></svg></div><div><div class=\"coverage-name\">Amazon EC2</div><div class=\"coverage-sub\">AWS</div></div></div><div class=\"coverage-item\"><div class=\"coverage-icon azure\"><svg viewBox=\"0 0 24 24\"><rect x=\"4\" y=\"4\" width=\"16\" height=\"16\" rx=\"2\"/><line x1=\"9\" y1=\"9\" x2=\"15\" y2=\"15\"/><line x1=\"15\" y1=\"9\" x2=\"9\" y2=\"15\"/></svg></div><div><div class=\"coverage-name\">Azure VMs</div><div class=\"coverage-sub\">Azure</div></div></div><div class=\"coverage-item\"><div class=\"coverage-icon gcp\"><svg viewBox=\"0 0 24 24\"><rect x=\"4\" y=\"4\" width=\"16\" height=\"16\" rx=\"2\"/><line x1=\"9\" y1=\"9\" x2=\"15\" y2=\"15\"/><line x1=\"15\" y1=\"9\" x2=\"9\" y2=\"15\"/></svg></div><div><div class=\"coverage-name\">Compute Engine</div><div class=\"coverage-sub\">GCP</div></div></div><div class=\"coverage-item\"><div class=\"coverage-icon data\"><svg viewBox=\"0 0 24 24\"><rect x=\"4\" y=\"4\" width=\"16\" height=\"16\" rx=\"2\"/><line x1=\"9\" y1=\"9\" x2=\"15\" y2=\"15\"/><line x1=\"15\" y1=\"9\" x2=\"9\" y2=\"15\"/></svg></div><div><div class=\"coverage-name\">OCI Compute</div><div class=\"coverage-sub\">Oracle</div></div></div><div class=\"coverage-item\"><div class=\"coverage-icon aws\"><svg viewBox=\"0 0 24 24\"><rect x=\"4\" y=\"4\" width=\"16\" height=\"16\" rx=\"2\"/><line x1=\"9\" y1=\"9\" x2=\"15\" y2=\"15\"/><line x1=\"15\" y1=\"9\" x2=\"9\" y2=\"15\"/></svg></div><div><div class=\"coverage-name\">WorkSpaces</div><div class=\"coverage-sub\">AWS</div></div></div></div></div><div class=\"coverage-cat\"><div class=\"coverage-cat-header\"><div class=\"coverage-cat-icon blue\"><svg viewBox=\"0 0 24 24\"><rect x=\"2\" y=\"7\" width=\"20\" height=\"14\" rx=\"2\" ry=\"2\"/><path d=\"M16 3h-8l-2 4h12z\"/></svg></div><div class=\"coverage-cat-name\">Kubernetes & Containers</div></div><div class=\"coverage-grid\"><div class=\"coverage-item\"><div class=\"coverage-icon k8s\"><svg viewBox=\"0 0 24 24\"><rect x=\"2\" y=\"7\" width=\"20\" height=\"14\" rx=\"2\" ry=\"2\"/><path d=\"M16 3h-8l-2 4h12z\"/></svg></div><div><div class=\"coverage-name\">Amazon EKS</div><div class=\"coverage-sub\">Managed K8s</div></div></div><div class=\"coverage-item\"><div class=\"coverage-icon k8s\"><svg viewBox=\"0 0 24 24\"><rect x=\"2\" y=\"7\" width=\"20\" height=\"14\" rx=\"2\" ry=\"2\"/><path d=\"M16 3h-8l-2 4h12z\"/></svg></div><div><div class=\"coverage-name\">Azure AKS</div><div class=\"coverage-sub\">Managed K8s</div></div></div><div class=\"coverage-item\"><div class=\"coverage-icon k8s\"><svg viewBox=\"0 0 24 24\"><rect x=\"2\" y=\"7\" width=\"20\" height=\"14\" rx=\"2\" ry=\"2\"/><path d=\"M16 3h-8l-2 4h12z\"/></svg></div><div><div class=\"coverage-name\">Google GKE</div><div class=\"coverage-sub\">Managed K8s</div></div></div><div class=\"coverage-item\"><div class=\"coverage-icon k8s\"><svg viewBox=\"0 0 24 24\"><rect x=\"2\" y=\"7\" width=\"20\" height=\"14\" rx=\"2\" ry=\"2\"/><path d=\"M16 3h-8l-2 4h12z\"/></svg></div><div><div class=\"coverage-name\">OpenShift</div><div class=\"coverage-sub\">Enterprise K8s</div></div></div><div class=\"coverage-item\"><div class=\"coverage-icon aws\"><svg viewBox=\"0 0 24 24\"><rect x=\"2\" y=\"7\" width=\"20\" height=\"14\" rx=\"2\" ry=\"2\"/><path d=\"M16 3h-8l-2 4h12z\"/></svg></div><div><div class=\"coverage-name\">Amazon ECS</div><div class=\"coverage-sub\">Containers</div></div></div><div class=\"coverage-item\"><div class=\"coverage-icon aws\"><svg viewBox=\"0 0 24 24\"><rect x=\"2\" y=\"7\" width=\"20\" height=\"14\" rx=\"2\" ry=\"2\"/><path d=\"M16 3h-8l-2 4h12z\"/></svg></div><div><div class=\"coverage-name\">AWS Fargate</div><div class=\"coverage-sub\">Serverless Containers</div></div></div><div class=\"coverage-item\"><div class=\"coverage-icon azure\"><svg viewBox=\"0 0 24 24\"><rect x=\"2\" y=\"7\" width=\"20\" height=\"14\" rx=\"2\" ry=\"2\"/><path d=\"M16 3h-8l-2 4h12z\"/></svg></div><div><div class=\"coverage-name\">Azure Container Instances</div><div class=\"coverage-sub\">Containers</div></div></div><div class=\"coverage-item\"><div class=\"coverage-icon azure\"><svg viewBox=\"0 0 24 24\"><rect x=\"2\" y=\"7\" width=\"20\" height=\"14\" rx=\"2\" ry=\"2\"/><path d=\"M16 3h-8l-2 4h12z\"/></svg></div><div><div class=\"coverage-name\">Azure Container Apps</div><div class=\"coverage-sub\">Serverless Containers</div></div></div><div class=\"coverage-item\"><div class=\"coverage-icon gcp\"><svg viewBox=\"0 0 24 24\"><rect x=\"2\" y=\"7\" width=\"20\" height=\"14\" rx=\"2\" ry=\"2\"/><path d=\"M16 3h-8l-2 4h12z\"/></svg></div><div><div class=\"coverage-name\">Cloud Run</div><div class=\"coverage-sub\">Containers</div></div></div></div></div><div class=\"coverage-cat\"><div class=\"coverage-cat-header\"><div class=\"coverage-cat-icon blue\"><svg viewBox=\"0 0 24 24\"><ellipse cx=\"12\" cy=\"5\" rx=\"9\" ry=\"3\"/><path d=\"M21 12c0 1.66-4 3-9 3s-9-1.34-9-3\"/><path d=\"M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5\"/></svg></div><div class=\"coverage-cat-name\">Databases</div></div><div class=\"coverage-grid\"><div class=\"coverage-item\"><div class=\"coverage-icon aws\"><svg viewBox=\"0 0 24 24\"><ellipse cx=\"12\" cy=\"5\" rx=\"9\" ry=\"3\"/><path d=\"M21 12c0 1.66-4 3-9 3s-9-1.34-9-3\"/><path d=\"M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5\"/></svg></div><div><div class=\"coverage-name\">Amazon RDS</div><div class=\"coverage-sub\">Relational DB</div></div></div><div class=\"coverage-item\"><div class=\"coverage-icon aws\"><svg viewBox=\"0 0 24 24\"><ellipse cx=\"12\" cy=\"5\" rx=\"9\" ry=\"3\"/><path d=\"M21 12c0 1.66-4 3-9 3s-9-1.34-9-3\"/><path d=\"M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5\"/></svg></div><div><div class=\"coverage-name\">DynamoDB</div><div class=\"coverage-sub\">NoSQL</div></div></div><div class=\"coverage-item\"><div class=\"coverage-icon aws\"><svg viewBox=\"0 0 24 24\"><circle cx=\"12\" cy=\"12\" r=\"10\"/><polyline points=\"12 6 12 12 16 14\"/></svg></div><div><div class=\"coverage-name\">ElastiCache</div><div class=\"coverage-sub\">Caching</div></div></div><div class=\"coverage-item\"><div class=\"coverage-icon aws\"><svg viewBox=\"0 0 24 24\"><circle cx=\"11\" cy=\"11\" r=\"8\"/><line x1=\"21\" y1=\"21\" x2=\"16.65\" y2=\"16.65\"/></svg></div><div><div class=\"coverage-name\">OpenSearch</div><div class=\"coverage-sub\">Search</div></div></div><div class=\"coverage-item\"><div class=\"coverage-icon azure\"><svg viewBox=\"0 0 24 24\"><ellipse cx=\"12\" cy=\"5\" rx=\"9\" ry=\"3\"/><path d=\"M21 12c0 1.66-4 3-9 3s-9-1.34-9-3\"/><path d=\"M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5\"/></svg></div><div><div class=\"coverage-name\">Azure SQL</div><div class=\"coverage-sub\">Relational DB</div></div></div><div class=\"coverage-item\"><div class=\"coverage-icon azure\"><svg viewBox=\"0 0 24 24\"><ellipse cx=\"12\" cy=\"5\" rx=\"9\" ry=\"3\"/><path d=\"M21 12c0 1.66-4 3-9 3s-9-1.34-9-3\"/><path d=\"M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5\"/></svg></div><div><div class=\"coverage-name\">Azure PostgreSQL</div><div class=\"coverage-sub\">Relational DB</div></div></div><div class=\"coverage-item\"><div class=\"coverage-icon azure\"><svg viewBox=\"0 0 24 24\"><ellipse cx=\"12\" cy=\"5\" rx=\"9\" ry=\"3\"/><path d=\"M21 12c0 1.66-4 3-9 3s-9-1.34-9-3\"/><path d=\"M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5\"/></svg></div><div><div class=\"coverage-name\">Azure Cosmos DB</div><div class=\"coverage-sub\">NoSQL</div></div></div><div class=\"coverage-item\"><div class=\"coverage-icon azure\"><svg viewBox=\"0 0 24 24\"><circle cx=\"12\" cy=\"12\" r=\"10\"/><polyline points=\"12 6 12 12 16 14\"/></svg></div><div><div class=\"coverage-name\">Azure Cache for Redis</div><div class=\"coverage-sub\">Caching</div></div></div><div class=\"coverage-item\"><div class=\"coverage-icon gcp\"><svg viewBox=\"0 0 24 24\"><ellipse cx=\"12\" cy=\"5\" rx=\"9\" ry=\"3\"/><path d=\"M21 12c0 1.66-4 3-9 3s-9-1.34-9-3\"/><path d=\"M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5\"/></svg></div><div><div class=\"coverage-name\">Cloud SQL</div><div class=\"coverage-sub\">Relational DB</div></div></div><div class=\"coverage-item\"><div class=\"coverage-icon gcp\"><svg viewBox=\"0 0 24 24\"><circle cx=\"12\" cy=\"12\" r=\"10\"/><polyline points=\"12 6 12 12 16 14\"/></svg></div><div><div class=\"coverage-name\">Memorystore</div><div class=\"coverage-sub\">Caching</div></div></div><div class=\"coverage-item\"><div class=\"coverage-icon gcp\"><svg viewBox=\"0 0 24 24\"><ellipse cx=\"12\" cy=\"5\" rx=\"9\" ry=\"3\"/><path d=\"M21 12c0 1.66-4 3-9 3s-9-1.34-9-3\"/><path d=\"M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5\"/></svg></div><div><div class=\"coverage-name\">Bigtable</div><div class=\"coverage-sub\">NoSQL</div></div></div><div class=\"coverage-item\"><div class=\"coverage-icon data\"><svg viewBox=\"0 0 24 24\"><ellipse cx=\"12\" cy=\"5\" rx=\"9\" ry=\"3\"/><path d=\"M21 12c0 1.66-4 3-9 3s-9-1.34-9-3\"/><path d=\"M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5\"/></svg></div><div><div class=\"coverage-name\">OCI Autonomous DB</div><div class=\"coverage-sub\">Databases</div></div></div><div class=\"coverage-item\"><div class=\"coverage-icon data\"><svg viewBox=\"0 0 24 24\"><ellipse cx=\"12\" cy=\"5\" rx=\"9\" ry=\"3\"/><path d=\"M21 12c0 1.66-4 3-9 3s-9-1.34-9-3\"/><path d=\"M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5\"/></svg></div><div><div class=\"coverage-name\">MongoDB Atlas</div><div class=\"coverage-sub\">NoSQL Database</div></div></div></div></div><div class=\"coverage-cat\"><div class=\"coverage-cat-header\"><div class=\"coverage-cat-icon blue\"><svg viewBox=\"0 0 24 24\"><path d=\"M12 20V10\"/><path d=\"M18 20V4\"/><path d=\"M6 20v-4\"/></svg></div><div class=\"coverage-cat-name\">Data Warehouses & Analytics</div></div><div class=\"coverage-grid\"><div class=\"coverage-item\"><div class=\"coverage-icon data\"><svg viewBox=\"0 0 24 24\"><ellipse cx=\"12\" cy=\"5\" rx=\"9\" ry=\"3\"/><path d=\"M21 12c0 1.66-4 3-9 3s-9-1.34-9-3\"/><path d=\"M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5\"/></svg></div><div><div class=\"coverage-name\">Snowflake</div><div class=\"coverage-sub\">Data Warehouse</div></div></div><div class=\"coverage-item\"><div class=\"coverage-icon data\"><svg viewBox=\"0 0 24 24\"><path d=\"M12 20V10\"/><path d=\"M18 20V4\"/><path d=\"M6 20v-4\"/></svg></div><div><div class=\"coverage-name\">Databricks</div><div class=\"coverage-sub\">Unified Analytics</div></div></div><div class=\"coverage-item\"><div class=\"coverage-icon aws\"><svg viewBox=\"0 0 24 24\"><ellipse cx=\"12\" cy=\"5\" rx=\"9\" ry=\"3\"/><path d=\"M21 12c0 1.66-4 3-9 3s-9-1.34-9-3\"/><path d=\"M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5\"/></svg></div><div><div class=\"coverage-name\">Amazon Redshift</div><div class=\"coverage-sub\">Data Warehouse</div></div></div><div class=\"coverage-item\"><div class=\"coverage-icon gcp\"><svg viewBox=\"0 0 24 24\"><ellipse cx=\"12\" cy=\"5\" rx=\"9\" ry=\"3\"/><path d=\"M21 12c0 1.66-4 3-9 3s-9-1.34-9-3\"/><path d=\"M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5\"/></svg></div><div><div class=\"coverage-name\">BigQuery</div><div class=\"coverage-sub\">Data Warehouse</div></div></div><div class=\"coverage-item\"><div class=\"coverage-icon azure\"><svg viewBox=\"0 0 24 24\"><ellipse cx=\"12\" cy=\"5\" rx=\"9\" ry=\"3\"/><path d=\"M21 12c0 1.66-4 3-9 3s-9-1.34-9-3\"/><path d=\"M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5\"/></svg></div><div><div class=\"coverage-name\">Azure Synapse</div><div class=\"coverage-sub\">Analytics</div></div></div><div class=\"coverage-item\"><div class=\"coverage-icon azure\"><svg viewBox=\"0 0 24 24\"><ellipse cx=\"12\" cy=\"5\" rx=\"9\" ry=\"3\"/><path d=\"M21 12c0 1.66-4 3-9 3s-9-1.34-9-3\"/><path d=\"M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5\"/></svg></div><div><div class=\"coverage-name\">Azure Fabric</div><div class=\"coverage-sub\">Data Platform</div></div></div></div></div><div class=\"coverage-cat\"><div class=\"coverage-cat-header\"><div class=\"coverage-cat-icon blue\"><svg viewBox=\"0 0 24 24\"><path d=\"M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 002 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0022 16z\"/></svg></div><div class=\"coverage-cat-name\">Storage</div></div><div class=\"coverage-grid\"><div class=\"coverage-item\"><div class=\"coverage-icon aws\"><svg viewBox=\"0 0 24 24\"><path d=\"M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 002 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0022 16z\"/></svg></div><div><div class=\"coverage-name\">Amazon EBS</div><div class=\"coverage-sub\">Block Storage</div></div></div><div class=\"coverage-item\"><div class=\"coverage-icon aws\"><svg viewBox=\"0 0 24 24\"><path d=\"M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 002 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0022 16z\"/></svg></div><div><div class=\"coverage-name\">Amazon S3</div><div class=\"coverage-sub\">Object Storage</div></div></div><div class=\"coverage-item\"><div class=\"coverage-icon aws\"><svg viewBox=\"0 0 24 24\"><path d=\"M22 19a2 2 0 01-2 2H4a2 2 0 01-2-2V5a2 2 0 012-2h5l2 3h9a2 2 0 012 2z\"/></svg></div><div><div class=\"coverage-name\">FSx / EFS</div><div class=\"coverage-sub\">File Storage</div></div></div><div class=\"coverage-item\"><div class=\"coverage-icon azure\"><svg viewBox=\"0 0 24 24\"><path d=\"M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 002 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0022 16z\"/></svg></div><div><div class=\"coverage-name\">Azure Disks</div><div class=\"coverage-sub\">Block Storage</div></div></div><div class=\"coverage-item\"><div class=\"coverage-icon azure\"><svg viewBox=\"0 0 24 24\"><path d=\"M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 002 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0022 16z\"/></svg></div><div><div class=\"coverage-name\">Azure Blob Storage</div><div class=\"coverage-sub\">Object Storage</div></div></div><div class=\"coverage-item\"><div class=\"coverage-icon azure\"><svg viewBox=\"0 0 24 24\"><path d=\"M22 19a2 2 0 01-2 2H4a2 2 0 01-2-2V5a2 2 0 012-2h5l2 3h9a2 2 0 012 2z\"/></svg></div><div><div class=\"coverage-name\">Azure NetApp Files</div><div class=\"coverage-sub\">File Storage</div></div></div><div class=\"coverage-item\"><div class=\"coverage-icon gcp\"><svg viewBox=\"0 0 24 24\"><path d=\"M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 002 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0022 16z\"/></svg></div><div><div class=\"coverage-name\">Persistent Disk</div><div class=\"coverage-sub\">Block Storage</div></div></div><div class=\"coverage-item\"><div class=\"coverage-icon gcp\"><svg viewBox=\"0 0 24 24\"><path d=\"M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 002 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0022 16z\"/></svg></div><div><div class=\"coverage-name\">Cloud Storage</div><div class=\"coverage-sub\">Object Storage</div></div></div><div class=\"coverage-item\"><div class=\"coverage-icon gcp\"><svg viewBox=\"0 0 24 24\"><path d=\"M22 19a2 2 0 01-2 2H4a2 2 0 01-2-2V5a2 2 0 012-2h5l2 3h9a2 2 0 012 2z\"/></svg></div><div><div class=\"coverage-name\">Filestore</div><div class=\"coverage-sub\">File Storage</div></div></div><div class=\"coverage-item\"><div class=\"coverage-icon data\"><svg viewBox=\"0 0 24 24\"><path d=\"M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 002 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0022 16z\"/></svg></div><div><div class=\"coverage-name\">OCI Block Volume</div><div class=\"coverage-sub\">Block Storage</div></div></div><div class=\"coverage-item\"><div class=\"coverage-icon data\"><svg viewBox=\"0 0 24 24\"><path d=\"M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 002 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0022 16z\"/></svg></div><div><div class=\"coverage-name\">OCI Object Storage</div><div class=\"coverage-sub\">Object Storage</div></div></div></div></div><div class=\"coverage-cat\"><div class=\"coverage-cat-header\"><div class=\"coverage-cat-icon blue\"><svg viewBox=\"0 0 24 24\"><path d=\"M5 21l7-18 7 18\"/><line x1=\"8\" y1=\"14\" x2=\"16\" y2=\"14\"/></svg></div><div class=\"coverage-cat-name\">Serverless & Functions</div></div><div class=\"coverage-grid\"><div class=\"coverage-item\"><div class=\"coverage-icon aws\"><svg viewBox=\"0 0 24 24\"><path d=\"M5 21l7-18 7 18\"/><line x1=\"8\" y1=\"14\" x2=\"16\" y2=\"14\"/></svg></div><div><div class=\"coverage-name\">AWS Lambda</div><div class=\"coverage-sub\">Serverless</div></div></div><div class=\"coverage-item\"><div class=\"coverage-icon azure\"><svg viewBox=\"0 0 24 24\"><path d=\"M5 21l7-18 7 18\"/><line x1=\"8\" y1=\"14\" x2=\"16\" y2=\"14\"/></svg></div><div><div class=\"coverage-name\">Azure Functions</div><div class=\"coverage-sub\">Serverless</div></div></div><div class=\"coverage-item\"><div class=\"coverage-icon gcp\"><svg viewBox=\"0 0 24 24\"><path d=\"M5 21l7-18 7 18\"/><line x1=\"8\" y1=\"14\" x2=\"16\" y2=\"14\"/></svg></div><div><div class=\"coverage-name\">Cloud Functions</div><div class=\"coverage-sub\">Serverless</div></div></div><div class=\"coverage-item\"><div class=\"coverage-icon data\"><svg viewBox=\"0 0 24 24\"><path d=\"M5 21l7-18 7 18\"/><line x1=\"8\" y1=\"14\" x2=\"16\" y2=\"14\"/></svg></div><div><div class=\"coverage-name\">OCI Functions</div><div class=\"coverage-sub\">Serverless</div></div></div></div></div><div class=\"coverage-cat\"><div class=\"coverage-cat-header\"><div class=\"coverage-cat-icon blue\"><svg viewBox=\"0 0 24 24\"><circle cx=\"12\" cy=\"12\" r=\"10\"/><line x1=\"2\" y1=\"12\" x2=\"22\" y2=\"12\"/><path d=\"M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z\"/></svg></div><div class=\"coverage-cat-name\">Networking & CDN</div></div><div class=\"coverage-grid\"><div class=\"coverage-item\"><div class=\"coverage-icon aws\"><svg viewBox=\"0 0 24 24\"><circle cx=\"12\" cy=\"12\" r=\"10\"/><line x1=\"2\" y1=\"12\" x2=\"22\" y2=\"12\"/><path d=\"M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z\"/></svg></div><div><div class=\"coverage-name\">VPC / NAT</div><div class=\"coverage-sub\">Networking</div></div></div><div class=\"coverage-item\"><div class=\"coverage-icon aws\"><svg viewBox=\"0 0 24 24\"><circle cx=\"12\" cy=\"12\" r=\"10\"/><line x1=\"2\" y1=\"12\" x2=\"22\" y2=\"12\"/><path d=\"M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z\"/></svg></div><div><div class=\"coverage-name\">Elastic Load Balancing</div><div class=\"coverage-sub\">Load Balancers</div></div></div><div class=\"coverage-item\"><div class=\"coverage-icon aws\"><svg viewBox=\"0 0 24 24\"><circle cx=\"12\" cy=\"12\" r=\"10\"/><line x1=\"2\" y1=\"12\" x2=\"22\" y2=\"12\"/><path d=\"M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z\"/></svg></div><div><div class=\"coverage-name\">CloudFront</div><div class=\"coverage-sub\">CDN</div></div></div><div class=\"coverage-item\"><div class=\"coverage-icon aws\"><svg viewBox=\"0 0 24 24\"><circle cx=\"12\" cy=\"12\" r=\"10\"/><line x1=\"2\" y1=\"12\" x2=\"22\" y2=\"12\"/><path d=\"M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z\"/></svg></div><div><div class=\"coverage-name\">Route 53</div><div class=\"coverage-sub\">DNS</div></div></div><div class=\"coverage-item\"><div class=\"coverage-icon aws\"><svg viewBox=\"0 0 24 24\"><circle cx=\"12\" cy=\"12\" r=\"10\"/><line x1=\"2\" y1=\"12\" x2=\"22\" y2=\"12\"/><path d=\"M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z\"/></svg></div><div><div class=\"coverage-name\">API Gateway</div><div class=\"coverage-sub\">API Management</div></div></div><div class=\"coverage-item\"><div class=\"coverage-icon azure\"><svg viewBox=\"0 0 24 24\"><circle cx=\"12\" cy=\"12\" r=\"10\"/><line x1=\"2\" y1=\"12\" x2=\"22\" y2=\"12\"/><path d=\"M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z\"/></svg></div><div><div class=\"coverage-name\">Azure Networking</div><div class=\"coverage-sub\">Networking</div></div></div><div class=\"coverage-item\"><div class=\"coverage-icon azure\"><svg viewBox=\"0 0 24 24\"><circle cx=\"12\" cy=\"12\" r=\"10\"/><line x1=\"2\" y1=\"12\" x2=\"22\" y2=\"12\"/><path d=\"M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z\"/></svg></div><div><div class=\"coverage-name\">Azure Front Door</div><div class=\"coverage-sub\">CDN</div></div></div><div class=\"coverage-item\"><div class=\"coverage-icon gcp\"><svg viewBox=\"0 0 24 24\"><circle cx=\"12\" cy=\"12\" r=\"10\"/><line x1=\"2\" y1=\"12\" x2=\"22\" y2=\"12\"/><path d=\"M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z\"/></svg></div><div><div class=\"coverage-name\">Cloud CDN</div><div class=\"coverage-sub\">CDN</div></div></div><div class=\"coverage-item\"><div class=\"coverage-icon data\"><svg viewBox=\"0 0 24 24\"><circle cx=\"12\" cy=\"12\" r=\"10\"/><line x1=\"2\" y1=\"12\" x2=\"22\" y2=\"12\"/><path d=\"M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z\"/></svg></div><div><div class=\"coverage-name\">OCI Networking</div><div class=\"coverage-sub\">Networking</div></div></div></div></div><div class=\"coverage-cat\"><div class=\"coverage-cat-header\"><div class=\"coverage-cat-icon blue\"><svg viewBox=\"0 0 24 24\"><path d=\"M12 20V10\"/><path d=\"M18 20V4\"/><path d=\"M6 20v-4\"/></svg></div><div class=\"coverage-cat-name\">Monitoring & Observability</div></div><div class=\"coverage-grid\"><div class=\"coverage-item\"><div class=\"coverage-icon aws\"><svg viewBox=\"0 0 24 24\"><path d=\"M12 20V10\"/><path d=\"M18 20V4\"/><path d=\"M6 20v-4\"/></svg></div><div><div class=\"coverage-name\">CloudWatch</div><div class=\"coverage-sub\">Monitoring</div></div></div><div class=\"coverage-item\"><div class=\"coverage-icon aws\"><svg viewBox=\"0 0 24 24\"><path d=\"M12 20V10\"/><path d=\"M18 20V4\"/><path d=\"M6 20v-4\"/></svg></div><div><div class=\"coverage-name\">CloudTrail</div><div class=\"coverage-sub\">Audit Logging</div></div></div><div class=\"coverage-item\"><div class=\"coverage-icon aws\"><svg viewBox=\"0 0 24 24\"><circle cx=\"11\" cy=\"11\" r=\"8\"/><line x1=\"21\" y1=\"21\" x2=\"16.65\" y2=\"16.65\"/></svg></div><div><div class=\"coverage-name\">VPC Flow Logs</div><div class=\"coverage-sub\">Logging</div></div></div><div class=\"coverage-item\"><div class=\"coverage-icon azure\"><svg viewBox=\"0 0 24 24\"><path d=\"M12 20V10\"/><path d=\"M18 20V4\"/><path d=\"M6 20v-4\"/></svg></div><div><div class=\"coverage-name\">Azure Monitor</div><div class=\"coverage-sub\">Monitoring</div></div></div><div class=\"coverage-item\"><div class=\"coverage-icon azure\"><svg viewBox=\"0 0 24 24\"><path d=\"M12 20V10\"/><path d=\"M18 20V4\"/><path d=\"M6 20v-4\"/></svg></div><div><div class=\"coverage-name\">Log Analytics</div><div class=\"coverage-sub\">Observability</div></div></div><div class=\"coverage-item\"><div class=\"coverage-icon gcp\"><svg viewBox=\"0 0 24 24\"><path d=\"M12 20V10\"/><path d=\"M18 20V4\"/><path d=\"M6 20v-4\"/></svg></div><div><div class=\"coverage-name\">Cloud Logging</div><div class=\"coverage-sub\">Observability</div></div></div><div class=\"coverage-item\"><div class=\"coverage-icon data\"><svg viewBox=\"0 0 24 24\"><path d=\"M12 20V10\"/><path d=\"M18 20V4\"/><path d=\"M6 20v-4\"/></svg></div><div><div class=\"coverage-name\">Datadog</div><div class=\"coverage-sub\">Observability</div></div></div></div></div><div class=\"coverage-cat\"><div class=\"coverage-cat-header\"><div class=\"coverage-cat-icon blue\"><svg viewBox=\"0 0 24 24\"><polyline points=\"22 12 18 12 15 21 9 3 6 12 2 12\"/></svg></div><div class=\"coverage-cat-name\">Streaming & Messaging</div></div><div class=\"coverage-grid\"><div class=\"coverage-item\"><div class=\"coverage-icon aws\"><svg viewBox=\"0 0 24 24\"><polyline points=\"22 12 18 12 15 21 9 3 6 12 2 12\"/></svg></div><div><div class=\"coverage-name\">Amazon MSK</div><div class=\"coverage-sub\">Kafka Streaming</div></div></div><div class=\"coverage-item\"><div class=\"coverage-icon aws\"><svg viewBox=\"0 0 24 24\"><polyline points=\"22 12 18 12 15 21 9 3 6 12 2 12\"/></svg></div><div><div class=\"coverage-name\">Kinesis</div><div class=\"coverage-sub\">Streaming</div></div></div><div class=\"coverage-item\"><div class=\"coverage-icon aws\"><svg viewBox=\"0 0 24 24\"><path d=\"M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z\"/></svg></div><div><div class=\"coverage-name\">SQS / SNS</div><div class=\"coverage-sub\">Messaging</div></div></div><div class=\"coverage-item\"><div class=\"coverage-icon aws\"><svg viewBox=\"0 0 24 24\"><path d=\"M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z\"/></svg></div><div><div class=\"coverage-name\">Amazon MQ</div><div class=\"coverage-sub\">Message Broker</div></div></div><div class=\"coverage-item\"><div class=\"coverage-icon azure\"><svg viewBox=\"0 0 24 24\"><polyline points=\"22 12 18 12 15 21 9 3 6 12 2 12\"/></svg></div><div><div class=\"coverage-name\">Azure Event Hubs</div><div class=\"coverage-sub\">Streaming</div></div></div><div class=\"coverage-item\"><div class=\"coverage-icon azure\"><svg viewBox=\"0 0 24 24\"><path d=\"M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z\"/></svg></div><div><div class=\"coverage-name\">Azure Service Bus</div><div class=\"coverage-sub\">Message Queues</div></div></div><div class=\"coverage-item\"><div class=\"coverage-icon gcp\"><svg viewBox=\"0 0 24 24\"><path d=\"M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z\"/></svg></div><div><div class=\"coverage-name\">Pub/Sub</div><div class=\"coverage-sub\">Messaging</div></div></div></div></div><div class=\"coverage-cat\"><div class=\"coverage-cat-header\"><div class=\"coverage-cat-icon blue\"><svg viewBox=\"0 0 24 24\"><circle cx=\"12\" cy=\"12\" r=\"3\"/><path d=\"M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z\"/></svg></div><div class=\"coverage-cat-name\">Data Processing & ETL</div></div><div class=\"coverage-grid\"><div class=\"coverage-item\"><div class=\"coverage-icon aws\"><svg viewBox=\"0 0 24 24\"><circle cx=\"12\" cy=\"12\" r=\"3\"/><path d=\"M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z\"/></svg></div><div><div class=\"coverage-name\">AWS Glue</div><div class=\"coverage-sub\">ETL</div></div></div><div class=\"coverage-item\"><div class=\"coverage-icon aws\"><svg viewBox=\"0 0 24 24\"><rect x=\"4\" y=\"4\" width=\"16\" height=\"16\" rx=\"2\"/><line x1=\"9\" y1=\"9\" x2=\"15\" y2=\"15\"/><line x1=\"15\" y1=\"9\" x2=\"9\" y2=\"15\"/></svg></div><div><div class=\"coverage-name\">EMR</div><div class=\"coverage-sub\">Big Data</div></div></div><div class=\"coverage-item\"><div class=\"coverage-icon azure\"><svg viewBox=\"0 0 24 24\"><circle cx=\"12\" cy=\"12\" r=\"3\"/><path d=\"M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z\"/></svg></div><div><div class=\"coverage-name\">Azure Data Factory</div><div class=\"coverage-sub\">ETL</div></div></div><div class=\"coverage-item\"><div class=\"coverage-icon gcp\"><svg viewBox=\"0 0 24 24\"><rect x=\"4\" y=\"4\" width=\"16\" height=\"16\" rx=\"2\"/><line x1=\"9\" y1=\"9\" x2=\"15\" y2=\"15\"/><line x1=\"15\" y1=\"9\" x2=\"9\" y2=\"15\"/></svg></div><div><div class=\"coverage-name\">Dataproc</div><div class=\"coverage-sub\">Big Data</div></div></div><div class=\"coverage-item\"><div class=\"coverage-icon gcp\"><svg viewBox=\"0 0 24 24\"><polyline points=\"22 12 18 12 15 21 9 3 6 12 2 12\"/></svg></div><div><div class=\"coverage-name\">Dataflow</div><div class=\"coverage-sub\">Data Processing</div></div></div><div class=\"coverage-item\"><div class=\"coverage-icon gcp\"><svg viewBox=\"0 0 24 24\"><circle cx=\"12\" cy=\"12\" r=\"3\"/><path d=\"M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z\"/></svg></div><div><div class=\"coverage-name\">Cloud Composer</div><div class=\"coverage-sub\">Workflows</div></div></div></div></div><div class=\"coverage-cat\"><div class=\"coverage-cat-header\"><div class=\"coverage-cat-icon blue\"><svg viewBox=\"0 0 24 24\"><circle cx=\"12\" cy=\"12\" r=\"3\"/><path d=\"M12 1v4\"/><path d=\"M12 19v4\"/><path d=\"M1 12h4\"/><path d=\"M19 12h4\"/><path d=\"M4.22 4.22l2.83 2.83\"/><path d=\"M16.95 16.95l2.83 2.83\"/><path d=\"M4.22 19.78l2.83-2.83\"/><path d=\"M16.95 7.05l2.83-2.83\"/></svg></div><div class=\"coverage-cat-name\">AI & Machine Learning</div></div><div class=\"coverage-grid\"><div class=\"coverage-item\"><div class=\"coverage-icon aws\"><svg viewBox=\"0 0 24 24\"><circle cx=\"12\" cy=\"12\" r=\"3\"/><path d=\"M12 1v4\"/><path d=\"M12 19v4\"/><path d=\"M1 12h4\"/><path d=\"M19 12h4\"/><path d=\"M4.22 4.22l2.83 2.83\"/><path d=\"M16.95 16.95l2.83 2.83\"/><path d=\"M4.22 19.78l2.83-2.83\"/><path d=\"M16.95 7.05l2.83-2.83\"/></svg></div><div><div class=\"coverage-name\">Amazon Bedrock</div><div class=\"coverage-sub\">AI Platform</div></div></div><div class=\"coverage-item\"><div class=\"coverage-icon aws\"><svg viewBox=\"0 0 24 24\"><circle cx=\"12\" cy=\"12\" r=\"3\"/><path d=\"M12 1v4\"/><path d=\"M12 19v4\"/><path d=\"M1 12h4\"/><path d=\"M19 12h4\"/><path d=\"M4.22 4.22l2.83 2.83\"/><path d=\"M16.95 16.95l2.83 2.83\"/><path d=\"M4.22 19.78l2.83-2.83\"/><path d=\"M16.95 7.05l2.83-2.83\"/></svg></div><div><div class=\"coverage-name\">SageMaker</div><div class=\"coverage-sub\">Machine Learning</div></div></div><div class=\"coverage-item\"><div class=\"coverage-icon aws\"><svg viewBox=\"0 0 24 24\"><circle cx=\"12\" cy=\"12\" r=\"3\"/><path d=\"M12 1v4\"/><path d=\"M12 19v4\"/><path d=\"M1 12h4\"/><path d=\"M19 12h4\"/><path d=\"M4.22 4.22l2.83 2.83\"/><path d=\"M16.95 16.95l2.83 2.83\"/><path d=\"M4.22 19.78l2.83-2.83\"/><path d=\"M16.95 7.05l2.83-2.83\"/></svg></div><div><div class=\"coverage-name\">EC2 GPU Instances</div><div class=\"coverage-sub\">AI Compute</div></div></div><div class=\"coverage-item\"><div class=\"coverage-icon azure\"><svg viewBox=\"0 0 24 24\"><circle cx=\"12\" cy=\"12\" r=\"3\"/><path d=\"M12 1v4\"/><path d=\"M12 19v4\"/><path d=\"M1 12h4\"/><path d=\"M19 12h4\"/><path d=\"M4.22 4.22l2.83 2.83\"/><path d=\"M16.95 16.95l2.83 2.83\"/><path d=\"M4.22 19.78l2.83-2.83\"/><path d=\"M16.95 7.05l2.83-2.83\"/></svg></div><div><div class=\"coverage-name\">Azure OpenAI</div><div class=\"coverage-sub\">AI Services</div></div></div><div class=\"coverage-item\"><div class=\"coverage-icon azure\"><svg viewBox=\"0 0 24 24\"><circle cx=\"12\" cy=\"12\" r=\"3\"/><path d=\"M12 1v4\"/><path d=\"M12 19v4\"/><path d=\"M1 12h4\"/><path d=\"M19 12h4\"/><path d=\"M4.22 4.22l2.83 2.83\"/><path d=\"M16.95 16.95l2.83 2.83\"/><path d=\"M4.22 19.78l2.83-2.83\"/><path d=\"M16.95 7.05l2.83-2.83\"/></svg></div><div><div class=\"coverage-name\">Azure Machine Learning</div><div class=\"coverage-sub\">Machine Learning</div></div></div><div class=\"coverage-item\"><div class=\"coverage-icon azure\"><svg viewBox=\"0 0 24 24\"><circle cx=\"12\" cy=\"12\" r=\"3\"/><path d=\"M12 1v4\"/><path d=\"M12 19v4\"/><path d=\"M1 12h4\"/><path d=\"M19 12h4\"/><path d=\"M4.22 4.22l2.83 2.83\"/><path d=\"M16.95 16.95l2.83 2.83\"/><path d=\"M4.22 19.78l2.83-2.83\"/><path d=\"M16.95 7.05l2.83-2.83\"/></svg></div><div><div class=\"coverage-name\">Azure GPU VMs</div><div class=\"coverage-sub\">AI Compute</div></div></div><div class=\"coverage-item\"><div class=\"coverage-icon gcp\"><svg viewBox=\"0 0 24 24\"><circle cx=\"12\" cy=\"12\" r=\"3\"/><path d=\"M12 1v4\"/><path d=\"M12 19v4\"/><path d=\"M1 12h4\"/><path d=\"M19 12h4\"/><path d=\"M4.22 4.22l2.83 2.83\"/><path d=\"M16.95 16.95l2.83 2.83\"/><path d=\"M4.22 19.78l2.83-2.83\"/><path d=\"M16.95 7.05l2.83-2.83\"/></svg></div><div><div class=\"coverage-name\">Vertex AI</div><div class=\"coverage-sub\">Machine Learning</div></div></div><div class=\"coverage-item\"><div class=\"coverage-icon gcp\"><svg viewBox=\"0 0 24 24\"><circle cx=\"12\" cy=\"12\" r=\"3\"/><path d=\"M12 1v4\"/><path d=\"M12 19v4\"/><path d=\"M1 12h4\"/><path d=\"M19 12h4\"/><path d=\"M4.22 4.22l2.83 2.83\"/><path d=\"M16.95 16.95l2.83 2.83\"/><path d=\"M4.22 19.78l2.83-2.83\"/><path d=\"M16.95 7.05l2.83-2.83\"/></svg></div><div><div class=\"coverage-name\">GCP GPU Instances</div><div class=\"coverage-sub\">AI Compute</div></div></div><div class=\"coverage-item\"><div class=\"coverage-icon data\"><svg viewBox=\"0 0 24 24\"><circle cx=\"12\" cy=\"12\" r=\"3\"/><path d=\"M12 1v4\"/><path d=\"M12 19v4\"/><path d=\"M1 12h4\"/><path d=\"M19 12h4\"/><path d=\"M4.22 4.22l2.83 2.83\"/><path d=\"M16.95 16.95l2.83 2.83\"/><path d=\"M4.22 19.78l2.83-2.83\"/><path d=\"M16.95 7.05l2.83-2.83\"/></svg></div><div><div class=\"coverage-name\">Anthropic Claude</div><div class=\"coverage-sub\">LLM Provider</div></div></div><div class=\"coverage-item\"><div class=\"coverage-icon data\"><svg viewBox=\"0 0 24 24\"><circle cx=\"12\" cy=\"12\" r=\"3\"/><path d=\"M12 1v4\"/><path d=\"M12 19v4\"/><path d=\"M1 12h4\"/><path d=\"M19 12h4\"/><path d=\"M4.22 4.22l2.83 2.83\"/><path d=\"M16.95 16.95l2.83 2.83\"/><path d=\"M4.22 19.78l2.83-2.83\"/><path d=\"M16.95 7.05l2.83-2.83\"/></svg></div><div><div class=\"coverage-name\">OpenAI API</div><div class=\"coverage-sub\">LLM Provider</div></div></div></div></div><div class=\"coverage-cat\"><div class=\"coverage-cat-header\"><div class=\"coverage-cat-icon blue\"><svg viewBox=\"0 0 24 24\"><circle cx=\"12\" cy=\"12\" r=\"3\"/><path d=\"M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z\"/></svg></div><div class=\"coverage-cat-name\">Security & Configuration</div></div><div class=\"coverage-grid\"><div class=\"coverage-item\"><div class=\"coverage-icon aws\"><svg viewBox=\"0 0 24 24\"><circle cx=\"12\" cy=\"12\" r=\"3\"/><path d=\"M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z\"/></svg></div><div><div class=\"coverage-name\">Secrets Manager</div><div class=\"coverage-sub\">Security</div></div></div><div class=\"coverage-item\"><div class=\"coverage-icon azure\"><svg viewBox=\"0 0 24 24\"><circle cx=\"12\" cy=\"12\" r=\"3\"/><path d=\"M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z\"/></svg></div><div><div class=\"coverage-name\">Azure App Config</div><div class=\"coverage-sub\">Configuration</div></div></div><div class=\"coverage-item\"><div class=\"coverage-icon azure\"><svg viewBox=\"0 0 24 24\"><rect x=\"4\" y=\"4\" width=\"16\" height=\"16\" rx=\"2\"/><line x1=\"9\" y1=\"9\" x2=\"15\" y2=\"15\"/><line x1=\"15\" y1=\"9\" x2=\"9\" y2=\"15\"/></svg></div><div><div class=\"coverage-name\">App Service</div><div class=\"coverage-sub\">Web Apps</div></div></div><div class=\"coverage-item\"><div class=\"coverage-icon data\"><svg viewBox=\"0 0 24 24\"><circle cx=\"11\" cy=\"11\" r=\"8\"/><line x1=\"21\" y1=\"21\" x2=\"16.65\" y2=\"16.65\"/></svg></div><div><div class=\"coverage-name\">Elastic Cloud</div><div class=\"coverage-sub\">Search & Analytics</div></div></div></div></div></div></section><!-- ── Differentiators ── --><section class=\"differentiators\"><div class=\"container\"><div class=\"reveal\"><div class=\"section-label\">Why PointFive</div><div class=\"section-title\">Built different.<br>Detects different.</div></div><div class=\"diff-grid reveal\"><div class=\"diff-item\"><div class=\"diff-num\">01</div><h4>Agentless architecture</h4><p>The only agentless Kubernetes optimization solution on the market. Read-only access, zero deployment overhead, minutes to first insight.</p></div><div class=\"diff-item\"><div class=\"diff-num\">02</div><h4>Research-driven detection</h4><p>A dedicated Cloud Cost Research Team ships ~10 new optimization types weekly — using methodologies inspired by cybersecurity threat intelligence.</p></div><div class=\"diff-item\"><div class=\"diff-num\">03</div><h4>Multi-source data correlation</h4><p>We don't just read your bill. We correlate billing data with CloudWatch metrics, VPC Flow Logs, Route53 queries, CloudTrail activity, and direct API state — finding waste that single-source tools miss.</p></div><div class=\"diff-item\"><div class=\"diff-num\">04</div><h4>Agentic Remediation</h4><p>AI coding agents deliver contextual recommendations with human-curated remediation playbooks. Every opportunity includes root cause analysis, impact assessment, and engineering-grade execution paths—with full human oversight at every step.</p></div></div></div></section><!-- ── CTA ── --><section class=\"cta-section\"><div class=\"container\"><h2>See what you're<br>missing today.</h2><p>Get a free assessment of your cloud waste. Most customers find 15–30% savings within the first week.</p><a href=\"https://www.pointfive.co/request-demo\" class=\"cta-btn\"> Book a Demo <svg viewBox=\"0 0 18 18\" fill=\"none\"><path d=\"M3 9h12M10 4l5 5-5 5\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg></a></div></section><!-- ── Footer ── -->";
+    'use strict';
     
-    // Tab filtering
-    const tabs = mount.querySelectorAll('.tab'); const cards = mount.querySelectorAll('.opp-card'); tabs.forEach(tab => { tab.addEventListener('click', () => { tabs.forEach(t => t.classList.remove('active')); tab.classList.add('active'); const filter = tab.dataset.filter; cards.forEach(card => { if (filter === 'all') { card.classList.add('visible'); } else { const cats = card.dataset.cats.split(','); card.classList.toggle('visible', cats.includes(filter)); } }); }); }); // Scroll reveal const reveals = mount.querySelectorAll('.reveal'); const observer = new IntersectionObserver((entries) => { entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('visible'); } }); }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' }); reveals.forEach(el => observer.observe(el));
-  }
+    const styles = `
+        <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', init);
-  } else {
-    init();
-  }
+        body {
+            font-family: 'Codec Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #000;
+            background: #fff;
+            overflow-x: hidden;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 75rem;
+            margin: 0 auto;
+            padding: 0 32px;
+        }
+
+        /* Hero Section */
+        .dw-hero {
+            padding: 100px 32px 60px;
+            text-align: center;
+            background: #fff;
+        }
+
+        .dw-hero-badge {
+            display: inline-block;
+            font-size: 14px;
+            color: #00e;
+            background: #e6f0ff;
+            padding: 8px 16px;
+            border-radius: 20px;
+            margin-bottom: 24px;
+            font-weight: 500;
+        }
+
+        .dw-hero h1 {
+            margin: 0 0 20px;
+            font-family: 'Codec Pro', sans-serif;
+            font-size: 56px;
+            line-height: 110%;
+            font-weight: 400;
+            color: #000;
+        }
+
+        .dw-hero .subtitle {
+            margin: 0 auto 48px;
+            font-size: 20px;
+            line-height: 32px;
+            font-weight: 300;
+            color: #4a5565;
+            max-width: 850px;
+        }
+
+        /* Stats Grid */
+        .dw-stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 32px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .dw-stat {
+            text-align: center;
+        }
+
+        .dw-stat-number {
+            display: block;
+            font-size: 48px;
+            font-weight: 600;
+            color: #00e;
+            margin-bottom: 8px;
+            line-height: 1;
+        }
+
+        .dw-stat-label {
+            font-size: 14px;
+            color: #4a5565;
+            font-weight: 400;
+        }
+
+        /* Ticker Animation */
+        .dw-ticker {
+            width: 100%;
+            overflow: hidden;
+            background: #f9f9f9;
+            padding: 32px 0;
+            margin: 60px 0 0;
+        }
+
+        .dw-ticker-track {
+            display: flex;
+            gap: 16px;
+            animation: scroll 60s linear infinite;
+        }
+
+        @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        .dw-ticker-item {
+            flex-shrink: 0;
+            background: #fff;
+            border: 1px solid #e9efef;
+            padding: 12px 20px;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 500;
+            color: #000;
+            white-space: nowrap;
+        }
+
+        /* Section Styles */
+        .dw-section {
+            padding: 100px 0;
+        }
+
+        .dw-section-alt {
+            background: #f9f9f9;
+        }
+
+        .dw-section-header {
+            text-align: center;
+            margin-bottom: 64px;
+        }
+
+        .dw-section-header h2 {
+            font-size: 42px;
+            font-weight: 400;
+            color: #000;
+            margin-bottom: 16px;
+        }
+
+        .dw-section-header .subtitle {
+            font-size: 20px;
+            line-height: 32px;
+            color: #4a5565;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Three Types Grid */
+        .dw-types-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+        }
+
+        .dw-type-card {
+            background: #fff;
+            border: 1px solid #e9efef;
+            border-radius: 8px;
+            padding: 40px 32px;
+            text-align: center;
+        }
+
+        .dw-type-card h3 {
+            font-size: 24px;
+            font-weight: 600;
+            color: #000;
+            margin-bottom: 16px;
+        }
+
+        .dw-type-card p {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #4a5565;
+            margin-bottom: 24px;
+        }
+
+        .dw-type-badge {
+            display: inline-block;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            padding: 6px 12px;
+            border-radius: 4px;
+            letter-spacing: 0.5px;
+        }
+
+        .dw-type-badge.primary {
+            background: #e6f0ff;
+            color: #00e;
+        }
+
+        .dw-type-badge.secondary {
+            background: #e9efef;
+            color: #4a5565;
+        }
+
+        /* Opportunity Cards */
+        .dw-opportunities {
+            display: grid;
+            gap: 24px;
+        }
+
+        .dw-opp-card {
+            background: #fff;
+            border: 1px solid #e9efef;
+            border-radius: 8px;
+            padding: 32px;
+            transition: all 0.2s ease;
+        }
+
+        .dw-opp-card:hover {
+            border-color: #00e;
+            box-shadow: 0 4px 12px rgba(0, 0, 238, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .dw-opp-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 16px;
+        }
+
+        .dw-opp-title {
+            flex: 1;
+        }
+
+        .dw-opp-title h3 {
+            font-size: 22px;
+            font-weight: 600;
+            color: #000;
+            margin-bottom: 8px;
+        }
+
+        .dw-opp-provider {
+            font-size: 13px;
+            color: #00e;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .dw-opp-savings {
+            flex-shrink: 0;
+            text-align: right;
+            background: #e6f0ff;
+            padding: 12px 16px;
+            border-radius: 6px;
+            margin-left: 24px;
+        }
+
+        .dw-opp-savings-amount {
+            display: block;
+            font-size: 20px;
+            font-weight: 700;
+            color: #00e;
+            line-height: 1;
+            margin-bottom: 4px;
+        }
+
+        .dw-opp-savings-label {
+            font-size: 11px;
+            color: #4a5565;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .dw-opp-description {
+            font-size: 15px;
+            line-height: 1.6;
+            color: #4a5565;
+            margin-bottom: 20px;
+        }
+
+        .dw-opp-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .dw-opp-tag {
+            font-size: 12px;
+            padding: 6px 12px;
+            background: #f9f9f9;
+            color: #4a5565;
+            border-radius: 4px;
+            font-weight: 500;
+        }
+
+        .dw-opp-tag.highlight {
+            background: #e6f0ff;
+            color: #00e;
+            font-weight: 600;
+        }
+
+        /* Categories Grid */
+        .dw-categories-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .dw-category-card {
+            background: #fff;
+            border: 1px solid #e9efef;
+            border-radius: 8px;
+            padding: 32px 24px;
+            text-align: center;
+        }
+
+        .dw-category-icon {
+            font-size: 40px;
+            margin-bottom: 16px;
+        }
+
+        .dw-category-card h3 {
+            font-size: 20px;
+            font-weight: 600;
+            color: #000;
+            margin-bottom: 12px;
+        }
+
+        .dw-category-card p {
+            font-size: 15px;
+            line-height: 1.6;
+            color: #4a5565;
+        }
+
+        /* Platform Coverage */
+        .dw-platforms {
+            display: grid;
+            gap: 48px;
+        }
+
+        .dw-platform-category h3 {
+            font-size: 24px;
+            font-weight: 600;
+            color: #000;
+            margin-bottom: 24px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid #e9efef;
+        }
+
+        .dw-platform-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 16px;
+        }
+
+        .dw-platform-item {
+            background: #fff;
+            border: 1px solid #e9efef;
+            border-radius: 6px;
+            padding: 16px 12px;
+            text-align: center;
+            transition: all 0.2s ease;
+        }
+
+        .dw-platform-item:hover {
+            border-color: #00e;
+            box-shadow: 0 2px 8px rgba(0, 0, 238, 0.1);
+        }
+
+        .dw-platform-name {
+            font-size: 14px;
+            font-weight: 600;
+            color: #000;
+            margin-bottom: 4px;
+        }
+
+        .dw-platform-type {
+            font-size: 12px;
+            color: #4a5565;
+        }
+
+        .dw-platform-badge {
+            display: inline-block;
+            font-size: 10px;
+            font-weight: 700;
+            text-transform: uppercase;
+            background: #e9efef;
+            color: #4a5565;
+            padding: 4px 8px;
+            border-radius: 3px;
+            margin-top: 8px;
+        }
+
+        /* Why PointFive */
+        .dw-why-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 32px;
+        }
+
+        .dw-why-card {
+            background: #fff;
+            border: 1px solid #e9efef;
+            border-radius: 8px;
+            padding: 40px 32px;
+        }
+
+        .dw-why-number {
+            display: inline-block;
+            font-size: 16px;
+            font-weight: 700;
+            color: #00e;
+            background: #e6f0ff;
+            width: 40px;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            border-radius: 50%;
+            margin-bottom: 20px;
+        }
+
+        .dw-why-card h3 {
+            font-size: 22px;
+            font-weight: 600;
+            color: #000;
+            margin-bottom: 12px;
+        }
+
+        .dw-why-card p {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #4a5565;
+        }
+
+        /* CTA Section */
+        .dw-cta {
+            text-align: center;
+            padding: 80px 0;
+            background: #f9f9f9;
+        }
+
+        .dw-cta h2 {
+            font-size: 42px;
+            font-weight: 400;
+            color: #000;
+            margin-bottom: 16px;
+        }
+
+        .dw-cta p {
+            font-size: 18px;
+            color: #4a5565;
+            margin-bottom: 32px;
+        }
+
+        .dw-cta-button {
+            display: inline-block;
+            background: #00e;
+            color: #fff;
+            padding: 16px 32px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+
+        .dw-cta-button:hover {
+            background: #000;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        /* ROI Highlight */
+        .dw-roi {
+            background: #fff;
+            border: 2px solid #00e;
+            border-radius: 8px;
+            padding: 32px;
+            text-align: center;
+            margin: 40px 0;
+        }
+
+        .dw-roi-stat {
+            font-size: 56px;
+            font-weight: 700;
+            color: #00e;
+            margin-bottom: 8px;
+        }
+
+        .dw-roi-label {
+            font-size: 16px;
+            color: #4a5565;
+            margin-bottom: 16px;
+        }
+
+        .dw-roi-text {
+            font-size: 14px;
+            color: #4a5565;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 900px) {
+            .container {
+                padding: 0 20px;
+            }
+
+            .dw-hero {
+                padding: 80px 20px 40px;
+            }
+
+            .dw-hero h1 {
+                font-size: 40px;
+                line-height: 115%;
+            }
+
+            .dw-hero .subtitle {
+                font-size: 18px;
+                line-height: 28px;
+                padding: 0;
+            }
+
+            .dw-stats {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 24px;
+            }
+
+            .dw-stat-number {
+                font-size: 40px;
+            }
+
+            .dw-stat-label {
+                font-size: 13px;
+            }
+
+            .dw-ticker {
+                padding: 24px 0;
+                margin: 40px 0 0;
+            }
+
+            .dw-ticker-item {
+                font-size: 16px;
+                padding: 0 20px;
+            }
+
+            .dw-section {
+                padding: 60px 20px;
+            }
+
+            .dw-section-header {
+                margin-bottom: 40px;
+            }
+
+            .dw-section-header h2 {
+                font-size: 36px;
+            }
+
+            .dw-section-header .subtitle {
+                font-size: 17px;
+            }
+
+            .dw-types-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .dw-type-card {
+                padding: 32px 24px;
+            }
+
+            .dw-opportunities {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .dw-opp-card {
+                padding: 28px 24px;
+            }
+
+            .dw-opp-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 16px;
+            }
+
+            .dw-opp-savings {
+                margin-left: 0;
+                margin-top: 0;
+                width: auto;
+            }
+
+            .dw-categories-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .dw-cat-card {
+                padding: 28px 24px;
+            }
+
+            .dw-platform-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+            }
+
+            .dw-platform-card {
+                padding: 24px 20px;
+            }
+
+            .dw-why-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .dw-why-card {
+                padding: 32px 24px;
+            }
+
+            .dw-roi-box {
+                padding: 40px 24px;
+                margin: 40px 0;
+            }
+
+            .dw-cta {
+                padding: 60px 20px;
+            }
+
+            .dw-cta h2 {
+                font-size: 36px;
+            }
+
+            .dw-cta p {
+                font-size: 17px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 0 20px;
+            }
+
+            .dw-hero {
+                padding: 60px 20px 32px;
+            }
+
+            .dw-hero-badge {
+                font-size: 12px;
+                padding: 6px 12px;
+                margin-bottom: 20px;
+            }
+
+            .dw-hero h1 {
+                font-size: 32px;
+                line-height: 110%;
+                margin-bottom: 16px;
+            }
+
+            .dw-hero .subtitle {
+                font-size: 16px;
+                line-height: 26px;
+                margin-bottom: 32px;
+            }
+
+            .dw-stats {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .dw-stat-number {
+                font-size: 36px;
+            }
+
+            .dw-stat-label {
+                font-size: 12px;
+            }
+
+            .dw-ticker {
+                padding: 20px 0;
+                margin: 32px 0 0;
+            }
+
+            .dw-ticker-item {
+                font-size: 14px;
+                padding: 0 16px;
+            }
+
+            .dw-section {
+                padding: 48px 20px;
+            }
+
+            .dw-section-header {
+                margin-bottom: 32px;
+            }
+
+            .dw-section-header h2 {
+                font-size: 28px;
+                line-height: 120%;
+                margin-bottom: 12px;
+            }
+
+            .dw-section-header .subtitle {
+                font-size: 15px;
+                line-height: 24px;
+            }
+
+            .dw-type-card {
+                padding: 28px 20px;
+            }
+
+            .dw-type-card h3 {
+                font-size: 20px;
+            }
+
+            .dw-type-card .dw-type-label {
+                font-size: 14px;
+                margin-bottom: 8px;
+            }
+
+            .dw-opportunities {
+                gap: 16px;
+            }
+
+            .dw-opp-card {
+                padding: 24px 20px;
+            }
+
+            .dw-opp-card h3 {
+                font-size: 18px;
+                line-height: 140%;
+            }
+
+            .dw-opp-card p {
+                font-size: 14px;
+                line-height: 22px;
+            }
+
+            .dw-opp-savings {
+                font-size: 18px;
+                padding: 6px 12px;
+            }
+
+            .dw-opp-tags {
+                gap: 6px;
+            }
+
+            .dw-opp-tag {
+                font-size: 11px;
+                padding: 4px 10px;
+            }
+
+            .dw-cat-card {
+                padding: 24px 20px;
+            }
+
+            .dw-cat-card h3 {
+                font-size: 18px;
+            }
+
+            .dw-cat-card p {
+                font-size: 14px;
+            }
+
+            .dw-platform-grid {
+                grid-template-columns: 1fr;
+                gap: 16px;
+            }
+
+            .dw-platform-card {
+                padding: 20px 16px;
+            }
+
+            .dw-platform-service {
+                padding: 12px;
+            }
+
+            .dw-platform-service h4 {
+                font-size: 13px;
+            }
+
+            .dw-platform-service .dw-platform-badge {
+                font-size: 10px;
+                padding: 2px 6px;
+            }
+
+            .dw-why-card {
+                padding: 28px 20px;
+            }
+
+            .dw-why-card h3 {
+                font-size: 20px;
+            }
+
+            .dw-why-card p {
+                font-size: 14px;
+                line-height: 22px;
+            }
+
+            .dw-roi-box {
+                padding: 32px 20px;
+                margin: 32px 0;
+            }
+
+            .dw-roi-stat {
+                font-size: 40px;
+            }
+
+            .dw-roi-label {
+                font-size: 13px;
+            }
+
+            .dw-roi-text {
+                font-size: 14px;
+                line-height: 22px;
+            }
+
+            .dw-cta {
+                padding: 48px 20px;
+            }
+
+            .dw-cta h2 {
+                font-size: 28px;
+                margin-bottom: 12px;
+            }
+
+            .dw-cta p {
+                font-size: 15px;
+                line-height: 24px;
+                margin-bottom: 28px;
+            }
+
+            .dw-cta-button {
+                font-size: 15px;
+                padding: 14px 32px;
+            }
+        }
+        </style>
+    `;
+
+    const html = `
+        <!-- Hero Section -->
+        <section class="dw-hero">
+            <div class="container">
+                <div class="dw-hero-badge">Continuously expanding — 10 new detections weekly</div>
+                <h1>400+ ways to<br>cut your cloud bill.</h1>
+                <p class="subtitle">PointFive's DeepWaste™ Detection Engine finds cloud waste that no other tool can — from quick wins to deep architectural inefficiencies — across AWS, Azure, GCP, OCI, Snowflake, Databricks, Kubernetes, and AI platforms.</p>
+                
+                <div class="dw-stats">
+                    <div class="dw-stat">
+                        <span class="dw-stat-number">400+</span>
+                        <span class="dw-stat-label">Optimization Types</span>
+                    </div>
+                    <div class="dw-stat">
+                        <span class="dw-stat-number">12+</span>
+                        <span class="dw-stat-label">Providers</span>
+                    </div>
+                    <div class="dw-stat">
+                        <span class="dw-stat-number">85+</span>
+                        <span class="dw-stat-label">Services Covered</span>
+                    </div>
+                    <div class="dw-stat">
+                        <span class="dw-stat-number">6</span>
+                        <span class="dw-stat-label">Waste Categories</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Ticker -->
+        <div class="dw-ticker">
+            <div class="dw-ticker-track">
+                <div class="dw-ticker-item">EC2 Rightsizing</div>
+                <div class="dw-ticker-item">NAT Gateway Optimization</div>
+                <div class="dw-ticker-item">K8s Workload Efficiency</div>
+                <div class="dw-ticker-item">RDS Snapshot Lifecycle</div>
+                <div class="dw-ticker-item">EBS Volume Optimization</div>
+                <div class="dw-ticker-item">Azure Disk Types</div>
+                <div class="dw-ticker-item">S3 Storage Classes</div>
+                <div class="dw-ticker-item">MSK Cluster Optimization</div>
+                <div class="dw-ticker-item">OpenSearch Serverless Migration</div>
+                <div class="dw-ticker-item">GCP Logging Architecture</div>
+                <div class="dw-ticker-item">Snowflake Warehouse Tuning</div>
+                <div class="dw-ticker-item">ECS Fargate Rightsizing</div>
+                <div class="dw-ticker-item">CloudTrail Deduplication</div>
+                <div class="dw-ticker-item">Azure SQL DTU Optimization</div>
+                <div class="dw-ticker-item">Lambda Memory Allocation</div>
+                <div class="dw-ticker-item">DynamoDB Capacity Modes</div>
+                <!-- Duplicate for seamless loop -->
+                <div class="dw-ticker-item">EC2 Rightsizing</div>
+                <div class="dw-ticker-item">NAT Gateway Optimization</div>
+                <div class="dw-ticker-item">K8s Workload Efficiency</div>
+                <div class="dw-ticker-item">RDS Snapshot Lifecycle</div>
+                <div class="dw-ticker-item">EBS Volume Optimization</div>
+                <div class="dw-ticker-item">Azure Disk Types</div>
+                <div class="dw-ticker-item">S3 Storage Classes</div>
+                <div class="dw-ticker-item">MSK Cluster Optimization</div>
+                <div class="dw-ticker-item">OpenSearch Serverless Migration</div>
+                <div class="dw-ticker-item">GCP Logging Architecture</div>
+                <div class="dw-ticker-item">Snowflake Warehouse Tuning</div>
+                <div class="dw-ticker-item">ECS Fargate Rightsizing</div>
+                <div class="dw-ticker-item">CloudTrail Deduplication</div>
+                <div class="dw-ticker-item">Azure SQL DTU Optimization</div>
+                <div class="dw-ticker-item">Lambda Memory Allocation</div>
+                <div class="dw-ticker-item">DynamoDB Capacity Modes</div>
+            </div>
+        </div>
+
+        <!-- What DeepWaste Finds -->
+        <section class="dw-section">
+            <div class="container">
+                <div class="dw-section-header">
+                    <h2>What DeepWaste™ Finds</h2>
+                    <p class="subtitle">Three kinds of waste. One engine finds them all.</p>
+                    <p class="subtitle">Our Cloud Cost Research Team ships ~10 new detections every week, organized into three strategic categories that together cover your entire optimization surface.</p>
+                </div>
+                
+                <div class="dw-types-grid">
+                    <div class="dw-type-card">
+                        <h3>Quick Wins,<br>Massive Returns</h3>
+                        <p>High-impact savings with minimal engineering effort. Schedule idle instances, deploy VPC endpoints, enable lifecycle policies — and start saving on day one. Example customer saved $600K by deploying a single S3 Gateway Endpoint.</p>
+                        <span class="dw-type-badge primary">Fastest ROI</span>
+                    </div>
+                    
+                    <div class="dw-type-card">
+                        <h3>Deep Waste<br>Nobody Else Detects</h3>
+                        <p>Architectural inefficiencies invisible to other tools. We use VPC Flow Logs, Route53 queries, snapshot side-scanning, and virtual cost allocation to expose waste your cloud provider doesn't surface.</p>
+                        <span class="dw-type-badge primary">Only PointFive</span>
+                    </div>
+                    
+                    <div class="dw-type-card">
+                        <h3>Most Common<br>Across Every Stack</h3>
+                        <p>The patterns we see in every environment — idle resources, outdated instance generations, non-production overprovisioning, and missing storage lifecycle policies. Consistent 20–40% savings potential.</p>
+                        <span class="dw-type-badge secondary">Universal</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Opportunity Catalog -->
+        <section class="dw-section dw-section-alt">
+            <div class="container">
+                <div class="dw-section-header">
+                    <h2>Opportunity Catalog</h2>
+                    <p class="subtitle">Real optimizations. Real savings.</p>
+                    <p class="subtitle">A sample of the 400+ distinct optimizations our DeepWaste™ engine detects — each backed by usage patterns, configuration analysis, and validated remediation playbooks.</p>
+                </div>
+                
+                <div class="dw-opportunities">
+                    <!-- Opportunity 1 -->
+                    <div class="dw-opp-card">
+                        <div class="dw-opp-header">
+                            <div class="dw-opp-title">
+                                <span class="dw-opp-provider">AWS</span>
+                                <h3>Expensive VPC NAT Gateway Deployment</h3>
+                            </div>
+                            <div class="dw-opp-savings">
+                                <span class="dw-opp-savings-amount">$800K+</span>
+                                <span class="dw-opp-savings-label">saved</span>
+                            </div>
+                        </div>
+                        <p class="dw-opp-description">Detects workloads routing massive data through NAT Gateways when free alternatives like Gateway Endpoints exist. A single endpoint deployment can eliminate hundreds of thousands in annual data processing fees.</p>
+                        <div class="dw-opp-tags">
+                            <span class="dw-opp-tag highlight">Easy Fix</span>
+                            <span class="dw-opp-tag">Networking</span>
+                            <span class="dw-opp-tag">Zero Downtime</span>
+                        </div>
+                    </div>
+
+                    <!-- Opportunity 2 -->
+                    <div class="dw-opp-card">
+                        <div class="dw-opp-header">
+                            <div class="dw-opp-title">
+                                <span class="dw-opp-provider">AWS</span>
+                                <h3>Schedulable EC2 Instances</h3>
+                            </div>
+                            <div class="dw-opp-savings">
+                                <span class="dw-opp-savings-amount">$820K+</span>
+                                <span class="dw-opp-savings-label">saved</span>
+                            </div>
+                        </div>
+                        <p class="dw-opp-description">Identifies instances with low off-hours activity that can be automatically started and stopped on a schedule. Eliminates waste from resources running 24/7 when only needed during business hours.</p>
+                        <div class="dw-opp-tags">
+                            <span class="dw-opp-tag highlight">Automated</span>
+                            <span class="dw-opp-tag">Compute</span>
+                        </div>
+                    </div>
+
+                    <!-- Opportunity 3 -->
+                    <div class="dw-opp-card">
+                        <div class="dw-opp-header">
+                            <div class="dw-opp-title">
+                                <span class="dw-opp-provider">AWS</span>
+                                <h3>Serverless-Ready OpenSearch Domains</h3>
+                            </div>
+                            <div class="dw-opp-savings">
+                                <span class="dw-opp-savings-amount">$390K+</span>
+                                <span class="dw-opp-savings-label">saved</span>
+                            </div>
+                        </div>
+                        <p class="dw-opp-description">Identifies low-usage provisioned OpenSearch domains that are candidates for serverless migration — eliminating fixed instance costs for intermittent workloads.</p>
+                        <div class="dw-opp-tags">
+                            <span class="dw-opp-tag highlight">Quick Migration</span>
+                            <span class="dw-opp-tag">Search</span>
+                        </div>
+                    </div>
+
+                    <!-- Opportunity 4 -->
+                    <div class="dw-opp-card">
+                        <div class="dw-opp-header">
+                            <div class="dw-opp-title">
+                                <span class="dw-opp-provider">Azure</span>
+                                <h3>Suboptimal Azure Disk Types</h3>
+                            </div>
+                            <div class="dw-opp-savings">
+                                <span class="dw-opp-savings-amount">$630K+</span>
+                                <span class="dw-opp-savings-label">saved</span>
+                            </div>
+                        </div>
+                        <p class="dw-opp-description">Universal detection across all Azure managed disk types — Premium SSD, Standard SSD, and Standard HDD — identifying disks that can be downtierred based on actual IOPS and throughput patterns.</p>
+                        <div class="dw-opp-tags">
+                            <span class="dw-opp-tag highlight">High Impact</span>
+                            <span class="dw-opp-tag">Storage</span>
+                        </div>
+                    </div>
+
+                    <!-- Opportunity 5 -->
+                    <div class="dw-opp-card">
+                        <div class="dw-opp-header">
+                            <div class="dw-opp-title">
+                                <span class="dw-opp-provider">AWS</span>
+                                <h3>S3 Traffic Traversing NAT Gateway (17-Detection Suite)</h3>
+                            </div>
+                            <div class="dw-opp-savings">
+                                <span class="dw-opp-savings-amount">$600K+</span>
+                                <span class="dw-opp-savings-label">example</span>
+                            </div>
+                        </div>
+                        <p class="dw-opp-description">Uses VPC Flow Logs and Route53 Query Logging to identify exactly which services route traffic through expensive NAT Gateways. Covers S3, DynamoDB, SQS, SNS, Lambda, ECR, CloudWatch, and 10 more services. Example customer saved $600K from a single gateway.</p>
+                        <div class="dw-opp-tags">
+                            <span class="dw-opp-tag highlight">Only PointFive</span>
+                            <span class="dw-opp-tag">Networking</span>
+                        </div>
+                    </div>
+
+                    <!-- Opportunity 6 -->
+                    <div class="dw-opp-card">
+                        <div class="dw-opp-header">
+                            <div class="dw-opp-title">
+                                <span class="dw-opp-provider">AWS</span>
+                                <h3>Duplicate CloudTrail Management Events</h3>
+                            </div>
+                            <div class="dw-opp-savings">
+                                <span class="dw-opp-savings-amount">$147K+</span>
+                                <span class="dw-opp-savings-label">saved</span>
+                            </div>
+                        </div>
+                        <p class="dw-opp-description">Detects when multiple CloudTrail trails log the same management events beyond the free tier. Uses virtual cost allocation to individual trails — a breakdown AWS doesn't expose natively.</p>
+                        <div class="dw-opp-tags">
+                            <span class="dw-opp-tag highlight">Hidden Cost</span>
+                            <span class="dw-opp-tag">Observability</span>
+                        </div>
+                    </div>
+
+                    <!-- Opportunity 7 -->
+                    <div class="dw-opp-card">
+                        <div class="dw-opp-header">
+                            <div class="dw-opp-title">
+                                <span class="dw-opp-provider">AWS</span>
+                                <h3>Overprovisioned EBS via Snapshot Side-Scanning</h3>
+                            </div>
+                            <div class="dw-opp-savings">
+                                <span class="dw-opp-savings-amount">$1.5M+</span>
+                                <span class="dw-opp-savings-label">estimated</span>
+                            </div>
+                        </div>
+                        <p class="dw-opp-description">Analyzes EBS snapshots to detect actual disk utilization without requiring agents or write access. Identifies volumes provisioned far beyond what the filesystem actually uses — waste invisible to standard monitoring.</p>
+                        <div class="dw-opp-tags">
+                            <span class="dw-opp-tag highlight">Side-Scanning</span>
+                            <span class="dw-opp-tag">Storage</span>
+                        </div>
+                    </div>
+
+                    <!-- Opportunity 8 -->
+                    <div class="dw-opp-card">
+                        <div class="dw-opp-header">
+                            <div class="dw-opp-title">
+                                <span class="dw-opp-provider">GCP</span>
+                                <h3>Suboptimal Cloud Logging Bucket Architecture</h3>
+                            </div>
+                            <div class="dw-opp-savings">
+                                <span class="dw-opp-savings-amount"></span>
+                                <span class="dw-opp-savings-label"></span>
+                            </div>
+                        </div>
+                        <p class="dw-opp-description">First architectural detection in GCP. Identifies when logs are stored in expensive native Cloud Logging storage instead of being exported to cost-effective Google Cloud Storage buckets — a common but hidden design flaw.</p>
+                        <div class="dw-opp-tags">
+                            <span class="dw-opp-tag highlight">Architecture</span>
+                            <span class="dw-opp-tag">Logging</span>
+                        </div>
+                    </div>
+
+                    <!-- Opportunity 9 -->
+                    <div class="dw-opp-card">
+                        <div class="dw-opp-header">
+                            <div class="dw-opp-title">
+                                <span class="dw-opp-provider">AWS</span>
+                                <h3>RDS Snapshot Lifecycle Suite (6 Detections)</h3>
+                            </div>
+                            <div class="dw-opp-savings">
+                                <span class="dw-opp-savings-amount">$240K+</span>
+                                <span class="dw-opp-savings-label">saved</span>
+                            </div>
+                        </div>
+                        <p class="dw-opp-description">DeepWaste™ breaks down RDS snapshot costs to individual ARNs — something AWS doesn't expose. Covers orphaned snapshots, excessive retention, and non-production over-protection. RDS snapshots are 2–5% of total AWS costs.</p>
+                        <div class="dw-opp-tags">
+                            <span class="dw-opp-tag highlight">Cost Attribution</span>
+                            <span class="dw-opp-tag">Database</span>
+                        </div>
+                    </div>
+
+                    <!-- Opportunity 10 -->
+                    <div class="dw-opp-card">
+                        <div class="dw-opp-header">
+                            <div class="dw-opp-title">
+                                <span class="dw-opp-provider">AWS</span>
+                                <h3>Abandoned Incomplete Multipart S3 Uploads</h3>
+                            </div>
+                            <div class="dw-opp-savings">
+                                <span class="dw-opp-savings-amount"></span>
+                                <span class="dw-opp-savings-label"></span>
+                            </div>
+                        </div>
+                        <p class="dw-opp-description">Uncovers hidden storage costs from incomplete multipart uploads that don't appear in standard S3 listings or the AWS console — phantom objects silently accumulating charges.</p>
+                        <div class="dw-opp-tags">
+                            <span class="dw-opp-tag highlight">Invisible Waste</span>
+                            <span class="dw-opp-tag">Storage</span>
+                        </div>
+                    </div>
+
+                    <!-- Opportunity 11 -->
+                    <div class="dw-opp-card">
+                        <div class="dw-opp-header">
+                            <div class="dw-opp-title">
+                                <span class="dw-opp-provider">Multi-Cloud</span>
+                                <h3>Underutilized Compute Instances</h3>
+                            </div>
+                            <div class="dw-opp-savings">
+                                <span class="dw-opp-savings-amount">20–40%</span>
+                                <span class="dw-opp-savings-label">savings</span>
+                            </div>
+                        </div>
+                        <p class="dw-opp-description">Over-provisioned EC2 instances, Azure VMs, and GCE machines operating consistently below capacity. Rightsizing recommendations across all instance families with performance-safe guardrails.</p>
+                        <div class="dw-opp-tags">
+                            <span class="dw-opp-tag">Compute</span>
+                            <span class="dw-opp-tag">AWS</span>
+                            <span class="dw-opp-tag">Azure</span>
+                            <span class="dw-opp-tag">GCP</span>
+                        </div>
+                    </div>
+
+                    <!-- Opportunity 12 -->
+                    <div class="dw-opp-card">
+                        <div class="dw-opp-header">
+                            <div class="dw-opp-title">
+                                <span class="dw-opp-provider">Multi-Cloud</span>
+                                <h3>Inactive & Orphaned Resources</h3>
+                            </div>
+                            <div class="dw-opp-savings">
+                                <span class="dw-opp-savings-amount"></span>
+                                <span class="dw-opp-savings-label"></span>
+                            </div>
+                        </div>
+                        <p class="dw-opp-description">Complete "inactivity track" across ElastiCache, Kinesis, OpenSearch, RDS, Azure SQL, and more — resources incurring charges with zero or near-zero traffic. The simplest wins in any environment.</p>
+                        <div class="dw-opp-tags">
+                            <span class="dw-opp-tag highlight">All Services</span>
+                            <span class="dw-opp-tag">Easy Win</span>
+                        </div>
+                    </div>
+
+                    <!-- Opportunity 13 -->
+                    <div class="dw-opp-card">
+                        <div class="dw-opp-header">
+                            <div class="dw-opp-title">
+                                <span class="dw-opp-provider">Multi-Cloud</span>
+                                <h3>Non-Production Overprovisioning</h3>
+                            </div>
+                            <div class="dw-opp-savings">
+                                <span class="dw-opp-savings-amount"></span>
+                                <span class="dw-opp-savings-label"></span>
+                            </div>
+                        </div>
+                        <p class="dw-opp-description">Multi-AZ deployments in dev/staging, premium storage tiers for test data, production-grade security features on non-production workloads. Savings without touching production.</p>
+                        <div class="dw-opp-tags">
+                            <span class="dw-opp-tag highlight">Non-Prod</span>
+                            <span class="dw-opp-tag">Zero Risk</span>
+                        </div>
+                    </div>
+
+                    <!-- Opportunity 14 -->
+                    <div class="dw-opp-card">
+                        <div class="dw-opp-header">
+                            <div class="dw-opp-title">
+                                <span class="dw-opp-provider">Multi-Cloud</span>
+                                <h3>Outdated Instance Generations</h3>
+                            </div>
+                            <div class="dw-opp-savings">
+                                <span class="dw-opp-savings-amount">20–40%</span>
+                                <span class="dw-opp-savings-label">savings</span>
+                            </div>
+                        </div>
+                        <p class="dw-opp-description">Previous-generation compute, database, and storage instances where newer generations offer better performance at lower cost. A migration that pays for itself immediately.</p>
+                        <div class="dw-opp-tags">
+                            <span class="dw-opp-tag highlight">Modernization</span>
+                            <span class="dw-opp-tag">All Providers</span>
+                        </div>
+                    </div>
+
+                    <!-- Opportunity 15 -->
+                    <div class="dw-opp-card">
+                        <div class="dw-opp-header">
+                            <div class="dw-opp-title">
+                                <span class="dw-opp-provider">AWS</span>
+                                <h3>S3 Object Versions Without Lifecycle Policy</h3>
+                            </div>
+                            <div class="dw-opp-savings">
+                                <span class="dw-opp-savings-amount">$145K+</span>
+                                <span class="dw-opp-savings-label">saved</span>
+                            </div>
+                        </div>
+                        <p class="dw-opp-description">Detects versioned S3 buckets where old object versions accumulate indefinitely without expiration rules — a hidden storage cost that grows silently over time.</p>
+                        <div class="dw-opp-tags">
+                            <span class="dw-opp-tag">Storage</span>
+                            <span class="dw-opp-tag">Lifecycle</span>
+                        </div>
+                    </div>
+
+                    <!-- Opportunity 16 -->
+                    <div class="dw-opp-card">
+                        <div class="dw-opp-header">
+                            <div class="dw-opp-title">
+                                <span class="dw-opp-provider">K8s</span>
+                                <h3>Inactive & Underutilized K8s Workloads</h3>
+                            </div>
+                            <div class="dw-opp-savings">
+                                <span class="dw-opp-savings-amount">15–70%</span>
+                                <span class="dw-opp-savings-label">of K8s spend</span>
+                            </div>
+                        </div>
+                        <p class="dw-opp-description">Agentless detection across Deployments, StatefulSets, DaemonSets, ReplicaSets, and CronJobs — identifying workloads requesting resources far beyond actual utilization. Covers EKS, AKS, and GKE.</p>
+                        <div class="dw-opp-tags">
+                            <span class="dw-opp-tag highlight">Agentless</span>
+                            <span class="dw-opp-tag">Provider-Agnostic</span>
+                        </div>
+                    </div>
+
+                    <!-- Opportunity 17 -->
+                    <div class="dw-opp-card">
+                        <div class="dw-opp-header">
+                            <div class="dw-opp-title">
+                                <span class="dw-opp-provider">K8s</span>
+                                <h3>Excessive DaemonSet Overhead</h3>
+                            </div>
+                            <div class="dw-opp-savings">
+                                <span class="dw-opp-savings-amount"></span>
+                                <span class="dw-opp-savings-label"></span>
+                            </div>
+                        </div>
+                        <p class="dw-opp-description">Detects when node sizes are too small relative to the fixed overhead of DaemonSets running on every node — meaning a disproportionate share of each node's capacity goes to system workloads rather than application pods.</p>
+                        <div class="dw-opp-tags">
+                            <span class="dw-opp-tag highlight">Architecture</span>
+                            <span class="dw-opp-tag">Node Sizing</span>
+                        </div>
+                    </div>
+
+                    <!-- Opportunity 18 -->
+                    <div class="dw-opp-card">
+                        <div class="dw-opp-header">
+                            <div class="dw-opp-title">
+                                <span class="dw-opp-provider">AWS</span>
+                                <h3>MSK Cluster Optimization Suite (9 Detections)</h3>
+                            </div>
+                            <div class="dw-opp-savings">
+                                <span class="dw-opp-savings-amount">$300K+</span>
+                                <span class="dw-opp-savings-label">saved</span>
+                            </div>
+                        </div>
+                        <p class="dw-opp-description">Comprehensive Kafka coverage: inactive clusters, underutilization, Express broker migration, compression optimization, client placement, storage configuration, and monitoring levels. From $18K to $300K in detected savings in a single month.</p>
+                        <div class="dw-opp-tags">
+                            <span class="dw-opp-tag highlight">Full Coverage</span>
+                            <span class="dw-opp-tag">Streaming</span>
+                        </div>
+                    </div>
+
+                    <!-- Opportunity 19 -->
+                    <div class="dw-opp-card">
+                        <div class="dw-opp-header">
+                            <div class="dw-opp-title">
+                                <span class="dw-opp-provider">Azure</span>
+                                <h3>Azure OpenAI Model Optimization</h3>
+                            </div>
+                            <div class="dw-opp-savings">
+                                <span class="dw-opp-savings-amount"></span>
+                                <span class="dw-opp-savings-label"></span>
+                            </div>
+                        </div>
+                        <p class="dw-opp-description">First AI-native service coverage: detects when provisioned throughput units are underutilized or when workloads can be served by more cost-effective model versions without quality degradation.</p>
+                        <div class="dw-opp-tags">
+                            <span class="dw-opp-tag highlight">AI Costs</span>
+                            <span class="dw-opp-tag">Cognitive Services</span>
+                        </div>
+                    </div>
+
+                    <!-- Opportunity 20 -->
+                    <div class="dw-opp-card">
+                        <div class="dw-opp-header">
+                            <div class="dw-opp-title">
+                                <span class="dw-opp-provider">Snowflake</span>
+                                <h3>Snowflake Warehouse Auto-Suspend</h3>
+                            </div>
+                            <div class="dw-opp-savings">
+                                <span class="dw-opp-savings-amount"></span>
+                                <span class="dw-opp-savings-label"></span>
+                            </div>
+                        </div>
+                        <p class="dw-opp-description">Identifies virtual warehouses that remain active well beyond query completion — burning credits during idle periods. First PaaS optimization with more warehouse, storage, and query detections coming.</p>
+                        <div class="dw-opp-tags">
+                            <span class="dw-opp-tag highlight">New</span>
+                            <span class="dw-opp-tag">Data Warehouse</span>
+                        </div>
+                    </div>
+
+                    <!-- Opportunity 21 -->
+                    <div class="dw-opp-card">
+                        <div class="dw-opp-header">
+                            <div class="dw-opp-title">
+                                <span class="dw-opp-provider">AWS</span>
+                                <h3>ECS Fargate CPU & Memory Overprovisioning</h3>
+                            </div>
+                            <div class="dw-opp-savings">
+                                <span class="dw-opp-savings-amount">$380K+</span>
+                                <span class="dw-opp-savings-label">saved</span>
+                            </div>
+                        </div>
+                        <p class="dw-opp-description">Unified detection for Fargate tasks with CPU and memory allocations far exceeding actual peak usage — with consolidated rightsizing recommendations that respect Fargate's allowed configurations.</p>
+                        <div class="dw-opp-tags">
+                            <span class="dw-opp-tag">Containers</span>
+                            <span class="dw-opp-tag">Serverless</span>
+                        </div>
+                    </div>
+
+                    <!-- Opportunity 22 -->
+                    <div class="dw-opp-card">
+                        <div class="dw-opp-header">
+                            <div class="dw-opp-title">
+                                <span class="dw-opp-provider">AWS</span>
+                                <h3>CloudWatch Logs Infrequent Access</h3>
+                            </div>
+                            <div class="dw-opp-savings">
+                                <span class="dw-opp-savings-amount">$184K+</span>
+                                <span class="dw-opp-savings-label">saved</span>
+                            </div>
+                        </div>
+                        <p class="dw-opp-description">Identifies log groups with low query frequency that can be moved to Infrequent Access class — same retention, 50% lower ingestion cost, with no operational impact.</p>
+                        <div class="dw-opp-tags">
+                            <span class="dw-opp-tag highlight">50% Savings</span>
+                            <span class="dw-opp-tag">Observability</span>
+                        </div>
+                    </div>
+
+                    <!-- Opportunity 23 -->
+                    <div class="dw-opp-card">
+                        <div class="dw-opp-header">
+                            <div class="dw-opp-title">
+                                <span class="dw-opp-provider">GCP</span>
+                                <h3>GCP Persistent Disk Optimization</h3>
+                            </div>
+                            <div class="dw-opp-savings">
+                                <span class="dw-opp-savings-amount">42%</span>
+                                <span class="dw-opp-savings-label">disk savings</span>
+                            </div>
+                        </div>
+                        <p class="dw-opp-description">Detects pd-ssd disks that can be migrated to pd-balanced based on actual IOPS patterns, plus identification of unused persistent disks across all GCE instances.</p>
+                        <div class="dw-opp-tags">
+                            <span class="dw-opp-tag">Storage</span>
+                            <span class="dw-opp-tag">Compute</span>
+                        </div>
+                    </div>
+
+                    <!-- Opportunity 24 -->
+                    <div class="dw-opp-card">
+                        <div class="dw-opp-header">
+                            <div class="dw-opp-title">
+                                <span class="dw-opp-provider">AWS</span>
+                                <h3>DynamoDB Capacity Mode Mismatch</h3>
+                            </div>
+                            <div class="dw-opp-savings">
+                                <span class="dw-opp-savings-amount">$105K+</span>
+                                <span class="dw-opp-savings-label">example</span>
+                            </div>
+                        </div>
+                        <p class="dw-opp-description">Bi-directional detection: identifies tables that should switch from provisioned to on-demand AND tables mistakenly on on-demand that should move back. Example customer found a single table costing $105K/year after an accidental migration.</p>
+                        <div class="dw-opp-tags">
+                            <span class="dw-opp-tag highlight">Bi-Directional</span>
+                            <span class="dw-opp-tag">NoSQL</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ROI Highlight -->
+                <div class="dw-roi">
+                    <div class="dw-roi-stat">1000%+</div>
+                    <div class="dw-roi-label">avg ROI</div>
+                    <p class="dw-roi-text">Real customer impact. Example customer achieved full ROI in 10 days. Another saved $600K from a single NAT Gateway endpoint deployment. Our average customer ROI exceeds 1,000%.</p>
+                </div>
+
+                <div style="text-align: center; margin-top: 40px;">
+                    <p style="font-size: 16px; color: #4a5565; margin-bottom: 16px;">Explore the full catalog on our Cloud Efficiency Hub →</p>
+                    <p style="font-size: 14px; color: #4a5565;">Open-source repository of 400+ cloud optimization detections and remediation playbooks</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Detection Categories -->
+        <section class="dw-section">
+            <div class="container">
+                <div class="dw-section-header">
+                    <h2>Detection Categories</h2>
+                    <p class="subtitle">Six types of waste. One continuous scan.</p>
+                    <p class="subtitle">DeepWaste™ categorizes every finding so teams can prioritize by effort, risk, and impact.</p>
+                </div>
+                
+                <div class="dw-categories-grid">
+                    <div class="dw-category-card">
+                        <div class="dw-category-icon">📦</div>
+                        <h3>Unused Resources</h3>
+                        <p>Orphaned, inactive, and abandoned resources still incurring charges — load balancers with no targets, unattached volumes, idle clusters.</p>
+                    </div>
+                    
+                    <div class="dw-category-card">
+                        <div class="dw-category-icon">📊</div>
+                        <h3>Underutilization</h3>
+                        <p>Over-provisioned resources consistently operating below capacity — instances, databases, and clusters sized for peak that never comes.</p>
+                    </div>
+                    
+                    <div class="dw-category-card">
+                        <div class="dw-category-icon">🏗️</div>
+                        <h3>Architecture Issues</h3>
+                        <p>Suboptimal designs causing unnecessary cost — NAT Gateway routing, logging architectures, redundancy in non-production environments.</p>
+                    </div>
+                    
+                    <div class="dw-category-card">
+                        <div class="dw-category-icon">⚙️</div>
+                        <h3>Configuration Gaps</h3>
+                        <p>Misaligned settings versus real usage — storage tiers, disk types, capacity modes, and retention policies that don't match actual workload patterns.</p>
+                    </div>
+                    
+                    <div class="dw-category-card">
+                        <div class="dw-category-icon">🚀</div>
+                        <h3>Modernization</h3>
+                        <p>Migration to newer or more cost-effective alternatives — current-gen instances, serverless options, and managed service upgrades.</p>
+                    </div>
+                    
+                    <div class="dw-category-card">
+                        <div class="dw-category-icon">💰</div>
+                        <h3>Commitment Optimization</h3>
+                        <p>Pricing model and reservation optimization — Reserved Instances, Savings Plans, committed use discounts across all providers and services.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Platform Coverage -->
+        <section class="dw-section dw-section-alt">
+            <div class="container">
+                <div class="dw-section-header">
+                    <h2>Platform Coverage</h2>
+                    <p class="subtitle">85+ services. Deep analysis on every one.</p>
+                    <p class="subtitle">Not just visibility — DeepWaste™ analyzes usage patterns, access frequencies, and workload characteristics across 90+ services organized by infrastructure domain.</p>
+                </div>
+                
+                <div class="dw-platforms">
+                    <!-- Compute -->
+                    <div class="dw-platform-category">
+                        <h3>Compute</h3>
+                        <div class="dw-platform-grid">
+                            <div class="dw-platform-item">
+                                <div class="dw-platform-name">Amazon EC2</div>
+                                <div class="dw-platform-type">AWS</div>
+                            </div>
+                            <div class="dw-platform-item">
+                                <div class="dw-platform-name">Azure VMs</div>
+                                <div class="dw-platform-type">Azure</div>
+                            </div>
+                            <div class="dw-platform-item">
+                                <div class="dw-platform-name">Compute Engine</div>
+                                <div class="dw-platform-type">GCP</div>
+                            </div>
+                            <div class="dw-platform-item">
+                                <div class="dw-platform-name">OCI Compute</div>
+                                <div class="dw-platform-type">Oracle</div>
+                            </div>
+                            <div class="dw-platform-item">
+                                <div class="dw-platform-name">WorkSpaces</div>
+                                <div class="dw-platform-type">AWS</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Kubernetes & Containers -->
+                    <div class="dw-platform-category">
+                        <h3>Kubernetes & Containers</h3>
+                        <div class="dw-platform-grid">
+                            <div class="dw-platform-item">
+                                <div class="dw-platform-name">Amazon EKS</div>
+                                <div class="dw-platform-type">Managed K8s</div>
+                            </div>
+                            <div class="dw-platform-item">
+                                <div class="dw-platform-name">Azure AKS</div>
+                                <div class="dw-platform-type">Managed K8s</div>
+                            </div>
+                            <div class="dw-platform-item">
+                                <div class="dw-platform-name">Google GKE</div>
+                                <div class="dw-platform-type">Managed K8s</div>
+                            </div>
+                            <div class="dw-platform-item">
+                                <div class="dw-platform-name">OpenShift</div>
+                                <div class="dw-platform-type">Enterprise K8s</div>
+                            </div>
+                            <div class="dw-platform-item">
+                                <div class="dw-platform-name">Amazon ECS</div>
+                                <div class="dw-platform-type">Containers</div>
+                            </div>
+                            <div class="dw-platform-item">
+                                <div class="dw-platform-name">AWS Fargate</div>
+                                <div class="dw-platform-type">Serverless Containers</div>
+                            </div>
+                            <div class="dw-platform-item">
+                                <div class="dw-platform-name">Azure Container Instances</div>
+                                <div class="dw-platform-type">Containers</div>
+                            </div>
+                            <div class="dw-platform-item">
+                                <div class="dw-platform-name">Azure Container Apps</div>
+                                <div class="dw-platform-type">Serverless Containers</div>
+                            </div>
+                            <div class="dw-platform-item">
+                                <div class="dw-platform-name">Cloud Run</div>
+                                <div class="dw-platform-type">Containers</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Databases -->
+                    <div class="dw-platform-category">
+                        <h3>Databases</h3>
+                        <div class="dw-platform-grid">
+                            <div class="dw-platform-item">
+                                <div class="dw-platform-name">Amazon RDS</div>
+                                <div class="dw-platform-type">Relational DB</div>
+                            </div>
+                            <div class="dw-platform-item">
+                                <div class="dw-platform-name">DynamoDB</div>
+                                <div class="dw-platform-type">NoSQL</div>
+                            </div>
+                            <div class="dw-platform-item">
+                                <div class="dw-platform-name">ElastiCache</div>
+                                <div class="dw-platform-type">Caching</div>
+                            </div>
+                            <div class="dw-platform-item">
+                                <div class="dw-platform-name">OpenSearch</div>
+                                <div class="dw-platform-type">Search</div>
+                            </div>
+                            <div class="dw-platform-item">
+                                <div class="dw-platform-name">Azure SQL</div>
+                                <div class="dw-platform-type">Relational DB</div>
+                            </div>
+                            <div class="dw-platform-item">
+                                <div class="dw-platform-name">Azure PostgreSQL</div>
+                                <div class="dw-platform-type">Relational DB</div>
+                            </div>
+                            <div class="dw-platform-item">
+                                <div class="dw-platform-name">Azure Cosmos DB</div>
+                                <div class="dw-platform-type">NoSQL</div>
+                            </div>
+                            <div class="dw-platform-item">
+                                <div class="dw-platform-name">Azure Cache for Redis</div>
+                                <div class="dw-platform-type">Caching</div>
+                            </div>
+                            <div class="dw-platform-item">
+                                <div class="dw-platform-name">Cloud SQL</div>
+                                <div class="dw-platform-type">Relational DB</div>
+                            </div>
+                            <div class="dw-platform-item">
+                                <div class="dw-platform-name">Memorystore</div>
+                                <div class="dw-platform-type">Caching</div>
+                            </div>
+                            <div class="dw-platform-item">
+                                <div class="dw-platform-name">Bigtable</div>
+                                <div class="dw-platform-type">NoSQL</div>
+                            </div>
+                            <div class="dw-platform-item">
+                                <div class="dw-platform-name">OCI Autonomous DB</div>
+                                <div class="dw-platform-type">Databases</div>
+                            </div>
+                            <div class="dw-platform-item">
+                                <div class="dw-platform-name">MongoDB Atlas</div>
+                                <div class="dw-platform-type">NoSQL Database</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Data Warehouses & Analytics -->
+                    <div class="dw-platform-category">
+                        <h3>Data Warehouses & Analytics</h3>
+                        <div class="dw-platform-grid">
+                            <div class="dw-platform-item">
+                                <div class="dw-platform-name">Snowflake</div>
+                                <div class="dw-platform-type">Data Warehouse</div>
+                            </div>
+                            <div class="dw-platform-item">
+                                <div class="dw-platform-name">Databricks</div>
+                                <div class="dw-platform-type">Unified Analytics</div>
+                            </div>
+                            <div class="dw-platform-item">
+                                <div class="dw-platform-name">Amazon Redshift</div>
+                                <div class="dw-platform-type">Data Warehouse</div>
+                            </div>
+                            <div class="dw-platform-item">
+                                <div class="dw-platform-name">BigQuery</div>
+                                <div class="dw-platform-type">Data Warehouse</div>
+                            </div>
+                            <div class="dw-platform-item">
+                                <div class="dw-platform-name">Azure Synapse</div>
+                                <div class="dw-platform-type">Analytics</div>
+                            </div>
+                            <div class="dw-platform-item">
+                                <div class="dw-platform-name">Azure Fabric</div>
+                                <div class="dw-platform-type">Data Platform</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Storage -->
+                    <div class="dw-platform-category">
+                        <h3>Storage</h3>
+                        <div class="dw-platform-grid">
+                            <div class="dw-platform-item">
+                                <div class="dw-platform-name">Amazon EBS</div>
+                                <div class="dw-platform-type">Block Storage</div>
+                            </div>
+                            <div class="dw-platform-item">
+                                <div class="dw-platform-name">Amazon S3</div>
+                                <div class="dw-platform-type">Object Storage</div>
+                            </div>
+                            <div class="dw-platform-item">
+                                <div class="dw-platform-name">FSx / EFS</div>
+                                <div class="dw-platform-type">File Storage</div>
+                            </div>
+                            <div class="dw-platform-item">
+                                <div class="dw-platform-name">Azure Disks</div>
+                                <div class="dw-platform-type">Block Storage</div>
+                            </div>
+                            <div class="dw-platform-item">
+                                <div class="dw-platform-name">Azure Blob Storage</div>
+                                <div class="dw-platform-type">Object Storage</div>
+                            </div>
+                            <div class="dw-platform-item">
+                                <div class="dw-platform-name">Azure NetApp Files</div>
+                                <div class="dw-platform-type">File Storage</div>
+                            </div>
+                            <div class="dw-platform-item">
+                                <div class="dw-platform-name">Persistent Disk</div>
+                                <div class="dw-platform-type">Block Storage</div>
+                            </div>
+                            <div class="dw-platform-item">
+                                <div class="dw-platform-name">Cloud Storage</div>
+                                <div class="dw-platform-type">Object Storage</div>
+                            </div>
+                            <div class="dw-platform-item">
+                                <div class="dw-platform-name">Filestore</div>
+                                <div class="dw-platform-type">File Storage</div>
+                            </div>
+                            <div class="dw-platform-item">
+                                <div class="dw-platform-name">OCI Block Volume</div>
+                                <div class="dw-platform-type">Block Storage</div>
+                            </div>
+                            <div class="dw-platform-item">
+                                <div class="dw-platform-name">OCI Object Storage</div>
+                                <div class="dw-platform-type">Object Storage</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Serverless & Functions -->
+                    <div class="dw-platform-category">
+                        <h3>Serverless & Functions</h3>
+                        <div class="dw-platform-grid">
+                            <div class="dw-platform-item">
+                                <div class="dw-platform-name">AWS Lambda</div>
+                                <div class="dw-platform-type">Serverless</div>
+                            </div>
+                            <div class="dw-platform-item">
+                                <div class="dw-platform-name">Azure Functions</div>
+                                <div class="dw-platform-type">Serverless</div>
+                            </div>
+                            <div class="dw-platform-item">
+                                <div class="dw-platform-name">Cloud Functions</div>
+                                <div class="dw-platform-type">Serverless</div>
+                            </div>
+                            <div class="dw-platform-item">
+                                <div class="dw-platform-name">OCI Functions</div>
+                                <div class="dw-platform-type">Serverless</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Networking & CDN -->
+                    <div class="dw-platform-category">
+                        <h3>Networking & CDN</h3>
+                        <div class="dw-platform-grid">
+                            <div class="dw-platform-item">
+                                <div class="dw-platform-name">VPC / NAT</div>
+                                <div class="dw-platform-type">Networking</div>
+                            </div>
+                            <div class="dw-platform-item">
+                                <div class="dw-platform-name">Elastic Load Balancing</div>
+                                <div class="dw-platform-type">Load Balancers</div>
+                            </div>
+                            <div class="dw-platform-item">
+                                <div class="dw-platform-name">CloudFront</div>
+                                <div class="dw-platform-type">CDN</div>
+                            </div>
+                            <div class="dw-platform-item">
+                                <div class="dw-platform-name">Route 53</div>
+                                <div class="dw-platform-type">DNS</div>
+                            </div>
+                            <div class="dw-platform-item">
+                                <div class="dw-platform-name">API Gateway</div>
+                                <div class="dw-platform-type">API Management</div>
+                            </div>
+                            <div class="dw-platform-item">
+                                <div class="dw-platform-name">Azure Networking</div>
+                                <div class="dw-platform-type">Networking</div>
+                            </div>
+                            <div class="dw-platform-item">
+                                <div class="dw-platform-name">Azure Front Door</div>
+                                <div class="dw-platform-type">CDN</div>
+                            </div>
+                            <div class="dw-platform-item">
+                                <div class="dw-platform-name">Cloud CDN</div>
+                                <div class="dw-platform-type">CDN</div>
+                            </div>
+                            <div class="dw-platform-item">
+                                <div class="dw-platform-name">OCI Networking</div>
+                                <div class="dw-platform-type">Networking</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Monitoring & Observability -->
+                    <div class="dw-platform-category">
+                        <h3>Monitoring & Observability</h3>
+                        <div class="dw-platform-grid">
+                            <div class="dw-platform-item">
+                                <div class="dw-platform-name">CloudWatch</div>
+                                <div class="dw-platform-type">Monitoring</div>
+                            </div>
+                            <div class="dw-platform-item">
+                                <div class="dw-platform-name">CloudTrail</div>
+                                <div class="dw-platform-type">Audit Logging</div>
+                            </div>
+                            <div class="dw-platform-item">
+                                <div class="dw-platform-name">VPC Flow Logs</div>
+                                <div class="dw-platform-type">Logging</div>
+                            </div>
+                            <div class="dw-platform-item">
+                                <div class="dw-platform-name">Azure Monitor</div>
+                                <div class="dw-platform-type">Monitoring</div>
+                            </div>
+                            <div class="dw-platform-item">
+                                <div class="dw-platform-name">Log Analytics</div>
+                                <div class="dw-platform-type">Observability</div>
+                            </div>
+                            <div class="dw-platform-item">
+                                <div class="dw-platform-name">Cloud Logging</div>
+                                <div class="dw-platform-type">Observability</div>
+                            </div>
+                            <div class="dw-platform-item">
+                                <div class="dw-platform-name">Datadog</div>
+                                <div class="dw-platform-type">Observability</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Streaming & Messaging -->
+                    <div class="dw-platform-category">
+                        <h3>Streaming & Messaging</h3>
+                        <div class="dw-platform-grid">
+                            <div class="dw-platform-item">
+                                <div class="dw-platform-name">Amazon MSK</div>
+                                <div class="dw-platform-type">Kafka Streaming</div>
+                            </div>
+                            <div class="dw-platform-item">
+                                <div class="dw-platform-name">Kinesis</div>
+                                <div class="dw-platform-type">Streaming</div>
+                            </div>
+                            <div class="dw-platform-item">
+                                <div class="dw-platform-name">SQS / SNS</div>
+                                <div class="dw-platform-type">Messaging</div>
+                            </div>
+                            <div class="dw-platform-item">
+                                <div class="dw-platform-name">Amazon MQ</div>
+                                <div class="dw-platform-type">Message Broker</div>
+                            </div>
+                            <div class="dw-platform-item">
+                                <div class="dw-platform-name">Azure Event Hubs</div>
+                                <div class="dw-platform-type">Streaming</div>
+                            </div>
+                            <div class="dw-platform-item">
+                                <div class="dw-platform-name">Azure Service Bus</div>
+                                <div class="dw-platform-type">Message Queues</div>
+                            </div>
+                            <div class="dw-platform-item">
+                                <div class="dw-platform-name">Pub/Sub</div>
+                                <div class="dw-platform-type">Messaging</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Data Processing & ETL -->
+                    <div class="dw-platform-category">
+                        <h3>Data Processing & ETL</h3>
+                        <div class="dw-platform-grid">
+                            <div class="dw-platform-item">
+                                <div class="dw-platform-name">AWS Glue</div>
+                                <div class="dw-platform-type">ETL</div>
+                            </div>
+                            <div class="dw-platform-item">
+                                <div class="dw-platform-name">EMR</div>
+                                <div class="dw-platform-type">Big Data</div>
+                            </div>
+                            <div class="dw-platform-item">
+                                <div class="dw-platform-name">Azure Data Factory</div>
+                                <div class="dw-platform-type">ETL</div>
+                            </div>
+                            <div class="dw-platform-item">
+                                <div class="dw-platform-name">Dataproc</div>
+                                <div class="dw-platform-type">Big Data</div>
+                            </div>
+                            <div class="dw-platform-item">
+                                <div class="dw-platform-name">Dataflow</div>
+                                <div class="dw-platform-type">Data Processing</div>
+                            </div>
+                            <div class="dw-platform-item">
+                                <div class="dw-platform-name">Cloud Composer</div>
+                                <div class="dw-platform-type">Workflows</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- AI & Machine Learning -->
+                    <div class="dw-platform-category">
+                        <h3>AI & Machine Learning</h3>
+                        <div class="dw-platform-grid">
+                            <div class="dw-platform-item">
+                                <div class="dw-platform-name">Amazon Bedrock</div>
+                                <div class="dw-platform-type">AI Platform</div>
+                            </div>
+                            <div class="dw-platform-item">
+                                <div class="dw-platform-name">SageMaker</div>
+                                <div class="dw-platform-type">Machine Learning</div>
+                            </div>
+                            <div class="dw-platform-item">
+                                <div class="dw-platform-name">EC2 GPU Instances</div>
+                                <div class="dw-platform-type">AI Compute</div>
+                            </div>
+                            <div class="dw-platform-item">
+                                <div class="dw-platform-name">Azure OpenAI</div>
+                                <div class="dw-platform-type">AI Services</div>
+                            </div>
+                            <div class="dw-platform-item">
+                                <div class="dw-platform-name">Azure Machine Learning</div>
+                                <div class="dw-platform-type">Machine Learning</div>
+                            </div>
+                            <div class="dw-platform-item">
+                                <div class="dw-platform-name">Azure GPU VMs</div>
+                                <div class="dw-platform-type">AI Compute</div>
+                            </div>
+                            <div class="dw-platform-item">
+                                <div class="dw-platform-name">Vertex AI</div>
+                                <div class="dw-platform-type">Machine Learning</div>
+                            </div>
+                            <div class="dw-platform-item">
+                                <div class="dw-platform-name">GCP GPU Instances</div>
+                                <div class="dw-platform-type">AI Compute</div>
+                            </div>
+                            <div class="dw-platform-item">
+                                <div class="dw-platform-name">Anthropic Claude</div>
+                                <div class="dw-platform-type">LLM Provider</div>
+                            </div>
+                            <div class="dw-platform-item">
+                                <div class="dw-platform-name">OpenAI API</div>
+                                <div class="dw-platform-type">LLM Provider</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Security & Configuration -->
+                    <div class="dw-platform-category">
+                        <h3>Security & Configuration</h3>
+                        <div class="dw-platform-grid">
+                            <div class="dw-platform-item">
+                                <div class="dw-platform-name">Secrets Manager</div>
+                                <div class="dw-platform-type">Security</div>
+                            </div>
+                            <div class="dw-platform-item">
+                                <div class="dw-platform-name">Azure App Config</div>
+                                <div class="dw-platform-type">Configuration</div>
+                            </div>
+                            <div class="dw-platform-item">
+                                <div class="dw-platform-name">App Service</div>
+                                <div class="dw-platform-type">Web Apps</div>
+                            </div>
+                            <div class="dw-platform-item">
+                                <div class="dw-platform-name">Elastic Cloud</div>
+                                <div class="dw-platform-type">Search & Analytics</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Why PointFive -->
+        <section class="dw-section">
+            <div class="container">
+                <div class="dw-section-header">
+                    <h2>Why PointFive</h2>
+                    <p class="subtitle">Built different. Detects different.</p>
+                </div>
+                
+                <div class="dw-why-grid">
+                    <div class="dw-why-card">
+                        <span class="dw-why-number">01</span>
+                        <h3>Agentless architecture</h3>
+                        <p>The only agentless Kubernetes optimization solution on the market. Read-only access, zero deployment overhead, minutes to first insight.</p>
+                    </div>
+                    
+                    <div class="dw-why-card">
+                        <span class="dw-why-number">02</span>
+                        <h3>Research-driven detection</h3>
+                        <p>A dedicated Cloud Cost Research Team ships ~10 new optimization types weekly — using methodologies inspired by cybersecurity threat intelligence.</p>
+                    </div>
+                    
+                    <div class="dw-why-card">
+                        <span class="dw-why-number">03</span>
+                        <h3>Multi-source data correlation</h3>
+                        <p>We don't just read your bill. We correlate billing data with CloudWatch metrics, VPC Flow Logs, Route53 queries, CloudTrail activity, and direct API state — finding waste that single-source tools miss.</p>
+                    </div>
+                    
+                    <div class="dw-why-card">
+                        <span class="dw-why-number">04</span>
+                        <h3>Agentic Remediation</h3>
+                        <p>AI coding agents deliver contextual recommendations with human-curated remediation playbooks. Every opportunity includes root cause analysis, impact assessment, and engineering-grade execution paths—with full human oversight at every step.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="dw-cta">
+            <div class="container">
+                <h2>See what you're<br>missing today.</h2>
+                <p>Get a free assessment of your cloud waste. Most customers find 15–30% savings within the first week.</p>
+                <a href="#" class="dw-cta-button">Book a Demo</a>
+            </div>
+        </section>
+    `;
+
+    // Insert styles and content
+    document.head.insertAdjacentHTML('beforeend', styles);
+    document.body.insertAdjacentHTML('beforeend', html);
 })();
