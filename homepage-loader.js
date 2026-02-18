@@ -1,30 +1,11 @@
-(function () {
-  const MOUNT_ID = 'homepage-mount';
-  const mount = document.getElementById(MOUNT_ID);
-  if (!mount) {
-    console.warn('[homepage-loader] Mount element #' + MOUNT_ID + ' not found.');
-    return;
-  }
+(function() {
+  var mountId = 'homepage-mount';
+  var mount = document.getElementById(mountId);
+  if (!mount) { console.warn('[PointFive] No #' + mountId + ' element found.'); return; }
 
-  // Hide Webflow chrome
-  const wfHideStyle = document.createElement('style');
-  wfHideStyle.textContent = [
-    '.navbar,.nav-bar,.w-nav,.w-footer,[data-wf-page]>nav,[data-wf-page]>footer{display:none!important}',
-    'body{margin:0!important;padding:0!important}',
-    '#' + MOUNT_ID + '{display:block;width:100%}'
-  ].join('');
-  document.head.appendChild(wfHideStyle);
-
-  // Inject Google Fonts
-  var fonts = document.createElement('link');
-  fonts.rel = 'stylesheet';
-  fonts.href = 'https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&display=swap';
-  document.head.appendChild(fonts);
-
-  // Inject page CSS
+  // Inject styles
   var style = document.createElement('style');
-  style.textContent = `
-    :root {
+  style.textContent = `:root {
       --blue: #0000ee;
       --blue-light: #cde3ff;
       --black: #000;
@@ -656,7 +637,7 @@
 
     .pillars-grid {
       display: grid;
-      grid-template-columns: repeat(5, 1fr);
+      grid-template-columns: repeat(4, 1fr);
       gap: 0;
       border: 1px solid var(--border);
       border-radius: 16px;
@@ -893,11 +874,11 @@
     /* Responsive */
     @media (max-width: 1024px) {
       .pillars-grid {
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(2, 1fr);
       }
-      .pillar:nth-child(3) { border-right: none; }
-      .pillar:nth-child(4) { border-top: 1px solid var(--border); }
-      .pillar:nth-child(5) { border-top: 1px solid var(--border); border-right: none; }
+      .pillar:nth-child(2) { border-right: none; }
+      .pillar:nth-child(3) { border-top: 1px solid var(--border); }
+      .pillar:nth-child(4) { border-top: 1px solid var(--border); border-right: none; }
       .dash-metrics-row { grid-template-columns: repeat(2,1fr); }
       .roi-inner { grid-template-columns: 1fr; gap: 48px; }
     }
@@ -919,14 +900,11 @@
       .dash-sidebar { display: none; }
       .detection-row { grid-template-columns: 1fr 80px 70px; }
       .detection-row > :nth-child(4), .detection-row > :nth-child(5) { display: none; }
-    }
-  `;
+    }`;
   document.head.appendChild(style);
 
-  // Inject body HTML
-  mount.innerHTML = `
-
-<!-- NAV -->
+  // Inject HTML
+  mount.innerHTML = `<!-- NAV -->
 <nav>
   <a href="#" class="nav-logo">
     <svg viewBox="0 0 28 28" fill="none">
@@ -948,7 +926,7 @@
 
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-badge">Infrastructure Efficiency Management</div>
+  <div class="hero-badge">Infrastructure & AI Efficiency Management</div>
   <h1>Stop wasting time<br>and money in<br><em>the cloud</em></h1>
   <p>PointFive's DeepWaste™ Detection Engine finds and eliminates cloud inefficiencies your current tools can't even see.</p>
   <div class="hero-actions">
@@ -1164,46 +1142,38 @@
 <!-- HOW IT WORKS -->
 <section class="how-section">
   <span class="section-eyebrow">How It Works</span>
-  <h2 class="section-title">Five steps to autonomous efficiency</h2>
+  <h2 class="section-title">Four steps to autonomous efficiency</h2>
   <div class="pillars-grid">
     <!-- 1 -->
     <div class="pillar">
       <span class="pillar-number">01</span>
-      <div class="pillar-icon pillar-icon-1">🔌</div>
-      <h3>Agentless. Read-only. Live in hours.</h3>
-      <p>Connect your cloud accounts with read-only permissions. No agents, no installs, no write access required. You're live and scanning in under 2 hours.</p>
+      <div class="pillar-icon pillar-icon-1">🔍</div>
+      <h3>Discover — InfraFabric</h3>
+      <p>Instantly see everything running across your infrastructure and AI stack with a simple, agentless setup — creating one unified source of truth.</p>
       <div class="pillar-connector">→</div>
     </div>
     <!-- 2 -->
     <div class="pillar">
       <span class="pillar-number">02</span>
-      <div class="pillar-icon pillar-icon-2">🧬</div>
-      <h3>InfraFabric sees everything</h3>
-      <p>Our multi-source data architecture ingests billing, metrics, access logs, config state, and workload patterns — building a full context graph of your infrastructure.</p>
+      <div class="pillar-icon pillar-icon-2">🔬</div>
+      <h3>Detect — DeepWaste™ Detection</h3>
+      <p>Continuously uncover inefficiencies with full context, clear ownership, and prioritized opportunities that drive real business impact.</p>
       <div class="pillar-connector">→</div>
     </div>
     <!-- 3 -->
     <div class="pillar">
       <span class="pillar-number">03</span>
-      <div class="pillar-icon pillar-icon-3">🔬</div>
-      <h3>DeepWaste™ surfaces hidden waste</h3>
-      <p>400+ detection types identify architectural inefficiencies, configuration drift, and waste patterns invisible to traditional FinOps tools. New detections added every week.</p>
+      <div class="pillar-icon pillar-icon-3">⚡</div>
+      <h3>Act — Agentic Remediation</h3>
+      <p>Turn insight into action with guided and automated workflows embedded directly into your engineering tools.</p>
       <div class="pillar-connector">→</div>
     </div>
     <!-- 4 -->
     <div class="pillar">
       <span class="pillar-number">04</span>
-      <div class="pillar-icon pillar-icon-4">⚡</div>
-      <h3>Agentic smart remediation</h3>
-      <p>Context-powered agents execute fixes with engineering-grade precision — 1-click, Jira, PR workflows, or fully autonomous. Your team decides the controls.</p>
-      <div class="pillar-connector">→</div>
-    </div>
-    <!-- 5 -->
-    <div class="pillar">
-      <span class="pillar-number">05</span>
-      <div class="pillar-icon pillar-icon-5">📈</div>
-      <h3>ROI in days, not quarters</h3>
-      <p>Track savings realized, opportunities closed, and efficiency posture over time. Customers average 1200%+ ROI. Nubank hit full ROI in 10 days.</p>
+      <div class="pillar-icon pillar-icon-4">📈</div>
+      <h3>Impact — Measurable Business Value</h3>
+      <p>Deliver measurable savings, performance gains, and productivity improvements — transforming efficiency into a continuous practice.</p>
     </div>
   </div>
 </section>
@@ -1258,15 +1228,11 @@
   <span>
     <a href="#">Privacy</a> · <a href="#">Terms</a> · <a href="#">Security</a>
   </span>
-</footer>
+</footer>`;
 
-`;
-
-  // Re-execute inline scripts
-  var scripts = mount.querySelectorAll('script');
-  scripts.forEach(function(old) {
-    var s = document.createElement('script');
-    if (old.src) { s.src = old.src; } else { s.textContent = old.textContent; }
-    old.parentNode.replaceChild(s, old);
-  });
+  // Hide Webflow default nav/footer
+  var wfNav = document.querySelector('.navbar, .w-nav, nav.w-nav');
+  if (wfNav) wfNav.style.display = 'none';
+  var wfFooter = document.querySelector('footer.w-nav, .footer');
+  if (wfFooter) wfFooter.style.display = 'none';
 })();
