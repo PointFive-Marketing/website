@@ -608,111 +608,285 @@
 
     .logo-item:hover { color: rgba(0,0,0,0.65); }
 
-    /* HOW IT WORKS */
-    .how-section {
+    /* HOW IT WORKS — Premium Stepper */
+    .hiw-section {
+      width: 100%;
       padding: 100px 48px;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    .section-eyebrow {
-      font-size: 12px;
-      font-weight: 600;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--blue);
-      margin-bottom: 16px;
-      display: block;
-    }
-
-    .section-title {
-      font-size: clamp(36px, 4vw, 52px);
-      font-weight: 700;
-      letter-spacing: -1.5px;
-      line-height: 1.1;
-      color: var(--black);
-      max-width: 560px;
-      margin-bottom: 64px;
-    }
-
-    .pillars-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 0;
-      border: 1px solid var(--border);
-      border-radius: 16px;
+      background: #fff;
       overflow: hidden;
     }
-
-    .pillar {
-      padding: 36px 28px;
-      border-right: 1px solid var(--border);
-      position: relative;
-      transition: background 0.2s;
+    .hiw-inner {
+      max-width: 1280px;
+      margin: 0 auto;
     }
-
-    .pillar:last-child { border-right: none; }
-    .pillar:hover { background: #f8fafc; }
-
-    .pillar-number {
-      font-size: 11px;
-      font-family: var(--mono);
-      color: rgba(0,0,0,0.2);
-      font-weight: 500;
-      margin-bottom: 20px;
-      display: block;
+    .hiw-header {
+      max-width: 640px;
+      margin-bottom: 72px;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
     }
-
-    .pillar-icon {
-      width: 44px;
-      height: 44px;
-      border-radius: 10px;
-      display: flex;
+    .hiw-header.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .hiw-eyebrow {
+      display: inline-flex;
       align-items: center;
-      justify-content: center;
-      margin-bottom: 20px;
-      font-size: 20px;
-    }
-
-    .pillar-icon-1 { background: #e0f2fe; }
-    .pillar-icon-2 { background: #ede9fe; }
-    .pillar-icon-3 { background: var(--blue-light); }
-    .pillar-icon-4 { background: #dcfce7; }
-    .pillar-icon-5 { background: #fef3c7; }
-
-    .pillar h3 {
-      font-size: 15px;
+      gap: 8px;
+      font-size: 11px;
       font-weight: 700;
-      color: var(--black);
-      line-height: 1.3;
-      margin-bottom: 10px;
-      letter-spacing: -0.2px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #00e;
+      margin-bottom: 20px;
     }
-
-    .pillar p {
-      font-size: 13px;
-      color: var(--gray);
-      line-height: 1.55;
+    .hiw-eyebrow::before {
+      content: '';
+      display: block;
+      width: 20px;
+      height: 2px;
+      background: #00e;
+      border-radius: 2px;
     }
-
-    .pillar-connector {
+    .hiw-headline {
+      font-size: clamp(34px, 4vw, 52px);
+      font-weight: 400;
+      line-height: 1.1;
+      color: #000;
+      letter-spacing: -0.02em;
+      margin-bottom: 18px;
+    }
+    .hiw-subhead {
+      font-size: 18px;
+      line-height: 1.65;
+      color: #4a5565;
+      font-weight: 300;
+      max-width: 520px;
+    }
+    .hiw-stepper { position: relative; }
+    .hiw-track {
       position: absolute;
-      right: -12px;
-      top: 50%;
-      transform: translateY(-50%);
-      z-index: 2;
-      width: 22px;
-      height: 22px;
-      background: var(--blue);
+      top: 44px;
+      left: 24px;
+      right: 24px;
+      height: 2px;
+      background: #e9efef;
+      border-radius: 2px;
+      overflow: hidden;
+      z-index: 0;
+    }
+    .hiw-track-fill {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, #00e 0%, #5B8AFF 100%);
+      border-radius: 2px;
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 1.4s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .hiw-track-fill.animate { transform: scaleX(1); }
+    .hiw-steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      position: relative;
+      z-index: 1;
+    }
+    .hiw-step {
+      display: flex;
+      flex-direction: column;
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+    .hiw-step.visible { opacity: 1; transform: translateY(0); }
+    .hiw-step:nth-child(1) { transition-delay: 0.1s; }
+    .hiw-step:nth-child(2) { transition-delay: 0.25s; }
+    .hiw-step:nth-child(3) { transition-delay: 0.4s; }
+    .hiw-step:nth-child(4) { transition-delay: 0.55s; }
+    .hiw-dot-row {
+      height: 88px;
+      display: flex;
+      align-items: center;
+      padding-bottom: 24px;
+    }
+    .hiw-dot {
+      width: 32px;
+      height: 32px;
       border-radius: 50%;
+      background: #fff;
+      border: 2px solid #e9efef;
       display: flex;
       align-items: center;
       justify-content: center;
-      color: #fff;
-      font-size: 11px;
+      flex-shrink: 0;
+      font-size: 12px;
+      font-weight: 700;
+      color: #4a5565;
+      transition: border-color 0.25s, box-shadow 0.25s, background 0.25s, color 0.25s;
+      position: relative;
+      z-index: 2;
     }
-
-    .pillar:last-child .pillar-connector { display: none; }
+    .hiw-step.active .hiw-dot,
+    .hiw-step:hover .hiw-dot {
+      border-color: #00e;
+      background: #00e;
+      color: #fff;
+      box-shadow: 0 0 0 6px rgba(0,0,238,0.08);
+    }
+    .hiw-card {
+      background: #fff;
+      border-radius: 12px;
+      padding: 28px 28px 24px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+      flex: 1;
+      cursor: pointer;
+      transition: transform 0.25s, box-shadow 0.25s, background 0.25s;
+      outline: none;
+      position: relative;
+      overflow: hidden;
+      border: 1px solid #e9efef;
+    }
+    .hiw-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, #00e, #5B8AFF);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.25s;
+      border-radius: 12px 12px 0 0;
+    }
+    .hiw-card:hover,
+    .hiw-step.active .hiw-card {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 40px rgba(0,0,238,0.12);
+    }
+    .hiw-card:hover::before,
+    .hiw-step.active .hiw-card::before { transform: scaleX(1); }
+    .hiw-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #00e;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .hiw-label-icon { width: 16px; height: 16px; opacity: 0.7; }
+    .hiw-card-title {
+      font-size: 20px;
+      font-weight: 600;
+      color: #000;
+      line-height: 1.25;
+      margin-bottom: 12px;
+      letter-spacing: -0.01em;
+    }
+    .hiw-card-body {
+      font-size: 14.5px;
+      line-height: 1.6;
+      color: #4a5565;
+      font-weight: 300;
+    }
+    .hiw-card-detail {
+      font-size: 13px;
+      color: #00e;
+      font-weight: 500;
+      margin-top: 0;
+      max-height: 0;
+      overflow: hidden;
+      opacity: 0;
+      transition: max-height 0.4s ease, opacity 0.35s ease, margin-top 0.35s ease;
+    }
+    .hiw-card:hover .hiw-card-detail,
+    .hiw-step.active .hiw-card .hiw-card-detail {
+      max-height: 60px;
+      opacity: 1;
+      margin-top: 14px;
+    }
+    .hiw-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 16px;
+    }
+    .hiw-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 12px;
+      font-weight: 600;
+      padding: 5px 12px;
+      background: rgba(0,0,238,0.06);
+      color: #00e;
+      border-radius: 100px;
+      border: 1px solid rgba(0,0,238,0.15);
+    }
+    .hiw-chip::before {
+      content: '';
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: #00e;
+      opacity: 0.55;
+    }
+    .hiw-step--impact .hiw-card {
+      background: linear-gradient(145deg, #F0F4FF 0%, #FFFFFF 60%);
+    }
+    .hiw-continuous-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 48px;
+      font-size: 13px;
+      font-weight: 500;
+      color: #4a5565;
+      opacity: 0;
+      transform: translateY(10px);
+      transition: opacity 0.5s ease 1.2s, transform 0.5s ease 1.2s;
+    }
+    .hiw-continuous-badge.visible { opacity: 1; transform: translateY(0); }
+    .hiw-pulse {
+      display: block;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #22C55E;
+      box-shadow: 0 0 0 3px rgba(34,197,94,0.2);
+      animation: hiw-pulse 2s ease-in-out infinite;
+      flex-shrink: 0;
+    }
+    @keyframes hiw-pulse {
+      0%, 100% { box-shadow: 0 0 0 3px rgba(34,197,94,0.2); }
+      50%       { box-shadow: 0 0 0 6px rgba(34,197,94,0.06); }
+    }
+    @media (max-width: 1024px) {
+      .hiw-section { padding: 72px 32px; }
+      .hiw-steps { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+      .hiw-track { display: none; }
+      .hiw-dot-row { height: auto; padding-bottom: 16px; }
+    }
+    @media (max-width: 600px) {
+      .hiw-section { padding: 64px 20px; }
+      .hiw-header  { margin-bottom: 48px; }
+      .hiw-steps { grid-template-columns: 1fr; gap: 0; padding-left: 48px; position: relative; }
+      .hiw-steps::before {
+        content: '';
+        position: absolute;
+        top: 16px; bottom: 16px; left: 15px;
+        width: 2px;
+        background: #e9efef;
+        border-radius: 2px;
+      }
+      .hiw-step { flex-direction: row; gap: 16px; margin-bottom: 20px; align-items: flex-start; }
+      .hiw-dot-row { flex-direction: column; height: auto; padding-bottom: 0; margin-left: -48px; padding-top: 24px; flex-shrink: 0; }
+      .hiw-track { display: none; }
+      .hiw-step:nth-child(n) { transition-delay: 0.05s; }
+    }
 
     /* ROI SECTION */
     .roi-section {
@@ -1140,41 +1314,113 @@
 </section>
 
 <!-- HOW IT WORKS -->
-<section class="how-section">
-  <span class="section-eyebrow">How It Works</span>
-  <h2 class="section-title">Four steps to autonomous efficiency</h2>
-  <div class="pillars-grid">
-    <!-- 1 -->
-    <div class="pillar">
-      <span class="pillar-number">01</span>
-      <div class="pillar-icon pillar-icon-1">🔍</div>
-      <h3>Discover — InfraFabric</h3>
-      <p>Instantly see everything running across your infrastructure and AI stack with a simple, agentless setup — creating one unified source of truth.</p>
-      <div class="pillar-connector">→</div>
+<section class="hiw-section" aria-label="How PointFive works">
+  <div class="hiw-inner">
+
+    <!-- Header -->
+    <div class="hiw-header" id="hiw-header">
+      <span class="hiw-eyebrow">How it works</span>
+      <h2 class="hiw-headline">Four steps to<br>autonomous efficiency</h2>
+      <p class="hiw-subhead">Go from discovery to measurable business impact across infrastructure and AI — continuously.</p>
     </div>
-    <!-- 2 -->
-    <div class="pillar">
-      <span class="pillar-number">02</span>
-      <div class="pillar-icon pillar-icon-2">🔬</div>
-      <h3>Detect — DeepWaste™ Detection</h3>
-      <p>Continuously uncover inefficiencies with full context, clear ownership, and prioritized opportunities that drive real business impact.</p>
-      <div class="pillar-connector">→</div>
+
+    <!-- Stepper -->
+    <div class="hiw-stepper" id="hiw-stepper">
+
+      <div class="hiw-track" aria-hidden="true">
+        <div class="hiw-track-fill" id="hiw-track-fill"></div>
+      </div>
+
+      <div class="hiw-steps" role="list">
+
+        <!-- Step 1 -->
+        <article class="hiw-step" role="listitem" tabindex="0" aria-label="Step 1: Discover — Infra Fabric">
+          <div class="hiw-dot-row" aria-hidden="true">
+            <div class="hiw-dot">1</div>
+          </div>
+          <div class="hiw-card">
+            <div class="hiw-label">
+              <svg class="hiw-label-icon" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                <circle cx="7" cy="7" r="5.5" stroke="currentColor" stroke-width="1.5"/>
+                <path d="M11 11L14 14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+              </svg>
+              Discover
+            </div>
+            <h3 class="hiw-card-title">Infra Fabric</h3>
+            <p class="hiw-card-body">One simple, read-only setup to instantly map everything running across your infrastructure and AI stack.</p>
+            <p class="hiw-card-detail">→ Agentless. No credentials. Live in minutes.</p>
+          </div>
+        </article>
+
+        <!-- Step 2 -->
+        <article class="hiw-step" role="listitem" tabindex="0" aria-label="Step 2: Detect — DeepWaste Detection">
+          <div class="hiw-dot-row" aria-hidden="true">
+            <div class="hiw-dot">2</div>
+          </div>
+          <div class="hiw-card">
+            <div class="hiw-label">
+              <svg class="hiw-label-icon" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                <path d="M2 10l3-3 2 2 4-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <circle cx="13" cy="4" r="1.5" fill="currentColor"/>
+              </svg>
+              Detect
+            </div>
+            <h3 class="hiw-card-title">DeepWaste™ Detection</h3>
+            <p class="hiw-card-body">Continuously surface high-impact inefficiencies with clear context, ownership, and priority.</p>
+            <p class="hiw-card-detail">→ 400+ detection types. 10 new per week.</p>
+          </div>
+        </article>
+
+        <!-- Step 3 -->
+        <article class="hiw-step" role="listitem" tabindex="0" aria-label="Step 3: Act — Agentic Remediation">
+          <div class="hiw-dot-row" aria-hidden="true">
+            <div class="hiw-dot">3</div>
+          </div>
+          <div class="hiw-card">
+            <div class="hiw-label">
+              <svg class="hiw-label-icon" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                <path d="M3 8l3.5 3.5L13 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              Act
+            </div>
+            <h3 class="hiw-card-title">Agentic Remediation</h3>
+            <p class="hiw-card-body">Turn insight into action with guided and automated workflows embedded in your engineering tools.</p>
+            <p class="hiw-card-detail">→ Jira, GitHub, Terraform — where your team works.</p>
+          </div>
+        </article>
+
+        <!-- Step 4: Impact -->
+        <article class="hiw-step hiw-step--impact" role="listitem" tabindex="0" aria-label="Step 4: Impact — Measurable Business Value">
+          <div class="hiw-dot-row" aria-hidden="true">
+            <div class="hiw-dot">4</div>
+          </div>
+          <div class="hiw-card">
+            <div class="hiw-label">
+              <svg class="hiw-label-icon" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                <path d="M2 12l4-4 3 3 5-7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              Impact
+            </div>
+            <h3 class="hiw-card-title">Measurable Business Value</h3>
+            <p class="hiw-card-body">Deliver measurable savings, performance gains, and productivity improvements — as a continuous practice.</p>
+            <div class="hiw-chips" aria-label="Outcome areas">
+              <span class="hiw-chip">Savings</span>
+              <span class="hiw-chip">Performance</span>
+              <span class="hiw-chip">Productivity</span>
+            </div>
+            <p class="hiw-card-detail">→ 1,200%+ average ROI across key accounts.</p>
+          </div>
+        </article>
+
+      </div>
     </div>
-    <!-- 3 -->
-    <div class="pillar">
-      <span class="pillar-number">03</span>
-      <div class="pillar-icon pillar-icon-3">⚡</div>
-      <h3>Act — Agentic Remediation</h3>
-      <p>Turn insight into action with guided and automated workflows embedded directly into your engineering tools.</p>
-      <div class="pillar-connector">→</div>
+
+    <!-- Badge -->
+    <div class="hiw-continuous-badge" id="hiw-badge">
+      <span class="hiw-pulse" aria-hidden="true"></span>
+      This is a continuous practice, not a one-time project.
     </div>
-    <!-- 4 -->
-    <div class="pillar">
-      <span class="pillar-number">04</span>
-      <div class="pillar-icon pillar-icon-4">📈</div>
-      <h3>Impact — Measurable Business Value</h3>
-      <p>Deliver measurable savings, performance gains, and productivity improvements — transforming efficiency into a continuous practice.</p>
-    </div>
+
   </div>
 </section>
 
@@ -1235,4 +1481,47 @@
   if (wfNav) wfNav.style.display = 'none';
   var wfFooter = document.querySelector('footer.w-nav, .footer');
   if (wfFooter) wfFooter.style.display = 'none';
+
+  // Stepper: scroll-triggered animations + click/keyboard interaction
+  (function initStepper() {
+    var header   = document.getElementById('hiw-header');
+    var steps    = document.querySelectorAll('.hiw-step');
+    var fill     = document.getElementById('hiw-track-fill');
+    var badge    = document.getElementById('hiw-badge');
+    var section  = document.querySelector('.hiw-section');
+    if (!section) return;
+    var triggered = false;
+
+    function trigger() {
+      if (triggered) return;
+      triggered = true;
+      if (header) header.classList.add('visible');
+      steps.forEach(function(s) { s.classList.add('visible'); });
+      if (badge) badge.classList.add('visible');
+      setTimeout(function() { if (fill) fill.classList.add('animate'); }, 300);
+    }
+
+    if ('IntersectionObserver' in window) {
+      var io = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) { trigger(); io.disconnect(); }
+        });
+      }, { threshold: 0.1 });
+      io.observe(section);
+    } else {
+      trigger();
+    }
+
+    steps.forEach(function(step) {
+      function activate() {
+        var isActive = step.classList.contains('active');
+        steps.forEach(function(s) { s.classList.remove('active'); });
+        if (!isActive) step.classList.add('active');
+      }
+      step.addEventListener('click', activate);
+      step.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); activate(); }
+      });
+    });
+  }());
 })();
