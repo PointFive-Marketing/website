@@ -28,773 +28,797 @@
             .partner-hero {
                 padding: 100px 32px 80px;
                 text-align: center;
-                background: linear-gradient(135deg, #f8f9ff 0%, #ffffff 100%);
+                background: #fff;
                 position: relative;
-                overflow: hidden;
-            }
-
-            .partner-hero::before {
-                content: '';
-                position: absolute;
-                top: -50%;
-                right: -10%;
-                width: 600px;
-                height: 600px;
-                background: radial-gradient(circle, rgba(0, 0, 238, 0.08) 0%, transparent 70%);
-                border-radius: 50%;
-                pointer-events: none;
-            }
-
-            .partner-hero::after {
-                content: '';
-                position: absolute;
-                bottom: -30%;
-                left: -5%;
-                width: 500px;
-                height: 500px;
-                background: radial-gradient(circle, rgba(0, 0, 238, 0.05) 0%, transparent 70%);
-                border-radius: 50%;
-                pointer-events: none;
-            }
-
-            .partner-hero-content {
-                position: relative;
-                z-index: 1;
             }
 
             .partner-hero h1 {
                 margin: 0 0 24px;
                 font-family: 'Codec Pro', sans-serif;
-                font-size: 56px;
-                line-height: 115%;
+                font-size: 52px;
+                line-height: 1.15;
                 font-weight: 600;
                 color: #000;
-                max-width: 950px;
-                margin-left: auto;
-                margin-right: auto;
                 letter-spacing: -0.02em;
             }
 
-            .partner-hero .subheadline {
-                margin: 0 auto 48px;
-                font-size: 22px;
+            .partner-hero .subtitle {
+                margin: 0 auto 40px;
+                font-size: 21px;
                 line-height: 1.6;
                 font-weight: 400;
                 color: #4a5565;
-                max-width: 800px;
+                max-width: 820px;
             }
 
-            /* CTAs */
+            /* CTA Buttons - Updated hierarchy */
             .partner-cta-group {
                 display: flex;
+                align-items: center;
+                justify-content: center;
                 gap: 16px;
-                justify-content: center;
-                align-items: center;
                 flex-wrap: wrap;
-                margin-bottom: 80px;
-            }
-
-            .partner-cta-button {
-                display: inline-flex;
-                align-items: center;
-                justify-content: center;
-                padding: 16px 36px;
-                font-size: 16px;
-                font-weight: 600;
-                text-decoration: none;
-                border-radius: 8px;
-                transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-                cursor: pointer;
-                border: none;
-                font-family: 'Codec Pro', sans-serif;
-                position: relative;
-                overflow: hidden;
-            }
-
-            .partner-cta-primary {
-                background: linear-gradient(135deg, #00e 0%, #0000ee 100%);
-                color: #fff;
-                box-shadow: 0 4px 14px rgba(0, 0, 238, 0.25);
-            }
-
-            .partner-cta-primary::before {
-                content: '';
-                position: absolute;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                background: linear-gradient(135deg, #0000cc 0%, #0000ff 100%);
-                opacity: 0;
-                transition: opacity 0.3s ease;
-            }
-
-            .partner-cta-primary:hover::before {
-                opacity: 1;
-            }
-
-            .partner-cta-primary:hover {
-                transform: translateY(-2px);
-                box-shadow: 0 8px 20px rgba(0, 0, 238, 0.35);
-            }
-
-            .partner-cta-secondary {
-                background: #fff;
-                color: #00e;
-                border: 2px solid #00e;
-                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
-            }
-
-            .partner-cta-secondary:hover {
-                background: #f0f4ff;
-                transform: translateY(-2px);
-                box-shadow: 0 4px 12px rgba(0, 0, 238, 0.15);
-            }
-
-            .partner-cta-tertiary {
-                background: #fff;
-                color: #4a5565;
-                border: 2px solid #e9efef;
-                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
-            }
-
-            .partner-cta-tertiary:hover {
-                border-color: #00e;
-                color: #00e;
-                transform: translateY(-2px);
-            }
-
-            /* Trust Signals */
-            .partner-trust-signals {
-                padding: 48px 0 0;
-                border-top: 1px solid rgba(0, 0, 0, 0.08);
-            }
-
-            .partner-trust-signals p {
-                font-size: 13px;
-                font-weight: 600;
-                color: #6b7280;
-                text-transform: uppercase;
-                letter-spacing: 1px;
                 margin-bottom: 32px;
             }
 
-            .partner-logos {
-                display: flex;
-                gap: 56px;
-                justify-content: center;
-                align-items: center;
-                flex-wrap: wrap;
-            }
-
-            .partner-logos span {
-                font-size: 26px;
+            .partner-btn {
+                padding: 16px 36px;
+                font-family: 'Codec Pro', sans-serif;
+                font-size: 17px;
                 font-weight: 600;
-                color: #000;
-                opacity: 0.5;
-                transition: opacity 0.3s ease;
+                border-radius: 32px;
+                cursor: pointer;
+                text-decoration: none;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                transition: all 0.3s ease;
+                border: 2px solid transparent;
             }
 
-            .partner-logos span:hover {
-                opacity: 0.8;
+            .partner-btn-primary {
+                background: #00e;
+                color: #fff;
+                border-color: #00e;
+            }
+
+            .partner-btn-primary:hover {
+                background: #0000cc;
+                border-color: #0000cc;
+                transform: translateY(-2px);
+                box-shadow: 0 8px 20px rgba(0, 0, 238, 0.3);
+            }
+
+            .partner-btn-secondary {
+                background: transparent;
+                color: #00e;
+                border-color: #00e;
+            }
+
+            .partner-btn-secondary:hover {
+                background: rgba(0, 0, 238, 0.05);
+                transform: translateY(-2px);
+            }
+
+            /* Partner Login Link */
+            .partner-login-link {
+                display: inline-flex;
+                align-items: center;
+                gap: 8px;
+                font-size: 16px;
+                color: #000;
+                text-decoration: none;
+                transition: all 0.2s ease;
+            }
+
+            .partner-login-link strong {
+                color: #00e;
+                font-weight: 600;
+            }
+
+            .partner-login-link:hover {
+                transform: translateX(4px);
+            }
+
+            .partner-login-link svg {
+                width: 16px;
+                height: 16px;
+                color: #00e;
+            }
+
+            /* Partner Logos */
+            .partner-logos {
+                padding: 60px 0;
+                background: #f8f9ff;
+                border-top: 1px solid #e9efef;
+            }
+
+            .partner-logos-title {
+                text-align: center;
+                font-size: 14px;
+                font-weight: 600;
+                color: #6b7280;
+                letter-spacing: 0.05em;
+                text-transform: uppercase;
+                margin-bottom: 32px;
+            }
+
+            .partner-logos-grid {
+                display: grid;
+                grid-template-columns: repeat(4, 1fr);
+                gap: 48px;
+                max-width: 1000px;
+                margin: 0 auto;
+            }
+
+            .partner-logo {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 20px;
+                font-weight: 600;
+                color: #9ca3af;
+                padding: 24px;
+                transition: all 0.3s ease;
+            }
+
+            .partner-logo:hover {
+                color: #000;
+                transform: scale(1.05);
             }
 
             /* Section Styles */
             .partner-section {
                 padding: 100px 0;
+                background: #fff;
             }
 
             .partner-section-header {
                 text-align: center;
-                margin-bottom: 24px;
+                margin-bottom: 64px;
             }
 
             .partner-section-header h2 {
+                margin: 0 0 16px;
                 font-family: 'Codec Pro', sans-serif;
-                font-size: 48px;
-                line-height: 115%;
+                font-size: 44px;
+                line-height: 1.2;
                 font-weight: 600;
                 color: #000;
-                margin-bottom: 24px;
                 letter-spacing: -0.02em;
             }
 
-            .partner-section-intro {
-                max-width: 850px;
-                margin: 0 auto 80px;
-                font-size: 20px;
-                line-height: 1.7;
+            .partner-section-header p {
+                margin: 0 auto;
+                font-size: 19px;
+                line-height: 1.6;
                 color: #4a5565;
-                text-align: center;
+                max-width: 700px;
             }
 
-            /* Value Pillars Grid */
-            .partner-pillars-grid {
+            /* Why Partner Grid - 3 columns */
+            .partner-why-grid {
                 display: grid;
                 grid-template-columns: repeat(3, 1fr);
-                gap: 32px;
-                margin-top: 64px;
+                gap: 40px;
             }
 
-            .partner-pillar {
-                padding: 40px;
+            .partner-why-card {
+                padding: 40px 32px;
                 background: #fff;
                 border: 1px solid #e9efef;
                 border-radius: 12px;
-                transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-                position: relative;
-                overflow: hidden;
+                transition: all 0.3s ease;
             }
 
-            .partner-pillar::before {
-                content: '';
-                position: absolute;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 4px;
-                background: linear-gradient(90deg, #00e 0%, #0066ff 100%);
-                transform: scaleX(0);
-                transform-origin: left;
-                transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            }
-
-            .partner-pillar:hover::before {
-                transform: scaleX(1);
-            }
-
-            .partner-pillar:hover {
+            .partner-why-card:hover {
                 border-color: #00e;
-                box-shadow: 0 12px 40px rgba(0, 0, 238, 0.12);
+                box-shadow: 0 8px 24px rgba(0, 0, 238, 0.08);
                 transform: translateY(-4px);
             }
 
-            .partner-pillar-icon {
-                width: 56px;
-                height: 56px;
-                background: linear-gradient(135deg, #e6f0ff 0%, #cde3ff 100%);
-                border-radius: 12px;
+            .partner-icon {
+                width: 72px;
+                height: 72px;
+                margin-bottom: 24px;
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                font-size: 28px;
-                margin-bottom: 24px;
-                transition: all 0.3s ease;
             }
 
-            .partner-pillar:hover .partner-pillar-icon {
-                background: linear-gradient(135deg, #00e 0%, #0066ff 100%);
-                transform: scale(1.05);
+            .partner-icon svg {
+                width: 100%;
+                height: 100%;
             }
 
-            .partner-pillar h3 {
+            .partner-why-card h3 {
+                margin: 0 0 12px;
                 font-family: 'Codec Pro', sans-serif;
                 font-size: 22px;
-                line-height: 140%;
+                line-height: 1.3;
                 font-weight: 600;
                 color: #000;
-                margin-bottom: 16px;
             }
 
-            .partner-pillar p {
+            .partner-why-card p {
+                margin: 0;
                 font-size: 16px;
-                line-height: 1.7;
+                line-height: 1.65;
                 color: #4a5565;
             }
 
-            /* Benefits List */
+            /* Benefits Grid - 2x2 */
             .partner-benefits-grid {
                 display: grid;
                 grid-template-columns: repeat(2, 1fr);
-                gap: 32px;
-                margin-top: 64px;
+                gap: 48px;
             }
 
-            .partner-benefit {
-                padding: 40px;
+            .partner-benefit-card {
+                padding: 48px 40px;
                 background: #fff;
                 border: 1px solid #e9efef;
                 border-radius: 12px;
                 transition: all 0.3s ease;
-                position: relative;
             }
 
-            .partner-benefit::after {
-                content: '→';
-                position: absolute;
-                right: 32px;
-                bottom: 32px;
-                font-size: 24px;
-                color: #00e;
-                opacity: 0;
-                transform: translateX(-10px);
-                transition: all 0.3s ease;
-            }
-
-            .partner-benefit:hover {
+            .partner-benefit-card:hover {
                 border-color: #00e;
-                box-shadow: 0 8px 24px rgba(0, 0, 238, 0.1);
-                transform: translateY(-2px);
+                box-shadow: 0 8px 24px rgba(0, 0, 238, 0.08);
+                transform: translateY(-4px);
             }
 
-            .partner-benefit:hover::after {
-                opacity: 1;
-                transform: translateX(0);
+            .partner-benefit-card .partner-icon {
+                width: 80px;
+                height: 80px;
+                margin-bottom: 28px;
             }
 
-            .partner-benefit-icon {
-                width: 48px;
-                height: 48px;
-                background: linear-gradient(135deg, #e6f0ff 0%, #cde3ff 100%);
-                border-radius: 10px;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                font-size: 24px;
-                margin-bottom: 20px;
-            }
-
-            .partner-benefit h3 {
+            .partner-benefit-card h3 {
+                margin: 0 0 16px;
                 font-family: 'Codec Pro', sans-serif;
-                font-size: 22px;
-                line-height: 140%;
+                font-size: 28px;
+                line-height: 1.25;
                 font-weight: 600;
                 color: #000;
-                margin-bottom: 16px;
             }
 
-            .partner-benefit p {
-                font-size: 16px;
-                line-height: 1.7;
+            .partner-benefit-card p {
+                margin: 0;
+                font-size: 17px;
+                line-height: 1.65;
                 color: #4a5565;
-                padding-right: 32px;
             }
 
             /* Testimonial */
             .partner-testimonial {
-                background: linear-gradient(135deg, #f8f9ff 0%, #ffffff 100%);
-                padding: 80px 72px;
+                padding: 60px;
+                background: #f8f9ff;
                 border-radius: 16px;
-                max-width: 1000px;
-                margin: 0 auto;
                 border: 1px solid #e9efef;
                 position: relative;
             }
 
-            .partner-testimonial::before {
+            .partner-testimonial-quote {
+                margin: 0 0 32px;
+                font-size: 24px;
+                line-height: 1.5;
+                color: #1f2937;
+                font-weight: 400;
+                position: relative;
+                padding-left: 40px;
+            }
+
+            .partner-testimonial-quote::before {
                 content: '"';
                 position: absolute;
-                top: 40px;
-                left: 48px;
-                font-size: 120px;
-                font-weight: 700;
-                color: #00e;
-                opacity: 0.1;
+                left: 0;
+                top: -10px;
+                font-size: 80px;
                 line-height: 1;
-                font-family: Georgia, serif;
+                color: #00e;
+                opacity: 0.2;
             }
 
-            .partner-testimonial-quote {
-                font-size: 22px;
-                line-height: 1.7;
-                color: #000;
-                margin-bottom: 40px;
-                position: relative;
-                z-index: 1;
-            }
-
-            .partner-testimonial-attribution {
+            .partner-testimonial-author {
                 display: flex;
                 align-items: center;
-                gap: 20px;
-                position: relative;
-                z-index: 1;
+                gap: 16px;
             }
 
             .partner-testimonial-avatar {
-                width: 64px;
-                height: 64px;
-                background: linear-gradient(135deg, #00e 0%, #0066ff 100%);
+                width: 56px;
+                height: 56px;
                 border-radius: 50%;
+                background: linear-gradient(135deg, #00e 0%, #0066ff 100%);
                 display: flex;
                 align-items: center;
                 justify-content: center;
                 color: #fff;
-                font-size: 24px;
                 font-weight: 600;
+                font-size: 20px;
             }
 
-            .partner-testimonial-author {
-                font-size: 19px;
+            .partner-testimonial-info h4 {
+                margin: 0 0 4px;
+                font-size: 18px;
                 font-weight: 600;
                 color: #000;
-                margin-bottom: 6px;
             }
 
-            .partner-testimonial-role {
-                font-size: 16px;
-                color: #4a5565;
+            .partner-testimonial-info p {
+                margin: 0;
+                font-size: 14px;
+                color: #6b7280;
             }
 
-            .partner-testimonial-company {
-                font-weight: 600;
-                color: #00e;
-            }
-
-            /* FAQs */
-            .partner-faqs {
+            /* FAQ Accordion */
+            .partner-faq-list {
                 max-width: 900px;
                 margin: 0 auto;
             }
 
             .partner-faq-item {
-                margin-bottom: 32px;
-                padding: 32px;
-                background: #fff;
-                border: 1px solid #e9efef;
-                border-radius: 12px;
-                transition: all 0.3s ease;
-            }
-
-            .partner-faq-item:hover {
-                border-color: #00e;
-                box-shadow: 0 4px 16px rgba(0, 0, 238, 0.08);
+                border-bottom: 1px solid #e9efef;
             }
 
             .partner-faq-question {
+                width: 100%;
+                padding: 28px 48px 28px 0;
+                background: none;
+                border: none;
+                text-align: left;
+                font-family: 'Codec Pro', sans-serif;
                 font-size: 20px;
-                font-weight: 600;
+                font-weight: 500;
                 color: #000;
-                margin-bottom: 12px;
+                cursor: pointer;
                 display: flex;
+                justify-content: space-between;
                 align-items: center;
-                gap: 12px;
-            }
-
-            .partner-faq-question::before {
-                content: '';
-                width: 6px;
-                height: 6px;
-                background: #00e;
-                border-radius: 50%;
-                flex-shrink: 0;
-            }
-
-            .partner-faq-answer {
-                font-size: 16px;
-                line-height: 1.7;
-                color: #4a5565;
-                padding-left: 18px;
-            }
-
-            /* Get Started Section */
-            .partner-get-started {
-                text-align: center;
-                padding: 100px 32px;
-                background: linear-gradient(135deg, #f8f9ff 0%, #ffffff 100%);
+                gap: 24px;
+                transition: color 0.2s ease;
                 position: relative;
             }
 
-            .partner-get-started::before {
-                content: '';
-                position: absolute;
-                top: 0;
-                left: 0;
-                right: 0;
-                height: 1px;
-                background: linear-gradient(90deg, transparent 0%, #e9efef 50%, transparent 100%);
+            .partner-faq-question:hover {
+                color: #00e;
             }
 
-            .partner-get-started h2 {
+            .partner-faq-icon {
+                width: 24px;
+                height: 24px;
+                flex-shrink: 0;
+                transition: transform 0.3s ease;
+                color: #9ca3af;
+                position: absolute;
+                right: 0;
+            }
+
+            .partner-faq-item.active .partner-faq-icon {
+                transform: rotate(180deg);
+                color: #00e;
+            }
+
+            .partner-faq-answer {
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.3s ease;
+            }
+
+            .partner-faq-answer-content {
+                padding: 0 0 28px 0;
+                font-size: 17px;
+                line-height: 1.7;
+                color: #4a5565;
+            }
+
+            /* Get Started Section */
+            .partner-cta-section {
+                padding: 100px 0;
+                background: linear-gradient(135deg, #f8f9ff 0%, #fff 100%);
+                text-align: center;
+            }
+
+            .partner-cta-section h2 {
+                margin: 0 0 16px;
                 font-family: 'Codec Pro', sans-serif;
-                font-size: 48px;
-                line-height: 115%;
+                font-size: 44px;
+                line-height: 1.2;
                 font-weight: 600;
                 color: #000;
-                margin-bottom: 24px;
                 letter-spacing: -0.02em;
             }
 
-            .partner-get-started p {
-                font-size: 20px;
-                line-height: 1.7;
+            .partner-cta-section p {
+                margin: 0 auto 40px;
+                font-size: 19px;
+                line-height: 1.6;
                 color: #4a5565;
-                max-width: 800px;
-                margin: 0 auto 48px;
-            }
-
-            .partner-section-bg-gray {
-                background: linear-gradient(180deg, #fafbff 0%, #f8f9ff 100%);
+                max-width: 700px;
             }
 
             /* Responsive */
-            @media (max-width: 900px) {
-                .partner-pillars-grid {
+            @media (max-width: 1024px) {
+                .partner-why-grid {
                     grid-template-columns: 1fr;
+                    gap: 32px;
                 }
-
+                
                 .partner-benefits-grid {
                     grid-template-columns: 1fr;
+                    gap: 32px;
                 }
-
-                .partner-hero h1 {
-                    font-size: 40px;
-                }
-
-                .partner-section-header h2 {
-                    font-size: 36px;
-                }
-
-                .partner-testimonial {
-                    padding: 48px 40px;
-                }
-
-                .partner-section {
-                    padding: 80px 0;
+                
+                .partner-logos-grid {
+                    grid-template-columns: repeat(2, 1fr);
+                    gap: 32px;
                 }
             }
 
-            @media (max-width: 600px) {
-                .partner-hero {
-                    padding: 80px 20px 60px;
-                }
-
+            @media (max-width: 768px) {
                 .partner-hero h1 {
-                    font-size: 32px;
+                    font-size: 36px;
                 }
-
-                .partner-hero .subheadline {
+                
+                .partner-hero .subtitle {
                     font-size: 18px;
                 }
-
-                .partner-cta-group {
-                    flex-direction: column;
-                    width: 100%;
-                }
-
-                .partner-cta-button {
-                    width: 100%;
-                }
-
-                .partner-logos {
-                    gap: 32px;
-                }
-
-                .partner-logos span {
-                    font-size: 20px;
-                }
-
-                .partner-section {
-                    padding: 60px 0;
-                }
-
-                .partner-container {
-                    padding: 0 20px;
-                }
-
-                .partner-testimonial {
-                    padding: 40px 24px;
-                }
-
+                
                 .partner-section-header h2 {
                     font-size: 32px;
                 }
-
-                .partner-get-started h2 {
-                    font-size: 32px;
+                
+                .partner-benefit-card h3 {
+                    font-size: 24px;
+                }
+                
+                .partner-testimonial {
+                    padding: 40px 32px;
+                }
+                
+                .partner-testimonial-quote {
+                    font-size: 20px;
                 }
             }
         </style>
     `;
 
+    // PointFive Brand Icons - Green line style icons matching brand guidelines
+    const icons = {
+        // Cloud with rocket/arrow - for growth and cloud success
+        cloudGrowth: `<svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M20 45c-6 0-10-4-10-10s4-10 10-10c0-8 6-14 14-14 4 0 8 2 11 5 2-1 4-1 6-1 8 0 14 6 14 14h2c6 0 10 4 10 10s-4 10-10 10" stroke="#00e873" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M35 38l8-10 8 10M43 28v22" stroke="#00e873" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>`,
+        
+        // Planets/spheres - for market expansion
+        marketExpansion: `<svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="30" cy="40" r="14" stroke="#00e873" stroke-width="2.5"/>
+            <path d="M19 30c8-6 20-6 28 0M19 50c8 6 20 6 28 0" stroke="#00e873" stroke-width="2.5" stroke-linecap="round"/>
+            <circle cx="54" cy="28" r="9" fill="#00e873"/>
+            <circle cx="62" cy="48" r="6" stroke="#00e873" stroke-width="2.5"/>
+        </svg>`,
+        
+        // Planet with orbit - for differentiation
+        differentiation: `<svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="40" cy="40" r="16" stroke="#00e873" stroke-width="2.5"/>
+            <ellipse cx="40" cy="40" rx="28" ry="12" stroke="#00e873" stroke-width="2.5"/>
+            <path d="M33 38l3 3 6-6" stroke="#00e873" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+            <circle cx="20" cy="28" r="2" fill="#00e873"/>
+            <circle cx="62" cy="35" r="2" fill="#00e873"/>
+        </svg>`,
+        
+        // Gauge/speedometer - for acceleration
+        acceleration: `<svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M16 48a24 24 0 0148 0" stroke="#00e873" stroke-width="2.5" stroke-linecap="round"/>
+            <path d="M24 42a16 16 0 0132 0" stroke="#00e873" stroke-width="2.5" stroke-linecap="round"/>
+            <circle cx="40" cy="48" r="4" fill="#00e873"/>
+            <path d="M36 48l-8-12" stroke="#00e873" stroke-width="2.5" stroke-linecap="round"/>
+            <circle cx="28" cy="36" r="2" fill="#00e873"/>
+        </svg>`,
+        
+        // Continuous loop with checkmark - for continuous efficiency
+        continuous: `<svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M28 24h24c8 0 14 6 14 14s-6 14-14 14H28c-8 0-14-6-14-14" stroke="#00e873" stroke-width="2.5" stroke-linecap="round"/>
+            <path d="M28 24l-6-6M28 24l-6 6" stroke="#00e873" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="40" cy="38" r="8" stroke="#00e873" stroke-width="2.5"/>
+            <path d="M36 38l2 2 4-4" stroke="#00e873" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>`,
+        
+        // AI chip - for AI/modern workloads
+        ai: `<svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="22" y="22" width="36" height="36" rx="4" stroke="#00e873" stroke-width="2.5"/>
+            <circle cx="32" cy="32" r="3" fill="#00e873"/>
+            <circle cx="48" cy="32" r="3" fill="#00e873"/>
+            <circle cx="32" cy="48" r="3" fill="#00e873"/>
+            <circle cx="48" cy="48" r="3" fill="#00e873"/>
+            <path d="M40 36v8M36 40h8" stroke="#00e873" stroke-width="2.5" stroke-linecap="round"/>
+            <path d="M22 30h-6M22 40h-6M22 50h-6M58 30h6M58 40h6M58 50h6" stroke="#00e873" stroke-width="2.5" stroke-linecap="round"/>
+        </svg>`,
+        
+        // Gear with efficiency symbol - for operational design
+        efficiency: `<svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M40 20v6M40 54v6M26 26l4 4M50 50l4 4M20 40h6M54 40h6M26 54l4-4M50 26l4-4" stroke="#00e873" stroke-width="2.5" stroke-linecap="round"/>
+            <circle cx="40" cy="40" r="12" stroke="#00e873" stroke-width="2.5"/>
+            <path d="M36 40l2 2 6-4" stroke="#00e873" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        </svg>`,
+        
+        // Target with arrow - for strategic wins
+        target: `<svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="40" cy="40" r="20" stroke="#00e873" stroke-width="2.5"/>
+            <circle cx="40" cy="40" r="12" stroke="#00e873" stroke-width="2.5"/>
+            <circle cx="40" cy="40" r="4" fill="#00e873"/>
+            <path d="M52 28l8-8M60 20l-4 4M60 20l-4-4" stroke="#00e873" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>`,
+        
+        // Integration/connection nodes - for value extension
+        integration: `<svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="24" cy="24" r="6" stroke="#00e873" stroke-width="2.5"/>
+            <circle cx="56" cy="24" r="6" stroke="#00e873" stroke-width="2.5"/>
+            <circle cx="40" cy="56" r="6" fill="#00e873"/>
+            <path d="M28 28l8 22M52 28l-8 22M24 30v18a8 8 0 008 8h16a8 8 0 008-8V30" stroke="#00e873" stroke-width="2.5" stroke-linecap="round"/>
+        </svg>`,
+        
+        // Arrow icon for links
+        arrow: `<svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M7 4l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>`,
+        
+        // Chevron for FAQ
+        chevron: `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>`
+    };
+
     // HTML Content
-    const htmlContent = `
-        <!-- Hero Section -->
-        <section class="partner-hero">
-            <div class="partner-container">
-                <h1>Partner with PointFive to Deliver Continuous Cloud & AI Efficiency</h1>
-                <p class="subheadline">PointFive helps partners move beyond cost reporting to continuous cloud and AI efficiency — turning insight into ongoing ROI-based operational action.</p>
-                
-                <div class="partner-cta-group">
-                    <a href="#apply" class="partner-cta-button partner-cta-primary">Apply to Partner with PointFive</a>
-                    <a href="#contact" class="partner-cta-button partner-cta-secondary">Talk to Partnerships</a>
-                    <a href="#login" class="partner-cta-button partner-cta-tertiary">Partner Login</a>
+    const content = `
+        ${styles}
+        <div class="partner-page-container">
+            <!-- Hero Section -->
+            <section class="partner-hero">
+                <div class="partner-container">
+                    <h1>Partner with PointFive to Deliver<br>Continuous Cloud & AI Efficiency</h1>
+                    <p class="subtitle">Help your clients move beyond cost reporting to continuous infrastructure efficiency — turning insight into ongoing ROI-driven operational improvements.</p>
+                    
+                    <div class="partner-cta-group">
+                        <a href="#apply" class="partner-btn partner-btn-primary">Apply now</a>
+                        <a href="#find" class="partner-btn partner-btn-secondary">Find a partner</a>
+                    </div>
+                    
+                    <a href="#login" class="partner-login-link">
+                        Already a partner? <strong>Log in</strong>
+                        ${icons.arrow}
+                    </a>
                 </div>
+            </section>
 
-                <div class="partner-trust-signals">
-                    <p>Trusted by leading consultancies and technology partners</p>
-                    <div class="partner-logos">
-                        <span>Deloitte</span>
-                        <span>Capgemini</span>
-                        <span>Accenture</span>
-                        <span>Presidio</span>
+            <!-- Partner Logos -->
+            <section class="partner-logos">
+                <div class="partner-container">
+                    <div class="partner-logos-title">Trusted by Leading Consultancies and Technology Partners</div>
+                    <div class="partner-logos-grid">
+                        <div class="partner-logo">Deloitte</div>
+                        <div class="partner-logo">Capgemini</div>
+                        <div class="partner-logo">Accenture</div>
+                        <div class="partner-logo">Presidio</div>
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
 
-        <!-- Why Partner Section -->
-        <section class="partner-section">
-            <div class="partner-container">
-                <div class="partner-section-header">
-                    <h2>Why Partner with PointFive</h2>
-                </div>
-                <div class="partner-section-intro">
-                    <p>Cloud and AI environments are constantly evolving. Architectures change. Workloads scale. Usage patterns shift. Efficiency can't be solved once — it must be continuously managed.</p>
-                    <p style="margin-top: 16px;">PointFive enables partners to deliver continuous efficiency services as an operational capability, not a one-time optimization exercise.</p>
-                </div>
-
-                <div class="partner-pillars-grid">
-                    <div class="partner-pillar">
-                        <div class="partner-pillar-icon">🔄</div>
-                        <h3>Built for Continuous Efficiency</h3>
-                        <p>PointFive continuously surfaces inefficiencies as cloud and AI usage changes — helping teams act in real time, not after budgets are exceeded.</p>
+            <!-- Why Partner -->
+            <section class="partner-section">
+                <div class="partner-container">
+                    <div class="partner-section-header">
+                        <h2>Why Partner with PointFive?</h2>
+                        <p>Deliver measurable value to your clients with the industry's most comprehensive cloud efficiency platform</p>
                     </div>
-                    <div class="partner-pillar">
-                        <div class="partner-pillar-icon">⚡</div>
-                        <h3>Purpose-Built for Modern Workloads</h3>
-                        <p>From Kubernetes and autoscaling to GPUs and AI services, PointFive focuses on where efficiency degrades fastest and where traditional tools fall short.</p>
-                    </div>
-                    <div class="partner-pillar">
-                        <div class="partner-pillar-icon">🎯</div>
-                        <h3>Operational by Design</h3>
-                        <p>Efficiency only sticks when it fits how engineering teams work. PointFive integrates naturally into day-to-day operational workflows — not just finance reviews.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- How Partners Win Section -->
-        <section class="partner-section partner-section-bg-gray">
-            <div class="partner-container">
-                <div class="partner-section-header">
-                    <h2>How Partners Win with Continuous Efficiency</h2>
-                </div>
-
-                <div class="partner-benefits-grid">
-                    <div class="partner-benefit">
-                        <div class="partner-benefit-icon">🎯</div>
-                        <h3>Win More Strategic Deals</h3>
-                        <p>Shift conversations from cost cutting to long-term operational efficiency and AI readiness.</p>
-                    </div>
-                    <div class="partner-benefit">
-                        <div class="partner-benefit-icon">🔗</div>
-                        <h3>Stay Embedded Post-Implementation</h3>
-                        <p>Continuous efficiency creates lasting engagement — not one-off optimization projects.</p>
-                    </div>
-                    <div class="partner-benefit">
-                        <div class="partner-benefit-icon">✨</div>
-                        <h3>Differentiate Beyond Reporting</h3>
-                        <p>Move from dashboards and insights to real, measurable operational impact.</p>
-                    </div>
-                    <div class="partner-benefit">
-                        <div class="partner-benefit-icon">📈</div>
-                        <h3>Support Long-Term Growth</h3>
-                        <p>Help customers scale cloud and AI usage without efficiency degrading over time.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Partner Proof Section -->
-        <section class="partner-section">
-            <div class="partner-container">
-                <div class="partner-testimonial">
-                    <p class="partner-testimonial-quote">"It's easy to bring PointFive into client conversations — clear ROI, quick time to value, and a natural fit with our advisory and managed services. Beyond that, it helps us deliver greater value by turning usage data into clear, actionable cost insights and inefficiencies. It opens the door to deeper conversations, smarter recommendations, and new service opportunities. It's a platform that supports our business — not just our clients."</p>
-                    <div class="partner-testimonial-attribution">
-                        <div class="partner-testimonial-avatar">AZ</div>
-                        <div>
-                            <div class="partner-testimonial-author">Adam Zeitlin</div>
-                            <div class="partner-testimonial-role">FinOps Practice Lead, <span class="partner-testimonial-company">Deloitte</span></div>
+                    
+                    <div class="partner-why-grid">
+                        <div class="partner-why-card">
+                            <div class="partner-icon">${icons.continuous}</div>
+                            <h3>Continuous Efficiency, Not One-Time Reports</h3>
+                            <p>Move beyond static assessments to deliver ongoing optimization that compounds value over time.</p>
+                        </div>
+                        
+                        <div class="partner-why-card">
+                            <div class="partner-icon">${icons.ai}</div>
+                            <h3>Built for Modern Workloads</h3>
+                            <p>Native support for Kubernetes, AI infrastructure, and data platforms—not just basic compute and storage.</p>
+                        </div>
+                        
+                        <div class="partner-why-card">
+                            <div class="partner-icon">${icons.efficiency}</div>
+                            <h3>Operational Design, Not Just Cost Accounting</h3>
+                            <p>Engineering-first platform that drives actual infrastructure improvements, not just visibility.</p>
                         </div>
                     </div>
                 </div>
+            </section>
+
+            <!-- How Partners Win -->
+            <section class="partner-section" style="background: #f8f9ff; padding-top: 100px; padding-bottom: 100px;">
+                <div class="partner-container">
+                    <div class="partner-section-header">
+                        <h2>How Partners Win with PointFive</h2>
+                    </div>
+                    
+                    <div class="partner-benefits-grid">
+                        <div class="partner-benefit-card">
+                            <div class="partner-icon">${icons.cloudGrowth}</div>
+                            <h3>Grow as you deliver cloud success</h3>
+                            <p>Help customers see, understand, and secure everything in the cloud with sales training and education to drive demand and close deals faster.</p>
+                        </div>
+                        
+                        <div class="partner-benefit-card">
+                            <div class="partner-icon">${icons.marketExpansion}</div>
+                            <h3>Expand your market presence</h3>
+                            <p>Amplify your brand and showcase your success with our cloud efficiency platform, leveraging co-marketing tools, funding opportunities, and campaign kits.</p>
+                        </div>
+                        
+                        <div class="partner-benefit-card">
+                            <div class="partner-icon">${icons.differentiation}</div>
+                            <h3>Differentiate your business</h3>
+                            <p>Stand out in the market with our industry leading platform that meets customers where they are on their cloud journeys. Our flexible partnership models make it easy to align with their needs, and yours.</p>
+                        </div>
+                        
+                        <div class="partner-benefit-card">
+                            <div class="partner-icon">${icons.acceleration}</div>
+                            <h3>Accelerate your success with benefits</h3>
+                            <p>Earn financial rewards based on performance and impact to grow your business, reach new customers, and keep delivering results that matter.</p>
                         </div>
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
 
-        <!-- FAQs Section -->
-        <section class="partner-section partner-section-bg-gray">
-            <div class="partner-container">
-                <div class="partner-section-header">
-                    <h2>Frequently Asked Questions</h2>
-                </div>
-
-                <div class="partner-faqs">
-                    <div class="partner-faq-item">
-                        <div class="partner-faq-question">Who is this partner program designed for?</div>
-                        <div class="partner-faq-answer">PointFive partners with consultancies, systems integrators, MSPs, and technology partners helping customers operate cloud and AI environments efficiently over time.</div>
+            <!-- Partner Proof -->
+            <section class="partner-section">
+                <div class="partner-container">
+                    <div class="partner-section-header">
+                        <h2>Proven Partner Success</h2>
                     </div>
-
-                    <div class="partner-faq-item">
-                        <div class="partner-faq-question">Is this a resale or services partnership?</div>
-                        <div class="partner-faq-answer">Partnership models vary by partner type and engagement. We work with partners across advisory, managed services, resale, and co-sell motions.</div>
-                    </div>
-
-                    <div class="partner-faq-item">
-                        <div class="partner-faq-question">What happens after I apply?</div>
-                        <div class="partner-faq-answer">Our partnerships team reviews each application and follows up to explore fit, collaboration models, and next steps.</div>
-                    </div>
-
-                    <div class="partner-faq-item">
-                        <div class="partner-faq-question">Do you provide enablement and training?</div>
-                        <div class="partner-faq-answer">Yes. Enablement and alignment evolve as cloud and AI usage patterns change.</div>
-                    </div>
-
-                    <div class="partner-faq-item">
-                        <div class="partner-faq-question">Is this a transactional referral program?</div>
-                        <div class="partner-faq-answer">It can be, but that is not why you should prioritize partnership with PointFive. The PointFive partner program is designed around continuous value creation and customer services and projects — not one-time referrals.</div>
+                    
+                    <div class="partner-testimonial">
+                        <div class="partner-testimonial-quote">
+                            PointFive has become a core part of how we deliver cloud efficiency to our enterprise clients. The platform's depth in Kubernetes and AI infrastructure gives us capabilities that set us apart from other consulting firms.
+                        </div>
+                        <div class="partner-testimonial-author">
+                            <div class="partner-testimonial-avatar">AZ</div>
+                            <div class="partner-testimonial-info">
+                                <h4>Adam Zeitlin</h4>
+                                <p>FinOps Practice Lead, Deloitte</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
 
-        <!-- Get Started Section -->
-        <section class="partner-get-started">
-            <div class="partner-container">
-                <h2>Start Partnering with PointFive</h2>
-                <p>Whether you're advising customers, delivering managed services, or supporting cloud and AI initiatives, partnering with PointFive helps you drive continuous value — not just short-term savings.</p>
-                
-                <div class="partner-cta-group">
-                    <a href="#apply" class="partner-cta-button partner-cta-primary">Apply to Partner with PointFive</a>
-                    <a href="#contact" class="partner-cta-button partner-cta-secondary">Talk to Partnerships</a>
+            <!-- FAQ Section -->
+            <section class="partner-section" style="background: #fff;">
+                <div class="partner-container">
+                    <div class="partner-section-header">
+                        <h2>Frequently Asked Questions</h2>
+                    </div>
+                    
+                    <div class="partner-faq-list">
+                        <div class="partner-faq-item">
+                            <button class="partner-faq-question">
+                                What types of partnerships does PointFive offer?
+                                <span class="partner-faq-icon">${icons.chevron}</span>
+                            </button>
+                            <div class="partner-faq-answer">
+                                <div class="partner-faq-answer-content">
+                                    PointFive offers several partnership models including Reseller Partners, Services Partners, Technology Partners, and Strategic Alliances. Each model is designed to align with your business model and go-to-market strategy.
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="partner-faq-item">
+                            <button class="partner-faq-question">
+                                What support and resources are available to partners?
+                                <span class="partner-faq-icon">${icons.chevron}</span>
+                            </button>
+                            <div class="partner-faq-answer">
+                                <div class="partner-faq-answer-content">
+                                    Partners receive comprehensive support including technical training, sales enablement, co-marketing resources, dedicated partner success managers, and access to our partner portal with documentation, playbooks, and deal registration tools.
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="partner-faq-item">
+                            <button class="partner-faq-question">
+                                How does PointFive differentiate from other cloud efficiency solutions?
+                                <span class="partner-faq-icon">${icons.chevron}</span>
+                            </button>
+                            <div class="partner-faq-answer">
+                                <div class="partner-faq-answer-content">
+                                    PointFive is purpose-built for Cloud Efficiency Posture Management (CEPM) with agentless architecture, 300+ optimization types, native Kubernetes support, and engineering-first automation. We detect DeepWaste that traditional FinOps tools miss.
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="partner-faq-item">
+                            <button class="partner-faq-question">
+                                What is the typical partner onboarding timeline?
+                                <span class="partner-faq-icon">${icons.chevron}</span>
+                            </button>
+                            <div class="partner-faq-answer">
+                                <div class="partner-faq-answer-content">
+                                    Partner onboarding typically takes 2-4 weeks from application approval. This includes contract execution, technical training, portal access setup, and co-marketing planning. We provide accelerated onboarding for strategic partnerships.
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="partner-faq-item">
+                            <button class="partner-faq-question">
+                                How are partner margins and incentives structured?
+                                <span class="partner-faq-icon">${icons.chevron}</span>
+                            </button>
+                            <div class="partner-faq-answer">
+                                <div class="partner-faq-answer-content">
+                                    Partner margins and incentives vary by partnership type and are based on deal size, services attached, and strategic value. We offer competitive margins, tiered incentive programs, and performance-based bonuses. Contact our partnerships team for specific program details.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </section>
+            </section>
+
+            <!-- Get Started CTA -->
+            <section class="partner-cta-section">
+                <div class="partner-container">
+                    <h2>Ready to Partner with PointFive?</h2>
+                    <p>Join leading consultancies and technology partners delivering continuous cloud and AI efficiency to enterprise clients</p>
+                    
+                    <div class="partner-cta-group">
+                        <a href="#apply" class="partner-btn partner-btn-primary">Apply to Partner with PointFive</a>
+                        <a href="#contact" class="partner-btn partner-btn-secondary">Talk to Partnerships</a>
+                    </div>
+                </div>
+            </section>
+        </div>
     `;
 
-    // Function to inject the content
-    function injectPartnerPage() {
-        // Find the target container (adjust selector as needed for your Webflow setup)
-        const targetContainer = document.querySelector('#partner-page-container') || 
-                               document.querySelector('.partner-page-wrapper') ||
-                               document.querySelector('main') ||
-                               document.body;
-
-        if (targetContainer) {
-            // Create wrapper div
-            const wrapper = document.createElement('div');
-            wrapper.className = 'partner-page-container';
-            wrapper.innerHTML = styles + htmlContent;
-
-            // Clear existing content if needed (be careful with this)
-            // targetContainer.innerHTML = '';
+    // FAQ Accordion Functionality
+    function initFAQ() {
+        const faqItems = document.querySelectorAll('.partner-faq-item');
+        
+        faqItems.forEach(item => {
+            const question = item.querySelector('.partner-faq-question');
+            const answer = item.querySelector('.partner-faq-answer');
             
-            // Append the content
-            targetContainer.appendChild(wrapper);
-            
-            console.log('Partner page loaded successfully');
-        } else {
-            console.error('Partner page container not found');
+            question.addEventListener('click', () => {
+                const isActive = item.classList.contains('active');
+                
+                // Close all items
+                faqItems.forEach(otherItem => {
+                    otherItem.classList.remove('active');
+                    otherItem.querySelector('.partner-faq-answer').style.maxHeight = '0';
+                });
+                
+                // Open clicked item if it wasn't active
+                if (!isActive) {
+                    item.classList.add('active');
+                    answer.style.maxHeight = answer.scrollHeight + 'px';
+                }
+            });
+        });
+    }
+
+    // Initialize
+    function init() {
+        const targetDiv = document.getElementById('partner-page-inject');
+        if (targetDiv) {
+            targetDiv.innerHTML = content;
+            // Wait for DOM to be ready
+            setTimeout(initFAQ, 100);
         }
     }
 
-    // Wait for DOM to be ready
+    // Run when DOM is ready
     if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', injectPartnerPage);
+        document.addEventListener('DOMContentLoaded', init);
     } else {
-        injectPartnerPage();
+        init();
     }
 })();
