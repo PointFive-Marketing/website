@@ -596,13 +596,13 @@
                     <div class="partner-logos-title">Trusted by Leading Consultancies and Technology Partners</div>
                     <div class="partner-logos-grid">
                         <div class="partner-logo">
-                            <img src="https://cdn.prod.website-files.com/664c5d9fee3e617bc2829b44/67f54123defe4f77ca688cb8_Deloitte.avif" alt="Deloitte" style="max-width: 100%; height: auto;">
+                            <img src="https://cdn.prod.website-files.com/664c5d9fee3e617bc2829b44/67f54123defe4f77ca688cb8_Deloitte.avif" alt="Deloitte" style="max-width: 80%; height: auto;">
                         </div>
                         <div class="partner-logo">
                             <img src="https://cdn.prod.website-files.com/664c5d9fee3e617bc2829b44/699864411ee461dc0f2c7bf3_Capgemini-Logo.wine.svg" alt="Capgemini" style="max-width: 100%; height: auto;">
                         </div>
                         <div class="partner-logo">
-                            <img src="https://cdn.prod.website-files.com/664c5d9fee3e617bc2829b44/6998644121c6c39905b3fae2_Accenture_logo.svg" alt="Accenture" style="max-width: 100%; height: auto;">
+                            <img src="https://cdn.prod.website-files.com/664c5d9fee3e617bc2829b44/6998644121c6c39905b3fae2_Accenture_logo.svg" alt="Accenture" style="max-width: 70%; height: auto;">
                         </div>
                         <div class="partner-logo">
                             <img src="https://cdn.prod.website-files.com/664c5d9fee3e617bc2829b44/699864417283bfd8ea0eb7d4_a773d4f6e6b179c71df20da61eb62afc_Presidio_logo%20%281%29.png" alt="Presidio" style="max-width: 100%; height: auto;">
