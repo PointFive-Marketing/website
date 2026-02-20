@@ -205,15 +205,16 @@
 
             .partner-why-card {
                 padding: 40px 32px;
-                background: #fff;
-                border: 1px solid #e9efef;
+                background: #0000ee;
+                border: 1px solid #0000ee;
                 border-radius: 12px;
                 transition: all 0.3s ease;
             }
 
             .partner-why-card:hover {
-                border-color: #00e;
-                box-shadow: 0 8px 24px rgba(0, 0, 238, 0.08);
+                background: #0000cc;
+                border-color: #0000cc;
+                box-shadow: 0 8px 24px rgba(0, 0, 238, 0.3);
                 transform: translateY(-4px);
             }
 
@@ -237,14 +238,15 @@
                 font-size: 22px;
                 line-height: 1.3;
                 font-weight: 600;
-                color: #000;
+                color: #fff;
             }
 
             .partner-why-card p {
                 margin: 0;
                 font-size: 16px;
                 line-height: 1.65;
-                color: #4a5565;
+                color: #fff;
+                opacity: 0.9;
             }
 
             /* Benefits Grid - 2x2 */
@@ -582,14 +584,9 @@
                     <p class="subtitle">Help your clients move beyond cost reporting to continuous infrastructure efficiency — turning insight into ongoing ROI-driven operational improvements.</p>
                     
                     <div class="partner-cta-group">
-                        <a href="#apply" class="partner-btn partner-btn-primary">Apply now</a>
-                        <a href="#find" class="partner-btn partner-btn-secondary">Find a partner</a>
+                        <a href="https://www.pointfive.co/partner-program#partner-form" class="partner-btn partner-btn-primary">Become a Partner</a>
+                        <a href="https://www.pointfive.co/contact" class="partner-btn partner-btn-secondary">Talk to the Team</a>
                     </div>
-                    
-                    <a href="#login" class="partner-login-link">
-                        Already a partner? <strong>Log in</strong>
-                        ${icons.arrow}
-                    </a>
                 </div>
             </section>
 
@@ -598,7 +595,9 @@
                 <div class="partner-container">
                     <div class="partner-logos-title">Trusted by Leading Consultancies and Technology Partners</div>
                     <div class="partner-logos-grid">
-                        <div class="partner-logo">Deloitte</div>
+                        <div class="partner-logo">
+                            <img src="https://cdn.prod.website-files.com/664c5d9fee3e617bc2829b44/67f54123defe4f77ca688cb8_Deloitte.avif" alt="Deloitte" style="max-width: 100%; height: auto;">
+                        </div>
                         <div class="partner-logo">Capgemini</div>
                         <div class="partner-logo">Accenture</div>
                         <div class="partner-logo">Presidio</div>
@@ -771,8 +770,8 @@
                     <p>Join leading consultancies and technology partners delivering continuous cloud and AI efficiency to enterprise clients</p>
                     
                     <div class="partner-cta-group">
-                        <a href="#apply" class="partner-btn partner-btn-primary">Apply to Partner with PointFive</a>
-                        <a href="#contact" class="partner-btn partner-btn-secondary">Talk to Partnerships</a>
+                        <a href="https://www.pointfive.co/partner-program#partner-form" class="partner-btn partner-btn-primary">Become a Partner</a>
+                        <a href="https://www.pointfive.co/contact" class="partner-btn partner-btn-secondary">Talk to the Team</a>
                     </div>
                 </div>
             </section>
@@ -807,11 +806,21 @@
 
     // Initialize
     function init() {
-        const targetDiv = document.getElementById('partner-page-inject');
+        // Try multiple selectors for flexibility
+        const targetDiv = document.getElementById('partner-page-inject') ||
+                         document.querySelector('.partner-page-wrapper') ||
+                         document.querySelector('[data-partner-page]') ||
+                         document.querySelector('main') ||
+                         document.querySelector('.main-wrapper') ||
+                         document.body;
+        
         if (targetDiv) {
+            console.log('✅ Partner page loaded into:', targetDiv.tagName);
             targetDiv.innerHTML = content;
             // Wait for DOM to be ready
             setTimeout(initFAQ, 100);
+        } else {
+            console.error('❌ No suitable container found for partner page');
         }
     }
 
